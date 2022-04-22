@@ -1,0 +1,4643 @@
+{
+	"info": {
+		"_postman_id": "6d4a6378-3524-4e15-859e-40f7f75635ff",
+		"name": "victoria-connect-api",
+		"description": "Right levels and their equivelent HTTP methods.\n\nRight level | HTTP method\n------------|------------\n`full`      | * (any)\n`delete`    | `DELETE`\n`create`    | `POST`\n`write`     | `PATCH`\n`read`      | `GET`\n\n`full` implies `write`, `create` and `delete`.\n`write` implies `read`.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "generic",
+			"item": [
+				{
+					"name": "health/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objHealth = _.get(objResponse_Body, 'health[0]');",
+									"",
+									"if (objHealth)",
+									" {",
+									"  // pm.environment.set('health_state', _.get(objHealth, 'state'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}health/",
+							"host": [
+								"{{base}}health"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get API's health status.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": [
+						{
+							"name": "health/ (list) - healthy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base}}health/",
+									"host": [
+										"{{base}}health"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"141-Hv5IATE1lT7KeIF8QoEE9bgK7/I\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Nov 2020 13:10:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"health\": [\n        {\n            \"code\": \"http\",\n            \"name\": \"HTTP\",\n            \"description\": \"HTTP server\",\n            \"state\": \"online\",\n            \"health\": true\n        },\n        {\n            \"code\": \"mongodb\",\n            \"name\": \"MongoDB\",\n            \"description\": \"MongoDB database\",\n            \"state\": \"online\",\n            \"health\": true\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.1.2\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2020-11-23T13:10:18.343Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "exception/404/",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}exception/404/",
+							"host": [
+								"{{base}}exception"
+							],
+							"path": [
+								"404",
+								""
+							]
+						},
+						"description": "Generate a 404 not found response.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": [
+						{
+							"name": "exception/404/",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}exception/404/",
+									"host": [
+										"{{base}}exception"
+									],
+									"path": [
+										"404",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Apr 2018 23:11:28 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b2-C4vb4UxjQG9vQT0EjFGjLp720z8\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "api.victoria-id.com",
+									"path": "/",
+									"secure": false,
+									"value": "s%3Ate8Wpcvirbp2CG-d7Zb4739s2w_xJJVu.m%2BJ0Kc7vrRdSg84YvixbDGRszeCh%2F1%2FhE4s5lhkRHw8",
+									"key": "session.id"
+								}
+							],
+							"body": "{\"exception\":[{\"code\":\"found\",\"description\":\"Not found.\"}],\"api\":{\"version\":\"0.0.0\",\"environment\":{\"code\":\"local\"}},\"server\":{\"name\":\"ip-172-31-45-252.eu-central-1.compute.internal\",\"time\":\"2018-04-13T23:11:28.254Z\"}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "oauth2/",
+			"item": [
+				{
+					"name": "oauth2/token/ (password)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"if (_.has(objResponse_Body, 'access_token'))",
+									" {",
+									"  pm.environment.set('access_token', _.get(objResponse_Body, 'access_token'));",
+									" }",
+									"",
+									"if (_.has(objResponse_Body, 'refresh_token'))",
+									" {",
+									"  pm.environment.set('refresh_token', _.get(objResponse_Body, 'refresh_token'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "{{user_address_mail}}",
+									"description": "User's email address.",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{user_password}}",
+									"description": "User's password.",
+									"type": "text"
+								},
+								{
+									"key": "domain",
+									"value": "{{portal_domain}}",
+									"description": "FQDN of the portal.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}oauth2/token/",
+							"host": [
+								"{{base}}oauth2"
+							],
+							"path": [
+								"token",
+								""
+							]
+						},
+						"description": "Exchange username/mail address + password for an access token + refresh token.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": [
+						{
+							"name": "Success: Access token + refresh token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"name": "Authorization",
+										"value": "Basic Y2xpZW50OnNlY3JldA==",
+										"description": "Basic authorization client:secret. Any input accepted really."
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "john.doe@victoria-id.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "bettie_serveert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{protocol}}://{{address}}:{{port}}/oauth2/token/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{address}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"oauth2",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "159",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2017 11:53:21 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-hqq4PeXtkelfzzHlVOfFKT8KO8g\"",
+									"name": "ETag",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"token_type\":\"bearer\",\"access_token\":\"251877b8ed6dbabb9870e9432a95c3e34ef4c079\",\"expires_in\":86400,\"refresh_token\":\"5cf91e42b02117400ed87b45fefb9eb09d6308ce\"}"
+						}
+					]
+				},
+				{
+					"name": "oauth2/token/ (refresh token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"const strOAuth2_Access_Token_Before = pm.environment.get('access_token');",
+									"const strOAuth2_Refresh_Token_Before = pm.environment.get('refresh_token');",
+									"",
+									"if (_.has(objResponse_Body, 'access_token'))",
+									" {",
+									"  pm.environment.set('access_token', _.get(objResponse_Body, 'access_token'));",
+									" }",
+									"",
+									"if (_.has(objResponse_Body, 'refresh_token'))",
+									" {",
+									"  pm.environment.set('refresh_token', _.get(objResponse_Body, 'refresh_token'));",
+									" }",
+									"",
+									"const strOAuth2_Access_Token_After = pm.environment.get('access_token');",
+									"const strOAuth2_Refresh_Token_After = pm.environment.get('refresh_token');",
+									"",
+									"pm.test('Access token changed', function () { pm.expect(strOAuth2_Access_Token_After).to.not.equal(strOAuth2_Access_Token_Before) });",
+									"",
+									"pm.test('Refresh token changed', function () { pm.expect(strOAuth2_Refresh_Token_After).to.not.equal(strOAuth2_Refresh_Token_Before) });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}oauth2/token/",
+							"host": [
+								"{{base}}oauth2"
+							],
+							"path": [
+								"token",
+								""
+							]
+						},
+						"description": "Exchange refresh token for a new access token + refresh token.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": [
+						{
+							"name": "Success: Access token + refresh token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y2xpZW50OnNlY3JldA==",
+										"description": "Basic authorization client:secret. Any input accepted really."
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base}}oauth2/token/",
+									"host": [
+										"{{base}}oauth2"
+									],
+									"path": [
+										"token",
+										""
+									]
+								},
+								"description": "Exchange refresh token for a new access token + refresh token."
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "159",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2017 11:58:06 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-51Ko86s+G4yJu+YBiuXgkO2yxZA\"",
+									"name": "ETag",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"token_type\":\"bearer\",\"access_token\":\"106cc2be30e4b14ea0e49eb96b847e09beccc289\",\"expires_in\":86400,\"refresh_token\":\"902cc2021296e59e5eeabcca7150828889c8823f\"}"
+						}
+					]
+				},
+				{
+					"name": "oauth2/token/:access_token/ (delete)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base}}oauth2/token/{{access_token}}/",
+							"host": [
+								"{{base}}oauth2"
+							],
+							"path": [
+								"token",
+								"{{access_token}}",
+								""
+							]
+						},
+						"description": "Destroy the access token (and refresh token). In UI terms, this is analogus to logging out.\n\nMinimum permission required (implied or explicit): authenticated user."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "user/",
+			"item": [
+				{
+					"name": "portal/:portal_id/user/:user_address_mail/confirm/mail/ (confirmation mail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}portal/{{portal_id}}/user/{{user_address_mail}}/confirm/mail/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"{{portal_id}}",
+								"user",
+								"{{user_address_mail}}",
+								"confirm",
+								"mail",
+								""
+							]
+						},
+						"description": "Send a mail address confirmation mail to the mail address specified with `{{user_address_mail}}`.\n\nMinimum permission required (implied or explicit): Anonymous user."
+					},
+					"response": []
+				},
+				{
+					"name": "user/:user_id/confirm/:user_address_mail_token/ (confirm)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}user/{{user_id}}/confirm/{{user_address_mail_token}}/",
+							"host": [
+								"{{base}}user"
+							],
+							"path": [
+								"{{user_id}}",
+								"confirm",
+								"{{user_address_mail_token}}",
+								""
+							]
+						},
+						"description": "Confirm a `user`'s mail address.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": []
+				},
+				{
+					"name": "user/own/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}user/own/",
+							"host": [
+								"{{base}}user"
+							],
+							"path": [
+								"own",
+								""
+							]
+						},
+						"description": "Get detailed information about your own `user` entity.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `user` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "user/:user_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}user/{{user_id}}/",
+							"host": [
+								"{{base}}user"
+							],
+							"path": [
+								"{{user_id}}",
+								""
+							]
+						},
+						"description": "Get information about a `user`.\n\nReturns detailed information when requesting information on your own `user` account. Returns minimal information (like name) otherwise.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `user` (detail)"
+					},
+					"response": [
+						{
+							"name": "user/{{user_id}}/ (detail)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"description": "Access token."
+									}
+								],
+								"url": {
+									"raw": "{{base}}user/{{user_id}}/",
+									"host": [
+										"{{base}}user"
+									],
+									"path": [
+										"{{user_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "491",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Apr 2018 23:11:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1eb-NRy9oS//E5Xy5oZgVFOIy0CUsLE\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "api.victoria-id.com",
+									"path": "/",
+									"secure": false,
+									"value": "s%3Ate8Wpcvirbp2CG-d7Zb4739s2w_xJJVu.m%2BJ0Kc7vrRdSg84YvixbDGRszeCh%2F1%2FhE4s5lhkRHw8",
+									"key": "session.id"
+								}
+							],
+							"body": "{\n    \"user\": [\n        {\n            \"id\": \"5ad1387888531673c2c1268d\",\n            \"name\": {\n                \"personal\": \"John\",\n                \"family\": \"Doe\",\n                \"display\": \"Jan\"\n            },\n            \"locale\": \"en-us\",\n            \"gender\": \"male\",\n            \"address\": {\n                \"mail\": [\n                    {\n                        \"uri\": \"john.doe@victoria-id.com\",\n                        \"primary\": true,\n                        \"confirmed\": true\n                    }\n                ],\n                \"net\": [\n                    {\n                        \"type\": \"http\",\n                        \"uri\": \"https://victoria-id.com/\"\n                    }\n                ]\n            },\n            \"time\": {\n                \"confirmed\": null,\n                \"create\": \"2018-04-13T23:08:40.330Z\",\n                \"update\": \"2018-04-13T23:08:40.347Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2018-04-13T23:11:03.910Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "user/:user_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"user\":\n  [\n    {\n     \"name\":\n      {\n       \"personal\": \"{{user_name_personal}}\",\n       \"family\": \"{{user_name_family}}\",\n       \"display\": \"{{user_name_personal}}\"\n      },\n\n     \"password\": \"{{user_password}}\",\n\n     \"locale\": \"en-us\",\n     \"gender\": \"male\",\n\n     \"address\":\n      {\n       \"mail\":\n        [\n          {\n           \"uri\": \"{{user_address_mail}}\",\n           \"primary\": true\n          }\n        ],\n\n       \"net\":\n        [\n          {\n           \"type\": \"http\",\n           \"uri\": \"https://victoria-id.com/\"\n          }\n        ]\n      }\n   \n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}user/{{user_id}}/",
+							"host": [
+								"{{base}}user"
+							],
+							"path": [
+								"{{user_id}}",
+								""
+							]
+						},
+						"description": "Update `user` account data.\n\nMinimum permission required (implied or explicit): authenticated user, self.\n\nReturns:\n\n* `user` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "portal/:portal_id/user/:user_address_mail/password/mail/ (password mail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}portal/{{portal_id}}/user/{{user_address_mail}}/password/mail/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"{{portal_id}}",
+								"user",
+								"{{user_address_mail}}",
+								"password",
+								"mail",
+								""
+							]
+						},
+						"description": "Send an mail with password reset link to all email addresses associated with the `user` matching `{{user_address_mail}}`.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": []
+				},
+				{
+					"name": "user/:user_id/password/change/ (password change/reset)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"user\":\n  [\n    {\n     \"password\":\n      {\n       \"current\": \"{{user_password}}\",\n       \"new\": \"{{user_password}}\"\n      },\n\n     \"reset\":\n      {\n       \"token\": \"{{user_reset_token}}\"\n      }\n   \n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}user/{{user_id}}/password/change/",
+							"host": [
+								"{{base}}user"
+							],
+							"path": [
+								"{{user_id}}",
+								"password",
+								"change",
+								""
+							]
+						},
+						"description": "Change / reset the `user`'s password using either the current password or a password reset token.\n\nMinimum permission required (implied or explicit): anonymous user."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "portal/",
+			"item": [
+				{
+					"name": "portal/:portal_domain/ (stub)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objPortal = _.get(objResponse_Body, 'portal[0]');",
+									"",
+									"if (objPortal)",
+									" {",
+									"  pm.environment.set('portal_id', _.get(objPortal, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}portal/{{portal_domain}}/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"{{portal_domain}}",
+								""
+							]
+						},
+						"description": "Retrieve stub information on a `portal` by `domain`. The stub should contain enough information to create a branded login screen.\n\nMinimum permission required (implied or explicit): anonymous user.\n\nReturns:\n\n* `portal` (stub)"
+					},
+					"response": []
+				},
+				{
+					"name": "portal/own/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objPortal = _.get(objResponse_Body, 'portal[0]');",
+									"",
+									"if (objPortal)",
+									" {",
+									"  pm.environment.set('portal_id', _.get(objPortal, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}portal/own/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"own",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on the `portal` associated with the current `user`.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `portal` (detail)"
+					},
+					"response": [
+						{
+							"name": "portal/own/ (detail) - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}portal/own/",
+									"host": [
+										"{{base}}portal"
+									],
+									"path": [
+										"own",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "451"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c3-ebtEU26GnnM9UvCiT2p70KKzDqg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Sep 2021 13:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613a21cee821739f88206553\",\n            \"title\": \"Portal title\",\n            \"domain\": [\n                \"portal.victoria-id.com\",\n                \"localhost\"\n            ],\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-09T15:01:34.860Z\",\n                \"update\": \"2021-09-09T15:01:35.566Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-10T13:20:36.294Z\"\n    }\n}"
+						},
+						{
+							"name": "portal/:portal_id/ (detail) - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}portal/{{portal_id}}/",
+									"host": [
+										"{{base}}portal"
+									],
+									"path": [
+										"{{portal_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "435"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b3-nFehhJISJcCEMcLdDAqUCTb0RUc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 13:05:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613611819ea3383db82e7f5b\",\n            \"title\": \"Portal title\",\n            \"fqdn\": \"portal.victoria-id.com\",\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-06T13:02:57.639Z\",\n                \"update\": \"2021-09-06T13:02:57.643Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-06T13:05:53.631Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "portal/:portal_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objPortal = _.get(objResponse_Body, 'portal[0]');",
+									"",
+									"if (objPortal)",
+									" {",
+									"  pm.environment.set('portal_id', _.get(objPortal, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}portal/{{portal_id}}/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"{{portal_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `portal` by `portal.id` (normal way).\n\nMinimum permission required (implied or explicit): authenticated user associated with the portal.\n\nReturns:\n\n* `portal` (detail)"
+					},
+					"response": [
+						{
+							"name": "portal/:portal_id/ (detail) - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}portal/{{portal_id}}/",
+									"host": [
+										"{{base}}portal"
+									],
+									"path": [
+										"{{portal_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "435"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b3-nFehhJISJcCEMcLdDAqUCTb0RUc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 13:05:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613611819ea3383db82e7f5b\",\n            \"title\": \"Portal title\",\n            \"fqdn\": \"portal.victoria-id.com\",\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-06T13:02:57.639Z\",\n                \"update\": \"2021-09-06T13:02:57.643Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-06T13:05:53.631Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "portal/:portal_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"portal\":\n  [\n    {\n     \"title\": \"Portal title changed\",\n\n     \"brand\":\n      {\n       \"name\": \"Brand name changed\"\n      }\n\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}portal/{{portal_id}}/",
+							"host": [
+								"{{base}}portal"
+							],
+							"path": [
+								"{{portal_id}}",
+								""
+							]
+						},
+						"description": "Update (partial information of) a `portal`.\n\nMinimum permission required (implied or explicit): `portal.write`.\n\nReturns:\n\n* `portal` (detail)"
+					},
+					"response": [
+						{
+							"name": "portal/:portal_id/ (update) - success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"portal\":\n  [\n    {\n     \"title\": \"Portal title 2\",\n\n     \"brand\":\n      {\n       \"name\": \"Brand name 2\"\n      }\n\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}portal/{{portal_id}}/",
+									"host": [
+										"{{base}}portal"
+									],
+									"path": [
+										"{{portal_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "439"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b7-P45BL7J9eGQYCcNLvJBQMMnWODE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 13:08:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613611819ea3383db82e7f5b\",\n            \"title\": \"Portal title 2\",\n            \"fqdn\": \"portal.victoria-id.com\",\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name 2\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-06T13:02:57.639Z\",\n                \"update\": \"2021-09-06T13:08:16.913Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-06T13:08:16.914Z\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "check/",
+			"item": [
+				{
+					"name": "check/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objCheck = _.get(objResponse_Body, 'check[0]');",
+									"",
+									"if (objCheck)",
+									" {",
+									"  pm.environment.set('check_id', _.get(objCheck, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}check/",
+							"host": [
+								"{{base}}check"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get a list of `check` stubs containing just enough information to create an overview page.\nWill only expose checks that are available to the `portal`.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `check` (stub)"
+					},
+					"response": []
+				},
+				{
+					"name": "check/:check_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objCheck = _.get(objResponse_Body, 'check[0]');",
+									"",
+									"if (objCheck)",
+									" {",
+									"  pm.environment.set('check_id', _.get(objCheck, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}check/{{check_id}}/",
+							"host": [
+								"{{base}}check"
+							],
+							"path": [
+								"{{check_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `check`.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `check` (detail)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "group/",
+			"item": [
+				{
+					"name": "group/ (create)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objGroup = _.get(objResponse_Body, 'group[0]');",
+									"",
+									"if (objGroup)",
+									" {",
+									"  pm.environment.set('group_id', _.get(objGroup, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"group\":\n  [\n    {\n     \"name\": \"Group name\",\n     \"description\": \"Group description\",\n\n     \"access\":\n      [\n        {\n         \"user\":\n          {\n           \"id\": \"{{user_id}}\"\n          },\n\n         \"right\":\n          [\n           \"group.full\"\n          ]\n        }\n\n      ]\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Creates a new `group`.\n\nMinimum permission required (implied or explicit): `group.create` on parent `portal`'s main group (`portal.group.id`).\n\nReturns:\n\n* `group` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objGroup = _.get(objResponse_Body, 'group[0]');",
+									"",
+									"if (objGroup)",
+									" {",
+									"  pm.environment.set('group_id', _.get(objGroup, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get a list of `group` stubs containing just enough information to create an overview page.\n\nMinimum permission required (implied or explicit): any.\n\nReturns:\n\n* `group` (stub)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objGroup = _.get(objResponse_Body, 'group[0]');",
+									"",
+									"if (objGroup)",
+									" {",
+									"  pm.environment.set('group_id', _.get(objGroup, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `group`.\n\nMinimum permission required (implied or explicit): any.\n\nReturns:\n\n* `group` (detail)\n* `user` (stub)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"screening\":\n  [\n    {\n     \"title\": \"Screening title changed\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								""
+							]
+						},
+						"description": "Update (partial information of) a `group`.\n\nMinimum permission required (implied or explicit): `group.write`.\n\nReturns:\n\n* `group` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								""
+							]
+						},
+						"description": "Delete a `group`.\n\nMinimum permission required (implied or explicit): `group.delete`.\n\nReturns:\n\n* `group` (detail)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "group/:group_id/profile/",
+			"item": [
+				{
+					"name": "group/:group_id/profile/ (create)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objProfile = _.get(objResponse_Body, 'profile[0]');",
+									"",
+									"if (objProfile)",
+									" {",
+									"  pm.environment.set('profile_id', _.get(objProfile, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"profile\":\n  [\n    {\n     \"title\": \"Screening profile title\",\n     \"description\": \"Screening profile description\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								""
+							]
+						},
+						"description": "Creates a new screening `profile`.\n\nMinimum permission required (implied or explicit): `profile.create`.\n\nReturns:\n\n* `profile` (detail)"
+					},
+					"response": [
+						{
+							"name": "profile/ (create) - exception: validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"profile\":\n  [\n    {\n     \"group\":\n      {\n       \"id\": null\n      },\n\n     \"title\": \"Screening title\",\n     \"description\": \"Screening description\"\n\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}profile/",
+									"host": [
+										"{{base}}profile"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "353"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"161-/Rj/f7kgAhxRYnTKDx5NofOeRTA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Sep 2021 07:25:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"exception\": [\n        {\n            \"code\": \"validation\",\n            \"description\": \"A validation exception occurred.\",\n            \"object\": {\n                \"type\": \"profile\",\n                \"id\": \"613865713056940ef6aa7a4b\"\n            }\n        },\n        {\n            \"code\": \"validation\",\n            \"path\": \"portal.id\",\n            \"description\": \"Path `portal.id` is required.\"\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-08T07:25:37.254Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "profile/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objProfile = _.get(objResponse_Body, 'profile[0]');",
+									"",
+									"if (objProfile)",
+									" {",
+									"  pm.environment.set('profile_id', _.get(objProfile, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}profile/",
+							"host": [
+								"{{base}}profile"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get a list of screening `profile` stubs containing just enough information to create an overview page.\n\nMinimum permission required (implied or explicit): `profile.read`.\n\nReturns:\n\n* `profile` (stub)"
+					},
+					"response": [
+						{
+							"name": "profile/ (list) - success: empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}profile/",
+									"host": [
+										"{{base}}profile"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-FB1e/eaH8LNCoYifQzp0S2FP3ls\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Sep 2021 07:26:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile\": [],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-08T07:26:48.539Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "group/:group_id/profile/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objProfile = _.get(objResponse_Body, 'profile[0]');",
+									"",
+									"if (objProfile)",
+									" {",
+									"  pm.environment.set('profile_id', _.get(objProfile, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								""
+							]
+						},
+						"description": "Get a list of screening `profile` stubs containing just enough information to create an overview page.\n\nMinimum permission required (implied or explicit): `profile.read`.\n\nReturns:\n\n* `profile` (stub)"
+					},
+					"response": [
+						{
+							"name": "profile/ (list) - success: empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}profile/",
+									"host": [
+										"{{base}}profile"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-FB1e/eaH8LNCoYifQzp0S2FP3ls\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Sep 2021 07:26:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile\": [],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-08T07:26:48.539Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "group/:group_id/profile/:profile_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objProfile = _.get(objResponse_Body, 'profile[0]');",
+									"",
+									"if (objProfile)",
+									" {",
+									"  pm.environment.set('profile_id', _.get(objProfile, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/{{profile_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								"{{profile_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a screening `profile`.\n\nMinimum permission required (implied or explicit): `profile.read`.\n\nReturns:\n\n* `profile` (detail)"
+					},
+					"response": [
+						{
+							"name": "profile/:profile_id/ (detail) - exception: not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}profile/{{profile_id}}/",
+									"host": [
+										"{{base}}profile"
+									],
+									"path": [
+										"{{profile_id}}",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b3-MOQsuYk3rG5KCRXRkyMrX0mJHao\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Sep 2021 07:27:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"exception\": [\n        {\n            \"code\": \"found\",\n            \"description\": \"Not found.\"\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-08T07:27:06.209Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "group/:group_id/profile/:profile_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"profile\":\n  [\n    {\n     \"title\": \"Screening profile title changed\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/{{profile_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								"{{profile_id}}",
+								""
+							]
+						},
+						"description": "Update part of a screening `profile`, like the title and checks.\n\nMinimum permission required (implied or explicit): `profile.write`.\n\nReturns:\n\n* `profile` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/profile/:profile_id/ (duplicate)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "COPY",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"profile\":\n  [\n    {\n     \"title\": \"Screening profile title changed\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/{{profile_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								"{{profile_id}}",
+								""
+							]
+						},
+						"description": "Make a duplicate of a screening `profile`. Returns the newly created screening `profile`.\n\nMinimum permission required (implied or explicit): `profile.create`.\n\nReturns:\n\n* `profile` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/profile/:profile_id/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/profile/{{profile_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"profile",
+								"{{profile_id}}",
+								""
+							]
+						},
+						"description": "Delete a screening `profile`.\n\nMinimum permission required (implied or explicit): `profile.delete`.\n\nReturns:\n\n* `profile` (detail)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "group/:group_id/screening/",
+			"item": [
+				{
+					"name": "group/:group_id/screening/ (create)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreening = _.get(objResponse_Body, 'screening[0]');",
+									"",
+									"if (objScreening)",
+									" {",
+									"  pm.environment.set('screening_id', _.get(objScreening, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"screening\":\n  [\n    {\n     \"group\":\n      {\n       \"id\": \"{{group_id}}\"\n      },\n\n     \"profile\":\n      {\n       \"id\": \"{{profile_id}}\"\n      },\n\n     \"title\": \"Screening title\",\n     \"description\": \"Screening description\",\n\n     \"time\":\n      {\n       \"from\": \"\",\n       \"to\": \"\"\n      }\n\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								""
+							]
+						},
+						"description": "Creates a new `screening`.\n\nMinimum permission required (implied or explicit): `screening.create`.\n\nReturns:\n\n* `screening` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreening = _.get(objResponse_Body, 'screening[0]');",
+									"",
+									"if (objScreening)",
+									" {",
+									"  pm.environment.set('screening_id', _.get(objScreening, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								""
+							]
+						},
+						"description": "Get a list of `screening` stubs containing just enough information to create an overview page.\n\nMinimum permission required (implied or explicit): `screening.read`.\n\nReturns:\n\n* `screening` (stub)\n* `profile` (stub)\n* `screenee` (stub, tentative)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreening = _.get(objResponse_Body, 'screening[0]');",
+									"",
+									"if (objScreening)",
+									" {",
+									"  pm.environment.set('screening_id', _.get(objScreening, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `screening`.\n\nMinimum permission required (implied or explicit): `screening.read`.\n\nReturns:\n\n* `screening` (detail)\n* `profile` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"screening\":\n  [\n    {\n     \"title\": \"Screening title changed\",\n     \"state\": \"pending\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								""
+							]
+						},
+						"description": "Update part of a `screening`, like the title, or the start and end date.\n\nMinimum permission required (implied or explicit): `screening.write`.\n\nReturns:\n\n* `screening` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								""
+							]
+						},
+						"description": "Delete a `screening`.\n\nMinimum permission required (implied or explicit): `screening.delete`.\n\nReturns:\n\n* `screening` (detail)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "group/:group_id/screening/:screening_id/screenee/",
+			"item": [
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/ (create)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreenee = _.get(objResponse_Body, 'screenee[0]');",
+									"",
+									"if (objScreenee)",
+									" {",
+									"  pm.environment.set('screenee_id', _.get(objScreenee, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"screenee\":\n  [\n    {\n     \"type\": \"candidate\",\n\n     \"name\":\n      {\n       \"personal\": \"{{user_name_personal}}\",\n       \"family\": \"{{user_name_family}}\"\n       // \"display\": \"{{user_name_display}}\" // Optional. Defaults to `name.personal` + ' ' + `name.family`.\n      },\n     \"description\": \"Screenee description\", // Optional.\n\n     \"locale\": \"{{user_locale}}\",\n     \"gender\": \"{{user_gender}}\", // Optional. Defaults to 'unknown'.\n\n     \"address\":\n      {\n       \"mail\": \"{{user_address_mail}}\",\n       \"tele\":\n        {\n         \"phone\": \"{{user_address_tele_phone}}\" // Optional.\n        }\n      }\n\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								""
+							]
+						},
+						"description": "Invites a new `screenee`.\n\nMinimum permission required (implied or explicit): `screenee.create`.\n\nReturns:\n\n* `screenee` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreenee = _.get(objResponse_Body, 'screenee[0]');",
+									"",
+									"if (objScreenee)",
+									" {",
+									"  pm.environment.set('screenee_id', _.get(objScreenee, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								""
+							]
+						},
+						"description": "Get a list of `screenee` stubs containing just enough information to create an overview page.\n\nMinimum permission required (implied or explicit): `screenee.read`.\n\nReturns:\n\n* `screenee` (stub)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/:screenee_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objReplace_Me = _.get(objResponse_Body, 'replace_me[0]');",
+									"",
+									"if (objReplace_Me)",
+									" {",
+									"  pm.environment.set('replace_me_id', _.get(objReplace_Me, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `screenee`.\n\nMinimum permission required (implied or explicit): `screenee.read`.\n\nReturns:\n\n* `screenee` (detail)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/:screenee_id/mail/invite/ (mail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objReplace_Me = _.get(objResponse_Body, 'replace_me[0]');",
+									"",
+									"if (objReplace_Me)",
+									" {",
+									"  pm.environment.set('replace_me_id', _.get(objReplace_Me, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/{{screenee_id}}/mail/invite/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								"mail",
+								"invite",
+								""
+							]
+						},
+						"description": "Resend the invitation mail to the `screenee`.\n\nMinimum permission required (implied or explicit): `screenee.read`.\n\nReturns:\n\nHTTP 200 on success."
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/:screenee_id/ (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"replace_me\":\n  [\n    {\n     \"title\": \"Lorem ipsum!\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Update part of a `screenee`.\n\nMinimum permission required (implied or explicit): `screenee.write`.\n\nReturns:\n\n* `screenee` (detail)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screening/:screening_id/screenee/:screenee_id/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Remove a `screenee`.\n\nMinimum permission required (implied or explicit): `screenee.delete`.\n\nReturns:\n\n* `screenee` (detail)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "group/:group_id/screenee/",
+			"item": [
+				{
+					"name": "group/:group_id/screenee/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreenee = _.get(objResponse_Body, 'screenee[0]');",
+									"",
+									"if (objScreenee)",
+									" {",
+									"  pm.environment.set('screenee_id', _.get(objScreenee, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screenee/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screenee",
+								""
+							]
+						},
+						"description": "Get a list of `screenee` stubs containing just enough information to create an overview page.\n\nThe overview page is from the `group`'s perspective. Effectively a list of `screenee`s associated with the `group`.\n\nMinimum permission required (implied or explicit): `screenee.read`.\n\nReturns:\n\n* `screenee` (stub)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screenee/:screenee_id/ (detail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objReplace_Me = _.get(objResponse_Body, 'replace_me[0]');",
+									"",
+									"if (objReplace_Me)",
+									" {",
+									"  pm.environment.set('replace_me_id', _.get(objReplace_Me, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Retrieve detailed information on a `screenee` (regardless of `screening` context).\n\nMinimum permission required (implied or explicit): `screenee.read`.\n\nReturns:\n\n* `screenee` (detail)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "group/:group_id/screenee/:screenee_id/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Remove `screenee` information.\n\nMinimum permission required (implied or explicit): `screenee.delete`.\n\nReturns:\n\n* `screenee` (detail)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "screenee/:screenee_id/invite/:screenee_invite_token/",
+			"item": [
+				{
+					"name": "screenee/:screenee_id/invite/:screenee_invite_token/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('check_step', responseBody);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/invite/{{screenee_invite_token}}/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"invite",
+								"{{screenee_invite_token}}",
+								""
+							]
+						},
+						"description": "Checks the state of a `screenee` invite token.\n\nThis request has 3 potential responses:\n\n* HTTP 404: The invite token is invalid, or the `screenee` does not exist.\n\n* HTTP 200: The invite token is valid, but no `user` was found matching the email address of the `screenee`. The `screenee` prolly needs to register a new `user` account whilest supplying the invite token.\n\n* HTTP 200: The invite token is valid, and a `user` was found who's email address matches that of the `screenee`. The `screenee` prolly needs to sign in (if not signed in already), and make a call to `LINK screenee/:screenee_id/invite/:screenee_invite_token/`.\n\nMinimum permission required (implied or explicit): anonymous.\n\nReturns:\n\n* `group` (stub)\n* `screening` (stub)\n* `screenee` (minimal)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "screenee/:screenee_id/invite/:screenee_invite_token/user/ (register)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objUser = _.get(objResponse_Body, 'user[0]');",
+									"",
+									"if (objUser)",
+									" {",
+									"  pm.environment.set('user_id', _.get(objUser, 'id'));",
+									"  pm.environment.set('user_name_personal', _.get(objUser, 'name.personal'));",
+									"  pm.environment.set('user_name_family', _.get(objUser, 'name.family'));",
+									"  pm.environment.set('user_name_display', _.get(objUser, 'name.display'));",
+									"  pm.environment.set('user_locale', _.get(objUser, 'locale'));",
+									"  pm.environment.set('user_gender', _.get(objUser, 'gender'));",
+									"  pm.environment.set('user_address_mail', _.get(objUser, 'address.mail[0].uri'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"user\":\n  [\n    {\n     \"name\":\n      {\n       \"personal\": \"{{user_name_personal}}\",\n       \"family\": \"{{user_name_family}}\",\n       \"display\": \"{{user_name_personal}}\"\n      },\n\n     \"password\": \"{{user_password}}\",\n\n     \"locale\": \"en-us\",\n     \"gender\": \"male\"\n\n     // \"address\":\n     //  {\n     //   \"mail\":\n     //    [\n     //      {\n     //       \"uri\": \"{{user_address_mail}}\"\n     //      }\n     //    ]\n     //  }\n   \n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/invite/{{screenee_invite_token}}/user/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"invite",
+								"{{screenee_invite_token}}",
+								"user",
+								""
+							]
+						},
+						"description": "Creates a new `user` account, if the invite token is valid. On success, links the `screenee` to the `user` account.\n\nMinimum permission required (implied or explicit): anonymous.\n\nReturns:\n\n* `user` (detail)\n* `screenee` (list)"
+					},
+					"response": []
+				},
+				{
+					"name": "screenee/:screenee_id/invite/:screenee_invite_token/ (link)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('check_step', responseBody);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "LINK",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/invite/{{screenee_invite_token}}/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"invite",
+								"{{screenee_invite_token}}",
+								""
+							]
+						},
+						"description": "Links the `screenee` to the current `user`, there by accepting the invite.\n\nNo need to call this API end-point if using the invite token to register a new `user` account.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `screenee` (stub)\n* `user` (minimal)"
+					},
+					"response": []
+				},
+				{
+					"name": "screenee/:screenee_id/invite/:screenee_invite_token/ (decline)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('check_step', responseBody);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/invite/{{screenee_invite_token}}/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"invite",
+								"{{screenee_invite_token}}",
+								""
+							]
+						},
+						"description": "Declines the invitation.\n\nMinimum permission required (implied or explicit): anonymous.\n\nReturns:\n\nHTTP 200 on success."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "screenee/",
+			"item": [
+				{
+					"name": "screenee/ (list)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreenee = _.get(objResponse_Body, 'screenee[0]');",
+									"",
+									"if (objScreenee)",
+									" {",
+									"  pm.environment.set('screenee_id', _.get(objScreenee, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get a list of `screenee` stubs containing just enough information to create an overview page.\n\nThe overview page is from the screenee's perspective. Effectively a list of `screening`s of which you are a `screenee`.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `screenee` (stub)\n* `screening` (stub)\n* `profile` (stub)"
+					},
+					"response": []
+				},
+				{
+					"name": "screenee/:screenee_id/ (stub)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objReplace_Me = _.get(objResponse_Body, 'replace_me[0]');",
+									"",
+									"if (objReplace_Me)",
+									" {",
+									"  pm.environment.set('replace_me_id', _.get(objReplace_Me, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								""
+							]
+						},
+						"description": "Retrieve information on a `screenee`.\n\nThis is from the `screenee`'s perspective. Effectively showing the `screening` of which you are the `screenee`.\n\nMinimum permission required (implied or explicit): authenticated user.\n\nReturns:\n\n* `screenee` (stub)\n* `screening` (stub)\n* `profile` (stub)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "qrcode/",
+			"item": [
+				{
+					"name": "qrcode/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let objResponse_Body = JSON.parse(responseBody);",
+									"",
+									"let objScreenee = _.get(objResponse_Body, 'screenee[0]');",
+									"",
+									"if (objScreenee)",
+									" {",
+									"  pm.environment.set('screenee_id', _.get(objScreenee, 'id'));",
+									" }",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base}}qrcode/?data=Hello world",
+							"host": [
+								"{{base}}qrcode"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "Hello world"
+								},
+								{
+									"key": "format",
+									"value": "text.compact",
+									"description": "'text' (default) or 'text.compact'.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Generates a QR-code.\n\nMinimum permission required (implied or explicit): authenticated user."
+					},
+					"response": [
+						{
+							"name": "qrcode/?format=string",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}qrcode/?data=Hello world&format=string",
+									"host": [
+										"{{base}}qrcode"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "Hello world"
+										},
+										{
+											"key": "format",
+											"value": "string",
+											"description": "'string' or 'string.compact' (default)."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1499"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5db-NywPeaDwGszAaNdym44gTjTSmMo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Oct 2021 11:32:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"qrcode\": [\n        {\n            \"data\": [\n                \"███████ █  █ █  █ ███████\",\n                \"█     █ █ █ █ █ █ █     █\",\n                \"█ ███ █ █ ███ █ █ █ ███ █\",\n                \"█ ███ █  ███ █ █  █ ███ █\",\n                \"█ ███ █  █ █  ███ █ ███ █\",\n                \"█     █ █ ████    █     █\",\n                \"███████ █ █ █ █ █ ███████\",\n                \"        █  █ ██ █        \",\n                \"  ███ █ ██    ██████  ███\",\n                \"██  █  █  ██ █ █   █  █  \",\n                \"  ███ █ █ ████ █ █  ██ ██\",\n                \" ████  ██ █ ███   █    ██\",\n                \"█  █  ██ █    ██ ████████\",\n                \"█ █ █  ████ █  ██  █  █  \",\n                \"█ █   ██  █ █ █  █████ ██\",\n                \"█  █     █  ██  █ ███   █\",\n                \"█  █████  █ █   ███████  \",\n                \"        █       █   █ █ █\",\n                \"███████  ██  █ ██ █ █ ███\",\n                \"█     █   █ ██ ██   ██ █ \",\n                \"█ ███ █ █ █ ██ ████████  \",\n                \"█ ███ █ ███       █ ██  █\",\n                \"█ ███ █ █ █ █ ██  ██ █  █\",\n                \"█     █  █  ████ █ ██   █\",\n                \"███████  ████ █ █  █  ███\"\n            ]\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-10-22T11:32:02.014Z\"\n    }\n}"
+						},
+						{
+							"name": "qrcode/?format=string.compact",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}qrcode/?data=Hello world&format=string.compact",
+									"host": [
+										"{{base}}qrcode"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "Hello world"
+										},
+										{
+											"key": "format",
+											"value": "string.compact",
+											"description": "'string' or 'string.compact' (default)."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1005"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3ed-0vt87K8qNH/gH4seE8p/RVcwMdY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Oct 2021 11:31:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"qrcode\": [\n        {\n            \"data\": [\n                \"█▀▀▀▀▀█ █ ▄▀▄▀▄ █ █▀▀▀▀▀█\",\n                \"█ ███ █ ▀▄██▀▄▀▄▀ █ ███ █\",\n                \"█ ▀▀▀ █ ▄▀▄█▄▄▀▀▀ █ ▀▀▀ █\",\n                \"▀▀▀▀▀▀▀ █ ▀▄▀▄█ █ ▀▀▀▀▀▀▀\",\n                \"▄▄▀▀█ ▀▄▀▀▄▄ ▄▀█▀▀▀█  █▀▀\",\n                \" ▄███ ▀▄█ █▀██▄▀ ▀▄ ▀▀ ██\",\n                \"█ ▄▀▄ ▀█▄█▄ ▄ ▀█▄▀▀█▀▀█▀▀\",\n                \"█ ▀▄  ▀▀ ▄▀ █▄▀ ▄▀███▀ ▀█\",\n                \"▀  ▀▀▀▀▀▄ ▀ ▀   █▀▀▀█▀█ ▄\",\n                \"█▀▀▀▀▀█  ▀█ ▄█ ██ ▀ █▄▀█▀\",\n                \"█ ███ █ █▄█ ▀▀ ▀▀▀█▀██▀ ▄\",\n                \"█ ▀▀▀ █ ▀▄▀ █▄██ ▄▀█▄▀  █\",\n                \"▀▀▀▀▀▀▀  ▀▀▀▀ ▀ ▀  ▀  ▀▀▀\"\n            ]\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-10-22T11:31:40.815Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "screenee/:screenee_id/check/travel-document/text+chip+certificate/",
+			"item": [
+				{
+					"name": "../travel-document/text+chip+certificate/step/ (step)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('check_step', responseBody);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/step/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								"step",
+								""
+							]
+						},
+						"description": "Returns the name of the current step in the process.\n\nPossible values:\n\n* `token`: Waiting for a token to be requested.\n* `start`: Waiting for the application to connect.\n* `data.receive`: Waiting for data from the identification app.\n* `data.release`: Waiting for release of data to HR.\n* `end`: Check has ended.\n\nMinimum permission required (implied or explicit): authenticated `user` associated with the `screenee`."
+					},
+					"response": []
+				},
+				{
+					"name": "../travel-document/text+chip+certificate/token/ (token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('check_token', responseBody);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/token/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								"token",
+								""
+							]
+						},
+						"description": "Generates a token which can be used to make requests without a conventional access token.\n\nThis token is used by the mobile identification app to send data to the API, and used by the request that releases the data to HR.\n\nMinimum permission required (implied or explicit): authenticated `user` associated with the `screenee`."
+					},
+					"response": []
+				},
+				{
+					"name": "../travel-document/text+chip+certificate/start/ (start)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/start/?token={{check_token}}",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								"start",
+								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{check_token}}"
+								}
+							]
+						},
+						"description": "Tests the token by making a connection.\n\nThis is used by the mobile identification app and allows the portal to advance.\n\nMinimum permission required (implied or explicit): anonymous user, using a token."
+					},
+					"response": []
+				},
+				{
+					"name": "../travel-document/text+chip+certificate/ (data)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"document\":\n  {\n   \"mrz\": \"P<NLDDE<BRUIJN<<WILLEKE<LISELOTTE<<<<<<<<<<<SPECI20212NLD6503101F3108309<<<<<<<<<<<<<<<0\"\n  },\n\n \"chip\":\n  {\n   \"lds1\":\n    {\n     \"dg1\": \"YVtfH1hQPE5MRERFPEJSVUlKTjw8V0lMTEVLRTxMSVNFTE9UVEU8PDw8PDw8PDw8PFNQRUNJMjAy\\nMTJOTEQ2NTAzMTAxRjMxMDgzMDk8PDw8PDw8PDw8PDw8PDww\\n\",\n\n     \"dg2\": \"dYI4WH9hgjhTAgEBf2CCOEuhDoEBAoIBAIcCAQGIAgAIXy6CODZGQUMAMDEwAAAAODYAAQAAOCgA\\nAAAAAAAAAAAAAAAAAAAAAQEBwQJXAAAAAAAAAAAADGpQICANCocKAAAAFGZ0eXBqcDIgAAAAAGpw\\nMiAAAAFYeG1sIDw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+CjxDT05URU5U\\nX0RFU0NSSVBUSU9OIHhtbG5zPSJodHRwOi8vd3d3LmpwZWcub3JnL2pweC8xLjAveG1sIiB4bWxu\\nczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2No\\nZW1hTG9jYXRpb249Imh0dHA6Ly93d3cuanBlZy5vcmcvanB4LzEuMC94bWwgaHR0cDovL3d3dy5q\\ncGVnLm9yZy9tZXRhZGF0YS8xNTQ0NC0yLnhzZCI+CjxQUk9QRVJUWT4KPE5BTUU+QU48L05BTUU+\\nCjxWQUxVRT4zMTIzNDU2Nzg8L1ZBTFVFPgo8L1BST1BFUlRZPgo8L0NPTlRFTlRfREVTQ1JJUFRJ\\nT04+CgAAAEdqcDJoAAAAFmloZHIAAAJXAAABwQADBwcAAAAAAA9jb2xyAQAAAAAAEAAAABpyZXMg\\nAAAAEnJlc2NcRgABXEYAAQAAAAAAAGpwMmP/T/9RAC8AAAAAAcEAAAJXAAAAAAAAAAAAAAHBAAAC\\nVwAAAAAAAAAAAAMHAQEHAQEHAQH/ZAAjAAFDcmVhdG9yOiBKYXNQZXIgVmVyc2lvbiAxLjkwMC4x\\n/1IADAAAAAEBBQQEAAH/XAATQEBISFBISFBISFBISFBISFD/XQAUAUBASEhQSEhQSEhQSEhQSEhQ\\n/10AFAJAQEhIUEhIUEhIUEhIUEhIUP+QAAoAAAAANZgAAf+Tz7NAwBQAQt3TarRtFHeZ7Lbal4jU\\nSAjXqqfAApze8kVNZz37Zy5cqdHbXGQFrqnt84TTii3BK2GeeBrYoVnLQckA4fc+zxphQ3GXbirC\\nvuNTwiHrx8eMCFAR3qj8J8CaNmK+F9aZXKHm8SqxdpN/CTsdqcgZ+jf7JM0+HUkrkAyLMSIE+y39\\nXZBqDb6dw0Rg6cJLFumjTEt2Gg7EHilkZqhtW2d66aR6fj5vK4TeS3fyK4ACtmgh0UWcjZT6ik1S\\n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\\nVewTgID/2Q==\\n\",\n\n     \"dg14\": \"boIB2TGCAdUwDQYIBAB/AAcCAgICAQEwDwYKBAB/AAcCAgMCBAIBATASBgoEAH8ABwICBAIEAgEC\\nAgEOMBcGBmeBCAEBBQIBAQYKBAB/AAcBAQQBAzCCAYQGCQQAfwAHAgIBAjCCAXUwggEdBgcqhkjO\\nPQIBMIIBEAIBATA0BgcqhkjOPQEBAikA015HIDa8T7fhPHhe0gHgZfmPz6b29A3vT5K57HiT7Cj8\\n1BKx8bMuJzBUBCg+4wtWj7qw+IPM69RtPzu4oqc1E/XredpmGQ6whf+p9JLzdal9hg60BChSCIOU\\nnf28QtOtGYZAaIpv4T9BNJVUtJrMMdzNiEU5gW9etKyPsfGmBFEEQ71+mvtT2LhSibzEjuW/5vIB\\nN9EKCH6254ceKhClmccQr40NOeIGERT90FVF7BzIq0CTJH93J14HQ//tEXGC6qnHeHeqrGrH01JF\\n0WkujuECKQDTXkcgNrxPt+E8eF7SAeBl+Y/PpbaPEqMtSC7H7oZY6YaRVVtExZMRAgEBA1IABKVJ\\ngrH03KBxlNoZsO64Y3ALMC2qTpu+jsoyNqn5/oQczy0/3yLIgCVwTSJoeV36PJ8hwlG1zTVsZAFy\\njNsZbIUhstxmOzjARYOioiww99fw\\n\",\n\n     \"sod\": \"d4ILFTCCCxEGCSqGSIb3DQEHAqCCCwIwggr+AgEDMQ8wDQYJYIZIAWUDBAIBBQAwgekGBmeBCAEB\\nAaCB3gSB2zCB2AIBADANBglghkgBZQMEAgEFADCBwzAlAgEBBCDzY9twdojiFbdD/48G7lYDfyyC\\nh6AE6mycdPsRbQiIjTAlAgECBCCwL6DukUHt8fVVkxTsKredcmbdRnOtN3+B4lSvpSoF8jAlAgED\\nBCDwTC1DHS14ZEI+t7BAD/BiwKzeYtQXKzGjBxiS1bc5CzAlAgEOBCCOhLf7nc0ukjScXtVumbIT\\n/aDPLsBmK5M7JKLeIVQIGDAlAgEPBCDNWwYCC0bPBzDH+T7B46+j3lzmFtCT/HeqgHLpX76DnaCC\\nBuQwggbgMIIEyKADAgECAgEWMA0GCSqGSIb3DQEBCwUAMIGWMQowCAYDVQQFEwEzMRswGQYDVQQD\\nDBJDU0NBIE5MIC0gU3BlY2ltZW4xLjAsBgNVBAsMJUtpbmdkb20gb2YgdGhlIE5ldGhlcmxhbmRz\\nIC0gU3BlY2ltZW4xLjAsBgNVBAoMJUtpbmdkb20gb2YgdGhlIE5ldGhlcmxhbmRzIC0gU3BlY2lt\\nZW4xCzAJBgNVBAYTAk5MMB4XDTIxMDcyMDAwMDAwMFoXDTMxMTAyMTAwMDAwMFowgZcxCjAIBgNV\\nBAUTATExHDAaBgNVBAMME0RTLTAxLU5MIC0gU3BlY2ltZW4xLjAsBgNVBAsMJUtpbmdkb20gb2Yg\\ndGhlIE5ldGhlcmxhbmRzIC0gU3BlY2ltZW4xLjAsBgNVBAoMJUtpbmdkb20gb2YgdGhlIE5ldGhl\\ncmxhbmRzIC0gU3BlY2ltZW4xCzAJBgNVBAYTAk5MMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIIC\\nCgKCAgEAwaXL0oPkDzlTK76Y06ZTFmGNNT4keH1H0mcD4pKKTM09MWPEGBRL8WMKpa7ZnQg0gwSy\\nZDHMNqko0N3yNg4kJJrXDdMnRHB/eD8uuaefazEgUZxS4jnlN0D3V57WNoG7GPMDiSzWBrKhhwsk\\nsYG83VEl1g80QVOPQ8Jr0B69GaZS8/wWB6IwHOxC/4bTvMPUiVR5wQ6Vb6g1e2w9VrSFj/2PgGtO\\nOPEBJ626dtgVDjraJDL61JRNiNrYcvEk+wbc25hdT6YfH57PNsNss6BmwfNYAfIb9mvtsD9+fRxR\\n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\\n\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/?token={{check_token}}",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{check_token}}"
+								}
+							]
+						},
+						"description": "Upload and check ID information.\n\nMinimum permission required (implied or explicit): anonymous user, using a token."
+					},
+					"response": []
+				},
+				{
+					"name": "screenee/../travel-document/text+chip+certificate/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								""
+							]
+						},
+						"description": "Remove the information previously gathered.\n\nMinimum permission required (implied or explicit): authenticated `user` associated with the `screenee`."
+					},
+					"response": []
+				},
+				{
+					"name": "group/../travel-document/text+chip+certificate/ (delete)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}group/{{group_id}}/screening/{{screening_id}}/screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/",
+							"host": [
+								"{{base}}group"
+							],
+							"path": [
+								"{{group_id}}",
+								"screening",
+								"{{screening_id}}",
+								"screenee",
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								""
+							]
+						},
+						"description": "Remove the information previously gathered; from the perspective of HR.\n\nMinimum permission required (implied or explicit): `screenee.write`."
+					},
+					"response": []
+				},
+				{
+					"name": "../travel-document/text+chip+certificate/release/ (release)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}screenee/{{screenee_id}}/check/travel-document/text+chip+certificate/release/?token={{check_token}}",
+							"host": [
+								"{{base}}screenee"
+							],
+							"path": [
+								"{{screenee_id}}",
+								"check",
+								"travel-document",
+								"text+chip+certificate",
+								"release",
+								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{check_token}}"
+								}
+							]
+						},
+						"description": "Releases the previously gathered information to HR.\n\nThis request requires **the same token** used to upload the data.\n\nMinimum permission required (implied or explicit): anonymous user, using a token."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "https"
+		},
+		{
+			"key": "address",
+			"value": "localhost.victoria-id.com"
+		},
+		{
+			"key": "port",
+			"value": "8080"
+		},
+		{
+			"key": "format",
+			"value": "json"
+		},
+		{
+			"key": "path",
+			"value": "/"
+		},
+		{
+			"key": "base",
+			"value": "{{protocol}}://{{address}}:{{port}}{{path}}"
+		},
+		{
+			"key": "user_name_personal",
+			"value": "John"
+		},
+		{
+			"key": "user_name_family",
+			"value": "Doe"
+		},
+		{
+			"key": "user_name_display",
+			"value": "John Doe"
+		},
+		{
+			"key": "user_address_mail",
+			"value": "john.doe@victoria-id.com"
+		},
+		{
+			"key": "user_password",
+			"value": "bettie_serveert"
+		},
+		{
+			"key": "user_locale",
+			"value": "en-us"
+		},
+		{
+			"key": "user_gender",
+			"value": "male"
+		},
+		{
+			"key": "portal_domain",
+			"value": "localhost.victoria-id.com"
+		}
+	]
+}

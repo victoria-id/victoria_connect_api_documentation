@@ -1,0 +1,161 @@
+{
+ input:
+  {
+   create:
+    {
+     portal:
+      [
+        {
+         // id: core.mongodb.object_id,
+
+         title: String,
+         domain:
+          [
+           String,
+          ],
+
+         style:
+          {
+           'color-primary': String,
+
+           body:
+            {
+             'background-color': String,
+             'font-color': String,
+             'font-family': String,
+             'font-size': String,
+            },
+
+           body_layout_center:
+            {
+             'background-image': String,
+            },
+          },
+
+         brand:
+          {
+           name: String,
+           logo: String,
+          },
+
+        },
+      ],
+
+    },
+
+   update:
+    {
+     portal:
+      [
+        {
+         // id: core.mongodb.object_id,
+
+         title: String,
+         domain:
+          [
+           String,
+          ],
+
+         style:
+          {
+           'color-primary': String,
+
+           body:
+            {
+             'background-color': String,
+             'font-color': String,
+             'font-family': String,
+             'font-size': String,
+            },
+
+           body_layout_center:
+            {
+             'background-image': String,
+            },
+          },
+
+         brand:
+          {
+           name: String,
+           logo: String,
+          },
+
+        },
+      ],
+
+    },
+
+  },
+
+ output:
+  {
+   list:
+    {
+     portal:
+      [
+        {
+         _id: 'id',
+         id: true,
+
+         title: true,
+         domain: true,
+
+         group: true,
+
+         // style: true,
+         brand: true,
+
+         time: true,
+        },
+      ],
+
+    },
+
+   minimal:
+    {
+     portal:
+      [
+        {
+         _id: 'id',
+         id: true,
+
+         title: true,
+         domain: true,
+
+         style: true,
+         brand: true,
+
+         // check: true,
+
+         // time: true,
+        },
+      ],
+
+    },
+
+   detail:
+    {
+     portal:
+      [
+        {
+         _id: 'id',
+         id: true,
+
+         title: true,
+         domain: true,
+
+         group: true,
+
+         style: true,
+         brand: true,
+
+         check: true,
+
+         time: true,
+        },
+      ],
+
+    },
+
+  },
+}
