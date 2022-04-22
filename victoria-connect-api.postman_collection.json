@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6d4a6378-3524-4e15-859e-40f7f75635ff",
-		"name": "victoria-connect-api",
+		"_postman_id": "c5a23449-1549-4f33-96f3-5ad696dfb444",
+		"name": "Victoria Connect API",
 		"description": "Right levels and their equivelent HTTP methods.\n\nRight level | HTTP method\n------------|------------\n`full`      | * (any)\n`delete`    | `DELETE`\n`create`    | `POST`\n`write`     | `PATCH`\n`read`      | `GET`\n\n`full` implies `write`, `create` and `delete`.\n`write` implies `read`.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1284,68 +1284,6 @@
 					},
 					"response": [
 						{
-							"name": "portal/own/ (detail) - success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{base}}portal/own/",
-									"host": [
-										"{{base}}portal"
-									],
-									"path": [
-										"own",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "451"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1c3-ebtEU26GnnM9UvCiT2p70KKzDqg\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 10 Sep 2021 13:20:36 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613a21cee821739f88206553\",\n            \"title\": \"Portal title\",\n            \"domain\": [\n                \"portal.victoria-id.com\",\n                \"localhost\"\n            ],\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-09T15:01:34.860Z\",\n                \"update\": \"2021-09-09T15:01:35.566Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-10T13:20:36.294Z\"\n    }\n}"
-						},
-						{
 							"name": "portal/:portal_id/ (detail) - success",
 							"originalRequest": {
 								"method": "GET",
@@ -1406,6 +1344,68 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613611819ea3383db82e7f5b\",\n            \"title\": \"Portal title\",\n            \"fqdn\": \"portal.victoria-id.com\",\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-06T13:02:57.639Z\",\n                \"update\": \"2021-09-06T13:02:57.643Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-06T13:05:53.631Z\"\n    }\n}"
+						},
+						{
+							"name": "portal/own/ (detail) - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base}}portal/own/",
+									"host": [
+										"{{base}}portal"
+									],
+									"path": [
+										"own",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "451"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c3-ebtEU26GnnM9UvCiT2p70KKzDqg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Sep 2021 13:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"portal\": [\n        {\n            \"id\": \"613a21cee821739f88206553\",\n            \"title\": \"Portal title\",\n            \"domain\": [\n                \"portal.victoria-id.com\",\n                \"localhost\"\n            ],\n            \"style\": {\n                \"background-color\": \"#eee\",\n                \"font-color\": \"#333\",\n                \"font-family\": \"Arial\",\n                \"font-size\": \"12pt\"\n            },\n            \"brand\": {\n                \"name\": \"Brand name\",\n                \"logo\": \"logo.png\"\n            },\n            \"time\": {\n                \"create\": \"2021-09-09T15:01:34.860Z\",\n                \"update\": \"2021-09-09T15:01:35.566Z\"\n            }\n        }\n    ],\n    \"api\": {\n        \"version\": \"0.0.0\",\n        \"environment\": {\n            \"code\": \"local\"\n        }\n    },\n    \"server\": {\n        \"name\": \"ip-172-31-45-252.eu-central-1.compute.internal\",\n        \"time\": \"2021-09-10T13:20:36.294Z\"\n    }\n}"
 						}
 					]
 				},
