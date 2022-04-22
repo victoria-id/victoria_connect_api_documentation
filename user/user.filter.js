@@ -157,7 +157,6 @@
      user:
       [
         {
-         _id: 'id',
          id: true,
 
          name: true,
@@ -174,7 +173,6 @@
      user:
       [
         {
-         _id: 'id',
          id: true,
 
          name: true,
@@ -191,7 +189,6 @@
      user:
       [
         {
-         _id: 'id',
          id: true,
 
          name: true,

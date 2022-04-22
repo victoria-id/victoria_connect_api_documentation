@@ -6,7 +6,6 @@
      screenee:
       [
         {
-         _id: 'id',
          id: true,
 
          group:
@@ -36,7 +35,6 @@
      screenee:
       [
         {
-         _id: 'id',
          id: true,
 
          group:
@@ -95,7 +93,6 @@
      screenee:
       [
         {
-         _id: 'id',
          id: true,
 
          group:

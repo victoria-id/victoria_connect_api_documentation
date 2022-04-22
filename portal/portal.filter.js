@@ -94,7 +94,6 @@
      portal:
       [
         {
-         _id: 'id',
          id: true,
 
          title: true,
@@ -116,7 +115,6 @@
      portal:
       [
         {
-         _id: 'id',
          id: true,
 
          title: true,
@@ -138,7 +136,6 @@
      portal:
       [
         {
-         _id: 'id',
          id: true,
 
          title: true,

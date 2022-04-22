@@ -77,7 +77,6 @@
      screening:
       [
         {
-         _id: 'id',
          id: true,
 
          // portal:
@@ -103,7 +102,6 @@
          check:
           [
             {
-             _id: 'id',
              id: true,
 
              code: true,
@@ -124,7 +122,6 @@
      screening:
       [
         {
-         _id: 'id',
          id: true,
 
          // portal:
@@ -150,7 +147,6 @@
          check:
           [
             {
-             _id: 'id',
              id: true,
 
              code: true,

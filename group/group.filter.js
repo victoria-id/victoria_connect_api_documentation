@@ -77,7 +77,6 @@
      group:
       [
         {
-         _id: 'id',
          id: true,
 
          name: true,
@@ -94,14 +93,12 @@
      group:
       [
         {
-         _id: 'id',
          id: true,
 
          name: true,
          access:
           [
             {
-             _id: 'id',
              id: true,
 
              user: true,

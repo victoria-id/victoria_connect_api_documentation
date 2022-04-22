@@ -6,7 +6,6 @@
      audit:
       [
         {
-         _id: 'id',
          id: true,
 
          portal: true,
@@ -30,7 +29,6 @@
      audit:
       [
         {
-         _id: 'id',
          id: true,
 
          portal: true,

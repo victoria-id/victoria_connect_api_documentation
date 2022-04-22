@@ -71,7 +71,6 @@
      profile:
       [
         {
-         _id: 'id',
          id: true,
 
          // portal:
@@ -90,7 +89,6 @@
          check:
           [
             {
-             _id: 'id',
              id: true,
 
              code: true,
@@ -111,7 +109,6 @@
      profile:
       [
         {
-         _id: 'id',
          id: true,
 
          // portal:
@@ -130,7 +127,6 @@
          check:
           [
             {
-             _id: 'id',
              id: true,
 
              code: true,

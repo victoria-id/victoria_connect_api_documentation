@@ -6,7 +6,6 @@
      check:
       [
         {
-         _id: 'id',
          id: true,
 
          code: true,
@@ -31,7 +30,6 @@
      check:
       [
         {
-         _id: 'id',
          id: true,
 
          code: true,
