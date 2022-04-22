@@ -34,6 +34,8 @@ Documentation based on the Postman collection is [published online here](https:/
 
 Each folder within this repository contain database schemas and input / output filters for an API end-point or module.
 
+For the validation rules references by the database schemas, check [validation-rules.js](validation-rules.js);
+
 
 ### Database schemas
 
