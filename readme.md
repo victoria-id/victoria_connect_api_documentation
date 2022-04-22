@@ -41,7 +41,7 @@ Database schemas show field length, type, validation rules, etc. and look simila
 
 Schema excerpt for `screenee`:
 
-```json
+```javascript
 {
  type: { type: String, trim: true, lowercase: true, enum: ['screenee', 'candidate', 'employee', 'client', 'customer'], required: true, default: 'candidate' },
 
@@ -77,7 +77,7 @@ Input and output filters are applied to every API request / response, and define
 
 Here's an example of a filter definition:
 
-```json
+```javascript
 {
  input: // Input filters section.
   {
