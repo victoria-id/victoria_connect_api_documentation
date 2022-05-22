@@ -1,4 +1,11 @@
 {
+ // length:
+ //  {
+ //   short: 50,   // Names. Compound names are 2 x short = 100.
+ //   medium: 255, //
+ //   long: 1024,  // Descriptions, URIs, etc.
+ //  },
+
  name:
   {
    human: validation_rule_create('name.human', '^(?:(?![\\d_])[' + core.regex.unicode + '\\w -])*$', 'u', 'Personal names may only contain alphanumeric characters, spaces and dashes.'),
@@ -20,6 +27,7 @@
  css:
   {
    color: validation_rule_create('css.color', '^#[0-9a-f]{6}$', 'i', 'May only contain a valid hexadecimal HTML color expression (e.g. `#aabbcc`).'),
+
    font:
     {
      size: validation_rule_create('css.font.size', '^[\\d.]+\\w*$', '', 'May only contain a valid HTML font size expression.'),
@@ -28,15 +36,25 @@
 
  file:
   {
+   name: validation_rule_create('file.name', '^[\\w.-]+/[\\w.+-]+$', 'i', 'Must contain a valid file name.'),
+
+   // extension:
+
    get type()
     {
-     return media.type;
+     return core.mongodb.validate.media.type;
     },
   },
 
  media:
   {
    type: validation_rule_create('media.type', '^[\\w.-]+/[\\w.+-]+$', 'i', 'Must fit the media type format.'),
+  },
+
+ image:
+  {
+   resolution: validation_rule_create('image.resolution', '^[0-9]+x[0-9]+$', 'i', 'Must match `<n>x<n>`; e.g. \'1920x1080\'.'),
+   resolution_multiple: validation_rule_create('image.resolution', '^[0-9]+x[0-9]+(\\s+[0-9]+x[0-9]+)*$', 'i', 'Must match `<n>x<n>[ <n>x<n>]`; e.g. \'1920x1080\' or \'1280x720 1920x1080\'.'),
   },
 
  tag: validation_rule_create('tag', '^[\\w-]*$', 'i', 'May only contain alphanumeric characters, dashes and underscore.'),
@@ -54,6 +72,15 @@
  event:
   {
    name: validation_rule_create('event.name', '^[\\w.-]*$', 'i', 'May only contain alphanumeric characters, dots, dashes and underscore.'),
+  },
+
+ country:
+  {
+   code:
+    {
+     alpha_2: validation_rule_create('country.code.alpha.2', '^[A-Z]{2}$', '', 'Must be a 2 letter ISO-3166 country code.'),
+     alpha_3: validation_rule_create('country.code.alpha.3', '^[A-Z]{3}$', 'i', 'Must be a 3 letter ISO-3166 country code.'),
+    },
   },
 
 }

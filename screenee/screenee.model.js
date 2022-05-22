@@ -24,7 +24,7 @@
    return 'screenee/' + this.id + '/';
   } },
 
- type: { type: String, trim: true, lowercase: true, enum: ['screenee', 'candidate', 'employee', 'client', 'customer'], required: true, default: 'candidate' },
+ type: { type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer'], required: true, default: 'candidate' },
 
  name:
   {
@@ -37,7 +37,7 @@
 
  locale: { type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validate.locale },
 
- gender: { type: String, trim: true, lowercase: true, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
+ gender: { type: String, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
 
  address:
   {
@@ -59,7 +59,7 @@
     {
      code: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.resource.identifier },
 
-     state: { type: String, enum: ['new', 'seen', 'progress', 'requested', 'paid', 'added', 'removed', 'fail', 'success'], required: true, index: true, default: 'new' },
+     state: { type: String, enum: ['new', 'seen', 'progress', 'requested', 'paid', 'added', 'removed', 'evaluation', 'fail', 'success'], required: true, index: true, default: 'new' },
      progress: { type: Number, min: 0, max: 100, required: true, default: 0 },
 
      data:

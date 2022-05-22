@@ -9,15 +9,13 @@
          id: true,
 
          code: true,
+         uri: true,
 
          name: true,
          description: true,
 
          state: true,
          message: true,
-
-         module: true,
-         uri: true,
 
          time: true,
         },
@@ -33,15 +31,13 @@
          id: true,
 
          code: true,
+         uri: true,
 
          name: true,
          description: true,
 
          state: true,
          message: true,
-
-         module: true,
-         uri: true,
 
          time: true,
         },

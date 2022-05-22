@@ -19,6 +19,17 @@
  style:
   {
    // :root
+
+   icon:
+    [
+      {
+       use: { type: String, enum: ['browser-favorite-icon', 'application-launch-icon', 'apple-touch-icon'], required: true, default: 'browser-favorite-icon' },
+       type: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.media.type },
+       size: { type: String, trim: true, maxlength: 100, validate: core.mongodb.validate.image.resolution_multiple },
+       uri: { type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validate.address.uri },
+      },
+    ],
+
    'color-primary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
    // 'color-secondary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
 

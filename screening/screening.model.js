@@ -19,6 +19,8 @@
    return 'screening/' + this.id + '/';
   } },
 
+ country: { type: String, trim: true, maxlength: 3, upper: true, required: true, validate: core.mongodb.validate.country.code.alpha_3 },
+
  title: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.relaxed },
 
  description: { type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validate.name.relaxed },
@@ -39,8 +41,8 @@
 
  time:
   {
-   from: { type: Date, index: true, default: () => Date.now() },
-   to: { type: Date, index: true, default: () => Date.now() + (4 * 7 * 24 * 60 * 60 * 1000) },
+   from: { type: Date, required: true, index: true, default: () => Date.now() },
+   to: { type: Date, required: true, index: true, default: () => Date.now() + (4 * 7 * 24 * 60 * 60 * 1000) },
   },
 
 }

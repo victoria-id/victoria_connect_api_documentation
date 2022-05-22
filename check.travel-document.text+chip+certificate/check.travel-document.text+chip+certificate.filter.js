@@ -40,40 +40,50 @@
 
      document:
       {
-       id: String,
+       // id: String,
 
-       type: String,
+       // type: String,
 
        mrz: String,
 
-       issuer:
-        {
-         state: String,
-        },
+       // issuer:
+       //  {
+       //   state: String,
+       //  },
 
-       date:
-        {
-         expire: String,
-        },
+       // date:
+       //  {
+       //   expire: String,
+       //  },
+
+       image:
+        [
+          {
+           name: String,
+           type: String,
+           encoding: String,
+           content: String,
+          },
+        ],
       },
 
      entity:
       {
        id: String, // BSN for example.
 
-       name:
-        {
-         personal: String,
-         family: String,
-        },
+       // name:
+       //  {
+       //   personal: String,
+       //   family: String,
+       //  },
 
-       date:
-        {
-         birth: String,
-        },
+       // date:
+       //  {
+       //   birth: String,
+       //  },
 
-       gender: String,
-       nationality: String,
+       // gender: String,
+       // nationality: String,
 
        image:
         [

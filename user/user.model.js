@@ -19,7 +19,7 @@
  password: { type: String, required: true },
 
  locale: { type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validate.locale },
- gender: { type: String, trim: true, lowercase: true, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
+ gender: { type: String, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
 
  address:
   {

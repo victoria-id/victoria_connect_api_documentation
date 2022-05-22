@@ -23,6 +23,8 @@
            id: core.mongodb.object_id,
           },
 
+         country: String,
+
          title: String,
          description: String,
 
@@ -94,6 +96,8 @@
            id: true,
           },
 
+         country: true,
+
          title: true,
          description: true,
 
@@ -138,6 +142,8 @@
           {
            id: true,
           },
+
+         country: true,
 
          title: true,
          description: true,
