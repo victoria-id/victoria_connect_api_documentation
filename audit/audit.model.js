@@ -29,7 +29,7 @@
    address: { type: Object },
   },
 
- code: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.event.name },
+ code: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.resource.identifier },
 
  data: { type: Object },
 

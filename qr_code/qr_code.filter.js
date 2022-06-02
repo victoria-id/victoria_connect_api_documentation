@@ -3,7 +3,7 @@
   {
    detail:
     {
-     qrcode:
+     qr_code:
       [
         {
          matrix: true,
