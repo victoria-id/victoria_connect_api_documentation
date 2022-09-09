@@ -4,11 +4,6 @@
    id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
   },
 
- uri: { type: String, get()
-  {
-   return 'user/' + this.id + '/';
-  } },
-
  name:
   {
    personal: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.name.human },

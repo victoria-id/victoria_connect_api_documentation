@@ -1,6 +1,7 @@
 {
  input:
   {
+
    create:
     {
      portal:
@@ -17,6 +18,8 @@
          style:
           {
            'color-primary': String,
+           'color-secondary': String,
+           'color-tertiary': String,
 
            body:
             {
@@ -43,6 +46,7 @@
 
     },
 
+
    update:
     {
      portal:
@@ -59,6 +63,8 @@
          style:
           {
            'color-primary': String,
+           'color-secondary': String,
+           'color-tertiary': String,
 
            body:
             {
@@ -110,6 +116,7 @@
 
     },
 
+
    minimal:
     {
      portal:
@@ -130,6 +137,7 @@
       ],
 
     },
+
 
    detail:
     {
@@ -153,6 +161,31 @@
       ],
 
     },
+
+
+   mail:
+    {
+     portal:
+      [
+        {
+         id: true,
+
+         title: true,
+         domain: true,
+
+         uri: true,
+
+         // group: true,
+
+         style: true,
+         brand: true,
+
+         time: true,
+        },
+      ],
+
+    },
+
 
   },
 }

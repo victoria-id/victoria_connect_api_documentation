@@ -14,11 +14,6 @@
    id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'profile' },
   },
 
- uri: { type: String, get()
-  {
-   return 'screening/' + this.id + '/';
-  } },
-
  country: { type: String, trim: true, maxlength: 3, upper: true, required: true, validate: core.mongodb.validate.country.code.alpha_3 },
 
  title: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.relaxed },

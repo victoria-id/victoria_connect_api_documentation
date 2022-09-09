@@ -1,4 +1,7 @@
 {
+ // Portal schema version used for migrations.
+ version: { type: Number, required: true, default: 0 },
+
  group: // Reference to the root group, which will also be used to determine access rights.
   {
    id: { type: core.mongodb.schema.type.object_id, required: true, ref: 'group' },
@@ -10,11 +13,6 @@
   [
     { type: String, trim: true, maxlength: 100, unique: true, required: true, index: true, validate: core.mongodb.validate.address.fqdn },
   ],
-
- uri: { type: String, get()
-  {
-   return core.configuration.server.web.uri.base.replace('{portal.domain}', this.domain[0]) + ''; // The addition of ` + ''` prevents detection of `)`+`;` by `./script/schema.export.js`.
-  } },
 
  style:
   {
@@ -31,7 +29,8 @@
     ],
 
    'color-primary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
-   // 'color-secondary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
+   'color-secondary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
+   'color-tertiary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
 
    body:
     {
@@ -52,7 +51,7 @@
  brand:
   {
    name: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.name.relaxed },
-   logo: { type: String, trim: true, maxlength: 1024, required: true, default: 'logo.png', validate: core.mongodb.validate.address.uri },
+   logo: { type: String, trim: true, maxlength: 1024, required: true, default: 'logo.svg', validate: core.mongodb.validate.address.uri },
   },
 
  check:
