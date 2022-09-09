@@ -18,7 +18,7 @@
 
 ## Postman
 
-This repository contains 1 Postman collection, and 2 Postman environments, which you can import into your Postman application. The Postman collection depends on a Postman environment, so we recommend importing at least `victoria-connect-api.postman_collection.json` and `api.victoria-id.com.postman_environment.json`.
+This repository contains 1 Postman collection, and 2 Postman environments, which you can import into your Postman application. The Postman collection depends on a Postman environment, so we recommend importing at least `victoria_connect_api.postman_collection.json` and `api.victoria-id.com.postman_environment.json`.
 
 You can [download Postman here](https://www.postman.com/downloads/).
 

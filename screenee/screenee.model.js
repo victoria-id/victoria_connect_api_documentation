@@ -19,11 +19,6 @@
    id: { type: core.mongodb.schema.type.object_id, index: true, ref: 'user' },
   },
 
- uri: { type: String, get()
-  {
-   return 'screenee/' + this.id + '/';
-  } },
-
  type: { type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer'], required: true, default: 'candidate' },
 
  name:
