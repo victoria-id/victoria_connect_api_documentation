@@ -17,21 +17,40 @@
 
          style:
           {
-           'color-primary': String,
-           'color-secondary': String,
-           'color-tertiary': String,
-
-           body:
+           global:
             {
-             'background-color': String,
-             'font-color': String,
-             'font-family': String,
-             'font-size': String,
+             color:
+              {
+               primary: String,
+               secondary: String,
+               tertiary: String,
+              },
             },
 
-           body_layout_center:
+           html: // Portal + e-mail.
             {
-             'background-image': String,
+             body:
+              {
+               background:
+                {
+                 color: String,
+                },
+
+               font:
+                {
+                 color: String,
+                 family: String,
+                 size: String,
+                },
+              },
+
+             body_layout_center:
+              {
+               background:
+                {
+                 image: String,
+                },
+              },
             },
           },
 
@@ -62,21 +81,40 @@
 
          style:
           {
-           'color-primary': String,
-           'color-secondary': String,
-           'color-tertiary': String,
-
-           body:
+           global:
             {
-             'background-color': String,
-             'font-color': String,
-             'font-family': String,
-             'font-size': String,
+             color:
+              {
+               primary: String,
+               secondary: String,
+               tertiary: String,
+              },
             },
 
-           body_layout_center:
+           html: // Portal + e-mail.
             {
-             'background-image': String,
+             body:
+              {
+               background:
+                {
+                 color: String,
+                },
+
+               font:
+                {
+                 color: String,
+                 family: String,
+                 size: String,
+                },
+              },
+
+             body_layout_center:
+              {
+               background:
+                {
+                 image: String,
+                },
+              },
             },
           },
 
