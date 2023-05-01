@@ -9,7 +9,7 @@
          id: true,
 
          code: true,
-         uri: true,
+         path: true,
 
          name: true,
          description: true,
@@ -31,7 +31,7 @@
          id: true,
 
          code: true,
-         uri: true,
+         path: true,
 
          name: true,
          description: true,
