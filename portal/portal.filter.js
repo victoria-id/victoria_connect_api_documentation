@@ -163,7 +163,9 @@
          id: true,
 
          title: true,
+
          domain: true,
+         api: true,
 
          style: true,
          brand: true,
@@ -185,7 +187,9 @@
          id: true,
 
          title: true,
+
          domain: true,
+         api: true,
 
          group: true,
 
@@ -209,6 +213,7 @@
          id: true,
 
          title: true,
+
          domain: true,
 
          uri: true,
