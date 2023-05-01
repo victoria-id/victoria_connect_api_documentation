@@ -11,6 +11,7 @@
    3. [Schemas and filters](#schemas-and-filters)
       1. [Database schemas](#database-schemas)
       2. [Input / output filters](#input--output-filters)
+   4. [Webhooks](#webhooks)
 
 
 ---
@@ -177,3 +178,13 @@ Here's an example of a filter definition:
   },
 }
 ```
+
+
+---
+
+
+## Webhooks
+
+Information about webhooks you can find here:
+
+[Webhooks](webhook/webhook_receiver.md)
