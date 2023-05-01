@@ -53,11 +53,11 @@ An unhealthy webhook is checked after 1 minute. If it is not yet healthy, it wil
 
 ## Retention
 
-Webhook payloads are kept in a live database for 31 days for the purpose of delayed delivery and analysis. If a payload fails to be delivered by then, the payload is discarded.
+Webhook payloads are kept in a live database for 31 days for delayed delivery and analysis. If a payload fails to be delivered by then, the payload is discarded.
 
 Payloads are designed to be small and not to include sensitive information.
 
-The 31 day retention refers to the live database only. This does not exclude payloads from our backup policy.
+The 31-day retention refers to the live database only. This does not exclude payloads from our backup policy.
 
 
 ---
@@ -69,7 +69,7 @@ A webhook can be configured to be executed immediately. If a browser sends a req
 
 Immediate only works when the webhook is healthy.
 
-Immediate webhooks have property `immediate: true`.
+Immediate webhooks have property `immediate` set to `true`.
 
 
 ## Guaranteed
@@ -80,7 +80,7 @@ If a payload cannot be delivered, and the webhook is configured to be guaranteed
 
 This ensures the webhook receiver can resume processing payloads after being down. It also means that the longer a webhook receiver is down, the harder it needs to work to catch up when the server is back up.
 
-Guaranteed webhooks have property `guaranteed: true`.
+Guaranteed webhooks have property `guaranteed` set to `true`.
 
 
 ---
@@ -120,11 +120,11 @@ A webhook can contain static base data which is automatically added to payloads 
 
 Any good webhook configuration should at least have an `Authorization` header containing a shared secret.
 
-A good way of rotating shared secrets is to configure a secondary secret on the webhook receiver. When the webhook receiver is ready to accept the secondary secret, the webhook sender can seamlessly migrate to the new secret. When done, the primary secret is deleted, and the secondary secret becomes the only secret.
+A good method of rotating shared secrets is to configure a secondary secret on the webhook receiver. When the webhook receiver is ready to accept the secondary secret, the webhook sender can seamlessly migrate to the new secret. When done, the primary secret is deleted, and the secondary secret becomes the only secret.
 
-Because headers (and other base data) are merged just before sending a payload, changes to base data is applied almost instantly. Therefore old secrets can be removed almost instantly.
+Because headers (and other base data) are merged just before sending a payload, changes to base data is applied almost instantly. Therefore, old secrets can be removed almost instantly.
 
-If somehow generating a new secret overrides the current secret, rest asured that failed payloads are automatically retried (if the webhook is configured to be [guaranteed](#guaranteed)) after updating the shared secret on the webhook (sender).
+If somehow generating a new secret overrides the current secret, rest assured that failed payloads are automatically retried (if the webhook is configured to be [guaranteed](#guaranteed)) after updating the shared secret on the webhook (sender).
 
 #### Content-Type
 
