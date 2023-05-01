@@ -168,7 +168,7 @@ const objWebhook =
 
   header:
    [
-     { Authorization: '', value: 'Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' },
+     { name: 'Authorization', value: 'Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' },
      // { name: '', value: '' },
    ],
 
