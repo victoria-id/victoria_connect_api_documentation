@@ -21,6 +21,10 @@ This document describes everything you need to know about Victoria ID's webhooks
       2. [Query and data](#query-and-data)
    10. [Order guarantee](#order-guarantee)
    11. [Set-up](#set-up)
+   12. [Payload](#payload)
+       1. [Query string](#query-string)
+       2. [Event codes](#event-codes)
+       3. [Request body](#request-body)
 
 
 ## Definitions
@@ -88,13 +92,9 @@ Guaranteed webhooks have property `guaranteed` set to `true`.
 
 ## Method
 
-The default HTTP method for sending payloads is `GET`. The payload data is encoded in the URI's query string.
+The default HTTP method for sending payloads is `GET`.
 
-By default, the webhook payload contains only enough information for the webhook receiver to know that something changed and that it should contact the webhook sender for details.
-
-As a matter of good practice, the webhook payload data should always be regarded with some distrust. Always fetch the actual status and sensitive information from the webhook sender's API.
-
-Only few webhook payloads contain extra information encoded in the request body (like the subject of an e-mail). This information is only sent when the webhook is configured to use a non-`GET` request like `PUT`.
+Information is primarily encoded in the query string of the URI. In very few cases, a webhook payload contains additional information encoded in the request body (like the subject of an e-mail). To receive such information please read [Request body](#request-body).
 
 
 ## URI
@@ -118,7 +118,7 @@ A webhook can contain static base data which is automatically added to payloads 
 
 #### Authorization
 
-Any good webhook configuration should at least have an `Authorization` header containing a shared secret.
+Any good webhook configuration should at least have an `Authorization` header (or something similar) containing a shared secret.
 
 A good method of rotating shared secrets is to configure a secondary secret on the webhook receiver. When the webhook receiver is ready to accept the secondary secret, the webhook sender can seamlessly migrate to the new secret. When done, the primary secret is deleted, and the secondary secret becomes the only secret.
 
@@ -128,13 +128,19 @@ If somehow generating a new secret overrides the current secret, rest assured th
 
 #### Content-Type
 
-Some payloads contain a request body, but only if a webhook is configured to use a non-`GET` [method](#method) like `PUT`. You can use a `Content-Type` header to specify the desired format of the request body. Currently supported `Content-Type` values are `application/json` and `x-www-form-urlencoded`.
+Very few webhook payloads contain extra information encoded in the request body (like the subject of an e-mail).
+
+A request body requires a non-`GET` method (like `PUT`), and a valid `Content-Type` header.
+
+Currently supported values for `Content-Type` are `application/json` and `x-www-form-urlencoded`.
+
+For more information, see [Request body](#request-body)
 
 ### Query and data
 
 You can configure the webhook to automatically add static information to the query string and request body (data) of payloads. It works almost identical to [headers](#headers).
 
-To support sending data, please specify a [`Content-Type`](#content-type) header, and make sure the webhook is configured to use the `PUT` [method](#method).
+Static request body data requires a non-`GET` method (like `PUT`), and a valid [`Content-Type`](#content-type) header.
 
 
 ---
@@ -150,9 +156,9 @@ Although the delivery algorithm makes a best effort to deliver payloads in order
 
 ## Set-up
 
-If the webhook defaults are suitable for your webhook receiver, then all you have to specify is the `uri` of the webserver to which to send the payloads to.
+Webhooks need to be configured per portal and (currently) can only be set up by Victoria ID. Please let us know where you'd like us to send the callbacks.
 
-However, it is strongly recommended to specify an `Authorization` [header](#headers) as well.
+If the webhook defaults are suitable for your webhook receiver, then all you have to specify is the `uri` of the webserver to which to send the payloads to. However, it is strongly recommended to also specify an `Authorization` [header](#headers) (or something similar).
 
 Please copy, alter, and send the definition below if you require a more specific setup:
 
@@ -184,3 +190,105 @@ const objWebhook =
 
  };
 ```
+
+
+## Payload
+
+The webhook payload contains just enough information for the webhook receiver to know something changed and that it should contact the webhook sender's API for details.
+
+As a matter of good practice, the webhook payload data should always be regarded with some distrust. Always fetch the actual status and sensitive information from the webhook sender's API.
+
+### Query string
+
+The payload data is primarily encoded in the URI's query string. This query string will look similar to the one below:
+
+```sh
+#https://example.com/path/?
+user_id=644b8cb9000af3c567089560&portal_id=644b8cb9000af3c56708955f&group_id=644b8cb9000af3c567089562&screening_id=644b8cb9000af3c567089617&screenee_id=644b8cb9000af3c567089632&code=check.identity.travel_document.text_chip_certificate.release
+```
+
+Here is the same information as shown above but organized to be more readable:
+
+```sh
+user_id      = 644b8cb9000af3c567089560
+portal_id    = 644b8cb9000af3c56708955f
+group_id     = 644b8cb9000af3c567089562
+screening_id = 644b8cb9000af3c567089617
+screenee_id  = 644b8cb9000af3c567089632
+code         = check.identity.travel_document.text_chip_certificate.release
+```
+
+Most parameters are just references to a user, portal, group, screening, or screenee. The `code` parameter refers to the event or action that was taken.
+
+### Event codes
+
+Event codes related to checks commonly have the following format: `check.<check_code>.<event_sub_code>`. For example, `check.finance.bank_account.iban.release` where the middle part, `finance.bank_account.iban`, is the check code.
+
+Not all checks trigger the same amount or type of codes as checks often differ in the amount and the type of steps required.
+However, all checks trigger events with sub-code `.release` and `.delete`, which are typically the events a webhook receiver wants to act upon.
+
+* `.release` happens when the screenee (candidate) releases the information gathered to the screener (typically a HR role).
+
+* `.delete` happens when check information is deleted.
+
+
+Here is a non-exhaustive list of event codes relating to checks:
+
+| Event code                                                      | Description
+|-----------------------------------------------------------------|-------------------------------------------------------
+| `check.business.chamber_of_commerce.kvk_nl.update`              | Screenee updated their KvK details.
+| `check.business.chamber_of_commerce.kvk_nl.release`             | Screenee released KvK details to the screener.
+| `check.business.chamber_of_commerce.kvk_nl.delete`              | KvK details were deleted.
+|                                                                 |
+| `check.declaration.employment_history.uwv_nl.update`            | Screenee updated their UWV details.
+| `check.declaration.employment_history.uwv_nl.release`           | Screenee released UWV details to the screener.
+| `check.declaration.employment_history.uwv_nl.delete`            | UWV details were deleted.
+|                                                                 |
+| `check.declaration.right_to_work.update`                        | Screenee updated their RTW details.
+| `check.declaration.right_to_work.release`                       | Screenee released RTW details to the screener.
+| `check.declaration.right_to_work.delete`                        | RTW details were deleted.
+|                                                                 |
+| `check.finance.bank_account.iban.update.image`                  | Screenee uploaded images of their debit card.
+| `check.finance.bank_account.iban.update.information`            | Screenee updated debit card information.
+| `check.finance.bank_account.iban.release`                       | Screenee released debit card information to the screener.
+| `check.finance.bank_account.iban.delete`                        | Debit card information was deleted.
+|                                                                 |
+| `check.finance.insolvency.cir_nl.update`                        | Screenee updated information from the Insolvency Registry.
+| `check.finance.insolvency.cir_nl.release`                       | Screenee released information to the screener.
+| `check.finance.insolvency.cir_nl.delete`                        | Information was deleted.
+|                                                                 |
+| `check.health.practitioner.big_nl.update`                       | Screenee updated information from the BIG Registry.
+| `check.health.practitioner.big_nl.release`                      | Screenee released information to the screener.
+| `check.health.practitioner.big_nl.delete`                       | Information was deleted.
+|                                                                 |
+| `check.identity.travel_document.quick.create`                   | Screenee uploaded images of their ID.
+| `check.identity.travel_document.quick.release`                  | Screenee released information to the screener.
+| `check.identity.travel_document.quick.delete`                   | Information was deleted.
+|                                                                 |
+| `check.identity.travel_document.text_chip_certificate.start`    | Screenee started the ID check on their mobile device.
+| `check.identity.travel_document.text_chip_certificate.create`   | Screenee finished the ID check on their mobile device.
+| `check.identity.travel_document.text_chip_certificate.release`  | Screenee released ID information to the screener.
+| `check.identity.travel_document.text_chip_certificate.delete`   | ID information was deleted.
+
+
+A non-exhaustive list of events not related to checks:
+
+| Event code                                                      | Description
+|-----------------------------------------------------------------|-------------------------------------------------------
+| `user.mail`                                                     | An e-mail was sent to a user.
+|                                                                 |
+| `screenee.create`                                               | A screenee was added to a screening.
+| `screenee.mail`                                                 | An e-mail was sent to a screenee.
+| `screenee.invite.sent`                                          | An invitation e-mail was sent to a screenee.
+| `screenee.invite.accept`                                        | Invitation was accepted.
+| `screenee.update`                                               | A screenee's details got updated.
+| `screenee.delete`                                               | A screenee was deleted.
+
+
+### Request body
+
+The difference between information encoded in the query string and the request body, is that the information in the query string is considered safe to log (in HTTP access logs), whereas the request body is better suited for semi-sensitive information like an e-mail subject.
+
+Very few webhook payloads contain extra information encoded in the request body (like the subject of an e-mail).
+
+A request body requires a non-`GET` method (like `PUT`), and a valid [`Content-Type`](#content-type) header.
