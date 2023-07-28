@@ -23,15 +23,15 @@
            id: core.mongodb.object_id,
           },
 
-         country: String,
+         country: core.validate('country.code'),
 
-         title: String,
-         description: String,
+         title: core.validate('name.relaxed'),
+         description: core.validate('description'),
 
          time:
           {
-           from: dtValue => new Date(dtValue),
-           to: dtValue => new Date(dtValue),
+           from: core.validate('date'),
+           to: core.validate('date'),
           },
         },
       ],
@@ -55,15 +55,15 @@
          //   id: core.mongodb.object_id,
          //  },
 
-         title: String,
-         description: String,
+         title: core.validate('name.relaxed'),
+         description: core.validate('description'),
 
-         state: String,
+         state: core.validation.rule.enum(['new', 'pending', 'open', 'closed', 'archived']),
 
          time:
           {
-           from: dtValue => new Date(dtValue),
-           to: dtValue => new Date(dtValue),
+           from: core.validate('date'),
+           to: core.validate('date'),
           },
         },
       ],

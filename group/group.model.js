@@ -1,23 +1,23 @@
 {
  portal:
   {
-   id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
+   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
   },
 
- name: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.relaxed },
+ name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
 
  access:
   [
     {
      user:
       {
-       id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user' },
+       id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user' },
       },
 
      permission:
       [
         {
-         type: String, enum:
+         $type: String, enum:
           [
            'portal.full',
            'portal.create',

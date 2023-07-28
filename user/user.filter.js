@@ -12,29 +12,30 @@
 
          name:
           {
-           personal: String,
-           family: String,
-           display: String,
+           personal: core.validate('name.relaxed'),
+           family: core.validate('name.relaxed'),
+           display: core.validate('name.relaxed'),
+           short: core.validate('name.relaxed'),
           },
 
-         locale: String,
-         gender: String,
+         locale: core.validate('locale'),
+         gender: core.validate('gender'),
 
          address:
           {
-           mail:
+           mail: core.validation.rule.array({ range: [1, 5] },
             [
               {
-               uri: String,
-               primary: Boolean.parse,
+               uri: core.validate('address.mail'),
+               primary: core.validate('boolean'),
               },
-            ],
+            ]),
 
            net:
             [
               {
-               type: String,
-               uri: String, // core.validate(core.validate.mongodb(core.mongodb.validate.address.uri)),
+               type: core.validation.rule.enum(['http', 'tel']),
+               uri: core.validate('address.uri'),
               },
             ],
           },
@@ -53,32 +54,33 @@
 
          name:
           {
-           personal: String,
-           family: String,
-           display: String,
+           personal: core.validate('name.relaxed'),
+           family: core.validate('name.relaxed'),
+           display: core.validate('name.relaxed'),
+           short: core.validate('name.relaxed'),
           },
 
-         locale: String,
-         gender: String,
+          locale: core.validate('locale'),
+          gender: core.validate('gender'),
 
-         address:
-          {
-           mail:
-            [
-              {
-               uri: String,
-               primary: Boolean.parse,
-              },
-            ],
+          address:
+           {
+            mail: core.validation.rule.array({ range: [1, 5] },
+             [
+               {
+                uri: core.validate('address.mail'),
+                primary: core.validate('boolean'),
+               },
+             ]),
 
-           net:
-            [
-              {
-               type: String,
-               uri: String, // core.validate(core.validate.mongodb(core.mongodb.validate.address.uri)),
-              },
-            ],
-          },
+            net:
+             [
+               {
+                type: core.validation.rule.enum(['http', 'tel']),
+                uri: core.validate('address.uri'),
+               },
+             ],
+           },
         },
       ],
 
@@ -94,29 +96,30 @@
 
          name:
           {
-           personal: String,
-           family: String,
-           display: String,
+           personal: core.validate('name.relaxed'),
+           family: core.validate('name.relaxed'),
+           display: core.validate('name.relaxed'),
+           short: core.validate('name.relaxed'),
           },
 
-         locale: String,
-         gender: String,
+         locale: core.validate('locale'),
+         gender: core.validate('gender'),
 
          address:
           {
-           mail:
+           mail: core.validation.rule.array({ range: [1, 5] },
             [
               {
-               uri: String,
-               primary: Boolean.parse,
+               uri: core.validate('address.mail'),
+               primary: core.validate('boolean'),
               },
-            ],
+            ]),
 
            net:
             [
               {
-               type: String,
-               uri: String, // core.validate(core.validate.mongodb(core.mongodb.validate.address.uri)),
+               type: core.validation.rule.enum(['http', 'tel']),
+               uri: core.validate('address.uri'),
               },
             ],
           },
