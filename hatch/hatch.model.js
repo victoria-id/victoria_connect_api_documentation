@@ -1,67 +1,70 @@
 {
  portal:
   {
-   id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
+   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
   },
 
  user:
   {
-   id: { type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user' },
+   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user' },
   },
 
- token: { type: String, required: true, default: core.cryptography.code },
+ token: { $type: String, required: true, default: core.cryptography.code },
 
  // Hatch UI title.
- title: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.relaxed },
+ title: { $type: String, trim: true, maxlength: 255, required: true, validate: core.mongodb.validation.rule.name.relaxed },
  // Hatch UI description.
- description: { type: String, trim: true, maxlength: 100, default: '', validate: core.mongodb.validate.description },
+ description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.description },
 
  file:
   {
    // Show file upload.
-   upload: { type: Boolean, required: true, default: core.configuration.hatch.file.upload },
+   upload: { $type: Boolean, required: true, default: core.configuration.hatch.file.upload },
   },
 
  media:
   {
    // Allowed media types in 'open file dialog'. Leave empty to accept any type.
-   type: { type: [String], trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.media.type },
+   type:
+    [
+      { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.media.type },
+    ],
   },
 
  camera:
   {
    // Show "take a photo".
-   capture: { type: Boolean, required: true, default: core.configuration.hatch.camera.capture },
+   capture: { $type: Boolean, required: true, default: core.configuration.hatch.camera.capture },
   },
 
  image:
   {
    // Image type to convert images to.
-   type: { type: String, trim: true, maxlength: 50, required: true, default: core.configuration.hatch.image.type, validate: core.mongodb.validate.media.type },
+   type: { $type: String, trim: true, maxlength: 50, required: true, default: core.configuration.hatch.image.type, validate: core.mongodb.validation.rule.media.type },
 
    // Maximum image resolution. Hatch UI should try to resize before sending data to the hatch.
-   resolution: { type: String, trim: true, maxlength: 50, default: core.configuration.hatch.image.resolution, validate: core.mongodb.validate.image.resolution },
+   resolution: { $type: String, trim: true, maxlength: 50, default: core.configuration.hatch.image.resolution, validate: core.mongodb.validation.rule.image.resolution.single },
 
    // (JPEG) compression level.
-   compression: { type: Number, min: 50, max: 100, required: true, default: core.configuration.hatch.image.compression },
+   compression: { $type: Number, min: 50, max: 100, required: true, default: core.configuration.hatch.image.compression },
   },
 
- minimum: { type: Number, min: 1, max: 10, required: true, default: 1 },
- maximum: { type: Number, min: 1, max: 10, required: true, default: 1 },
+ minimum: { $type: Number, min: 1, max: 10, required: true, default: 1 },
+ maximum: { $type: Number, min: 1, max: 10, required: true, default: 1 },
 
  data:
   [
     {
-     name: { type: String, trim: true, maxlength: 50, required: true },
-     type: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.media.type },
-     encoding: { type: String, trim: true, maxlength: 50, required: true, default: 'base64' },
-     content: { type: String, maxlength: core.configuration.hatch.file.size, required: true },
+     name: { $type: String, trim: true, maxlength: 50, required: true },
+     type: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.media.type },
+     encoding: { $type: String, trim: true, maxlength: 50, required: true, default: 'base64' },
+     content: { $type: String, maxlength: core.configuration.hatch.file.size, required: true },
     },
   ],
 
  time:
   {
-   update: { type: Date, required: true, default: Date.now, expires: core.configuration.hatch.session.expire },
+   update: { $type: Date, required: true, default: Date.now, expires: core.configuration.hatch.session.expire },
   },
 
 }

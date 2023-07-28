@@ -8,13 +8,13 @@
         {
          // id: core.mongodb.object_id,
 
-         title: String,
-         description: String,
+         title: core.validate('required', 'name.relaxed'),
+         description: core.validate('description'),
 
          file:
           {
            // Show file upload.
-           upload: Boolean,
+           upload: core.validate('boolean'),
           },
 
          media:
@@ -22,28 +22,28 @@
            // Allowed media types in 'open file dialog'. Leave empty to accept any type.
            type:
             [
-             String,
+             core.validate('media.type', 'media.type.image.raster.common'),
             ],
           },
 
          camera:
           {
            // Show "take a photo".
-           capture: Boolean,
+           capture: core.validate('boolean'),
           },
 
          image:
           {
            // Image type to convert images to.
-           type: String,
+           type: core.validate('media.type', 'media.type.image.raster.common'),
            // Maximum image resolution. Hatch UI should try to resize before sending data to the hatch.
-           resolution: String,
+           resolution: core.validate('image.resolution.single'),
            // (JPEG) compression level.
-           compression: Number,
+           compression: core.validate('number.round', core.validation.rule.range([80, 100])),
           },
 
-         minimum: Number,
-         maximum: Number,
+         minimum: core.validate('number.round', core.validation.rule.range([1, 10])),
+         maximum: core.validate('number.round', core.validation.rule.range([1, 10])),
 
         },
       ],
@@ -60,10 +60,10 @@
          data:
           [
             {
-             name: String,
-             type: String,
-             encoding: String,
-             content: String,
+             name: core.validate('required', 'file.name.strict'),
+             type: core.validate('required', 'media.type', 'media.type.image.photo.common'),
+             encoding: core.validate('required', core.validation.rule.enum(['base64'])),
+             content: core.validate('required', 'encoding.base64'),
             },
           ],
 

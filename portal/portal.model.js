@@ -1,62 +1,99 @@
 {
  // Portal schema version used for migrations.
- version: { type: Number, required: true, default: 0 },
+ version: { $type: Number, required: true, default: 0 },
 
- group: // Reference to the root group, which will also be used to determine access rights.
+ group: // Reference to the root group, which will be used to determine access rights for the portal.
   {
-   id: { type: core.mongodb.schema.type.object_id, required: true, ref: 'group' },
+   id: { $type: core.mongodb.schema.type.object_id, required: true, ref: 'group' },
   },
 
- title: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.relaxed, unique: true },
+ title: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed, unique: true },
 
  domain:
   [
-    { type: String, trim: true, maxlength: 100, unique: true, required: true, index: true, validate: core.mongodb.validate.address.fqdn },
+    { $type: String, trim: true, maxlength: 100, unique: true, required: true, index: true, validate: core.mongodb.validation.rule.address.fqdn },
   ],
+
+ api:
+  {
+   uri: { $type: String, trim: true, maxlength: 100, required: true, default: 'https://api.victoria-id.com/', validate: core.mongodb.validation.rule.address.http.secure },
+  },
 
  style:
   {
-   // :root
 
-   icon:
-    [
+   global:
+    {
+
+     color:
       {
-       use: { type: String, enum: ['browser-favorite-icon', 'application-launch-icon', 'apple-touch-icon'], required: true, default: 'browser-favorite-icon' },
-       type: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.media.type },
-       size: { type: String, trim: true, maxlength: 100, validate: core.mongodb.validate.image.resolution_multiple },
-       uri: { type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validate.address.uri },
+       primary: { $type: String, trim: true, maxlength: 7, required: true, default: '#2196f3', validate: core.mongodb.validation.rule.html.color.hexadecimal },
+
+       secondary: { $type: String, trim: true, maxlength: 7, required: true, default: '#2196f3', validate: core.mongodb.validation.rule.html.color.hexadecimal },
+
+       tertiary: { $type: String, trim: true, maxlength: 7, required: true, default: '#2196f3', validate: core.mongodb.validation.rule.html.color.hexadecimal },
       },
-    ],
 
-   'color-primary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
-   'color-secondary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
-   'color-tertiary': { type: String, trim: true, maxlength: 50, required: true, default: '#2196f3', validate: core.mongodb.validate.css.color },
+     icon:
+      [
+        {
+         use: { $type: String, enum: ['browser_favorite_icon', 'application_launch_icon', 'apple_touch_icon'], required: true, default: 'browser_favorite_icon' },
+         type: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.media.type },
+         size: { $type: String, trim: true, maxlength: 100, validate: core.mongodb.validation.rule.image.resolution.multiple },
+         uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+        },
+      ],
 
-   body:
+    }, // global
+
+   html: // Portal + e-mail.
     {
-     // 'background-image': { type: String, trim: true, maxlength: 1024, validate: core.mongodb.validate.address.uri },
-     'background-color': { type: String, trim: true, maxlength: 50, required: true, default: '#eee', validate: core.mongodb.validate.css.color },
-     'font-color': { type: String, trim: true, maxlength: 50, required: true, default: '#333', validate: core.mongodb.validate.css.color },
-     'font-family': { type: String, trim: true, maxlength: 255, required: true, default: 'Arial', validate: core.mongodb.validate.name.relaxed },
-     'font-size': { type: String, trim: true, maxlength: 50, required: true, default: '12pt', validate: core.mongodb.validate.css.font.size },
-    },
 
-   body_layout_center:
-    {
-     'background-image': { type: String, trim: true, maxlength: 1024, validate: core.mongodb.validate.address.uri },
-    },
+     body:
+      {
+       background:
+        {
+         // image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+         color: { $type: String, trim: true, maxlength: 7, required: true, default: '#eee', validate: core.mongodb.validation.rule.html.color.hexadecimal },
+        },
 
-  },
+       font:
+        {
+         color: { $type: String, trim: true, maxlength: 7, required: true, default: '#333', validate: core.mongodb.validation.rule.html.color.hexadecimal },
+
+         family: { $type: String, trim: true, maxlength: 255, required: true, default: 'Arial', validate: core.mongodb.validation.rule.name.relaxed },
+
+         size: { $type: String, trim: true, maxlength: 50, required: true, default: '12pt', validate: core.mongodb.validation.rule.html.font.size },
+        },
+      },
+
+     body_layout_center:
+      {
+       background:
+        {
+         image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+        },
+      },
+
+    }, // html
+
+  }, // style
 
  brand:
   {
-   name: { type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validate.name.relaxed },
-   logo: { type: String, trim: true, maxlength: 1024, required: true, default: 'logo.svg', validate: core.mongodb.validate.address.uri },
+   name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
+
+   logo:
+    {
+     uri: { $type: String, trim: true, maxlength: 1024, required: true, default: 'logo.svg', validate: core.mongodb.validation.rule.address.http.path.relaxed },
+
+     caption: { $type: String, trim: true, maxlength: 10, default: '', validate: core.mongodb.validation.rule.name.relaxed },
+    },
   },
 
  check:
   [
-    { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.resource.identifier },
+    { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
   ],
 
 }

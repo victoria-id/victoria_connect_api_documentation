@@ -18,13 +18,13 @@
          //   id: core.mongodb.object_id,
          //  },
 
-         title: String,
-         description: String,
+         title: core.validate('name.relaxed'),
+         description: core.validate('description'),
 
          check:
           [
             {
-             code: String,
+             code: core.validate('resource.identifier'),
              configuration: Object,
             },
           ],
@@ -46,13 +46,13 @@
          //   id: core.mongodb.object_id,
          //  },
 
-         title: String,
-         description: String,
+         title: core.validate('name.relaxed'),
+         description: core.validate('description'),
 
          check:
           [
             {
-             code: String,
+             code: core.validate('resource.identifier'),
              configuration: Object,
             },
           ],

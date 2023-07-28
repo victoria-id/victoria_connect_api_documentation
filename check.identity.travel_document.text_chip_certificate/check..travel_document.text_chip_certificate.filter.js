@@ -21,6 +21,7 @@
          dg12: String,
          dg13: String,
          dg14: String,
+         dg15: String,
          sod: String,
         },
 
@@ -56,15 +57,15 @@
        //   expire: String,
        //  },
 
-       image:
+       image: core.validation.rule.array({ count: 2 },
         [
           {
-           name: String,
-           type: String,
-           encoding: String,
-           content: String,
+           name: core.validate('required', 'file.name.strict'),
+           type: core.validate('required', 'media.type', 'media.type.image.jpeg'),
+           encoding: core.validate('required', core.validation.rule.enum(['base64'])),
+           content: core.validate('required', 'encoding.base64'),
           },
-        ],
+        ]),
       },
 
      entity:
@@ -85,15 +86,15 @@
        // gender: String,
        // nationality: String,
 
-       image:
-        [
-          {
-           name: String,
-           type: String,
-           encoding: String,
-           content: String,
-          },
-        ],
+       // image: core.validation.rule.array({ range: [0, 1] },
+       //  [
+       //    {
+       //     name: core.validate('required', 'file.name.strict'),
+       //     type: core.validate('required', 'media.type', 'media.type.image.jpeg'),
+       //     encoding: core.validate('required', core.validation.rule.enum(['base64'])),
+       //     content: core.validate('required', 'encoding.base64'),
+       //    },
+       //  ]),
 
       },
     },

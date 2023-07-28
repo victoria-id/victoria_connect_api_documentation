@@ -9,11 +9,11 @@
         {
          // id: core.mongodb.object_id,
 
-         title: String,
-         domain:
+         title: core.validate('name.relaxed'),
+         domain: core.validation.rule.array({ range: [1, 10] },
           [
-           String,
-          ],
+           core.validate('address.fqdn'),
+          ]),
 
          style:
           {
@@ -21,9 +21,9 @@
             {
              color:
               {
-               primary: String,
-               secondary: String,
-               tertiary: String,
+               primary: core.validate('html.color.hexadecimal'),
+               secondary: core.validate('html.color.hexadecimal'),
+               tertiary: core.validate('html.color.hexadecimal'),
               },
             },
 
@@ -33,14 +33,14 @@
               {
                background:
                 {
-                 color: String,
+                 color: core.validate('html.color.hexadecimal'),
                 },
 
                font:
                 {
-                 color: String,
-                 family: String,
-                 size: String,
+                 color: core.validate('html.color.hexadecimal'),
+                 family: core.validate('name.relaxed'),
+                 size: core.validate('html.font.size'),
                 },
               },
 
@@ -48,7 +48,7 @@
               {
                background:
                 {
-                 image: String,
+                 image: core.validate('address.http.path.relaxed'),
                 },
               },
             },
@@ -56,8 +56,11 @@
 
          brand:
           {
-           name: String,
-           logo: String,
+           name: core.validate('name.relaxed'),
+           logo:
+            {
+             uri: core.validate('address.http.path.relaxed'),
+            },
           },
 
         },
@@ -73,21 +76,21 @@
         {
          // id: core.mongodb.object_id,
 
-         title: String,
-         domain:
+         title: core.validate('name.relaxed'),
+         domain: core.validation.rule.array({ range: [1, 10] },
           [
-           String,
-          ],
+           core.validate('address.fqdn'),
+          ]),
 
-         style:
+          style:
           {
            global:
             {
              color:
               {
-               primary: String,
-               secondary: String,
-               tertiary: String,
+               primary: core.validate('html.color.hexadecimal'),
+               secondary: core.validate('html.color.hexadecimal'),
+               tertiary: core.validate('html.color.hexadecimal'),
               },
             },
 
@@ -97,14 +100,14 @@
               {
                background:
                 {
-                 color: String,
+                 color: core.validate('html.color.hexadecimal'),
                 },
 
                font:
                 {
-                 color: String,
-                 family: String,
-                 size: String,
+                 color: core.validate('html.color.hexadecimal'),
+                 family: core.validate('name.relaxed'),
+                 size: core.validate('html.font.size'),
                 },
               },
 
@@ -112,7 +115,7 @@
               {
                background:
                 {
-                 image: String,
+                 image: core.validate('address.http.path.relaxed'),
                 },
               },
             },
@@ -120,8 +123,11 @@
 
          brand:
           {
-           name: String,
-           logo: String,
+           name: core.validate('name.relaxed'),
+           logo:
+            {
+             uri: core.validate('address.http.path.relaxed'),
+            },
           },
 
         },

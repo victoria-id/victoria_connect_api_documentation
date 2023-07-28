@@ -12,20 +12,22 @@
 
          name:
           {
-           personal: String,
-           family: String,
+           personal: core.validate('name.relaxed'),
+           family: core.validate('name.relaxed'),
+           display: core.validate('name.relaxed'),
+           short: core.validate('name.relaxed'),
           },
-         description: String,
+         description: core.validate('description'),
 
-         locale: String,
-         gender: String,
+         locale: core.validate('locale'),
+         gender: core.validate('gender'),
 
          address:
           {
-           mail: String,
+           mail: core.validate('address.mail'),
            tele:
             {
-             phone: String,
+             phone: core.validate('address.tele'),
             },
           },
 
@@ -45,20 +47,22 @@
 
          name:
           {
-           personal: String,
-           family: String,
+           personal: core.validate('name.relaxed'),
+           family: core.validate('name.relaxed'),
+           display: core.validate('name.relaxed'),
+           short: core.validate('name.relaxed'),
           },
-         description: String,
+         description: core.validate('description'),
 
-         locale: String,
-         gender: String,
+         locale: core.validate('locale'),
+         gender: core.validate('gender'),
 
          address:
           {
-           mail: String,
+           mail: core.validate('address.mail'),
            tele:
             {
-             phone: String,
+             phone: core.validate('address.tele'),
             },
           },
         },

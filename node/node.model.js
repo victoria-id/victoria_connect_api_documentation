@@ -1,10 +1,10 @@
 {
  _id: false,
 
- name: { type: String, maxlength: 255 },
+ name: { $type: String, maxlength: 255 },
 
- use: { type: Number, min: 0, required: true },
- free: { type: Number, min: 0, required: true },
+ use: { $type: Number, min: 0, required: true },
+ free: { $type: Number, min: 0, required: true },
 
  time: false,
 }
@@ -24,9 +24,9 @@
 }
 
 {
- name: { type: String, required: true, unique: true, index: true },
+ name: { $type: String, required: true, unique: true, index: true },
 
- order: { type: Number, min: 0, required: true, index: true },
+ order: { $type: Number, min: 0, required: true, index: true },
 
  processor:
   [
@@ -35,6 +35,6 @@
 
  time:
   {
-   update: { type: Date, required: true, default: Date.now, expires: core._.get(core, 'configuration.node.time.expire', 600), index: true },
+   update: { $type: Date, required: true, default: Date.now, expires: core._.get(core, 'configuration.node.time.expire', 600), index: true },
   },
 }
