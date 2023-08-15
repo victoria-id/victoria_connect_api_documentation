@@ -11,11 +11,15 @@
          code: true,
          path: true,
 
+         order: true,
+
          name: true,
          description: true,
 
          state: true,
          message: true,
+
+         maintenance: true,
 
          time: true,
         },
@@ -33,11 +37,15 @@
          code: true,
          path: true,
 
+         order: true,
+
          name: true,
          description: true,
 
          state: true,
          message: true,
+
+         maintenance: true,
 
          time: true,
         },
