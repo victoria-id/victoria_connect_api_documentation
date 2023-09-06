@@ -24,11 +24,22 @@
      information:
       {
 
-       card:
+       bank:
         {
-         name: core.validate('name.human.initial'),
-         organization: core.validate('name.relaxed'),
-         iban: core.validate('string'),
+         code: core.validate('bank.bic'), // BIC.
+
+         account:
+          {
+           type: core.validate('string'), // E.g., 'iban' (default) or 'unknown'.
+           number: core.validate('string', 'trim', 'uppercase'),
+
+           holder:
+            {
+             // type: '', // 'personal' / 'business'.
+             name: core.validate('name.human.initial'),
+             organization: core.validate('name.relaxed'),
+            },
+          },
         },
 
       },
