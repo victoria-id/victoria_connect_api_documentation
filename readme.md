@@ -1,41 +1,33 @@
 # Victoria Connect API documentation
 
+The primary API documentation is [published here](https://documenter.getpostman.com/view/29541604/2s9YBxZGWS).
 
+This repository only contains:
+
+* Database schemas.
+* Request / response filters.
+* Validation rules.
+* Extra documentation (in Markdown format) otherwise not covered by the primary API documenation.
 
 
 ## Table of contents
 
 1. [Victoria Connect API documentation](#victoria-connect-api-documentation)
    1. [Table of contents](#table-of-contents)
-   2. [Postman](#postman)
-   3. [Schemas and filters](#schemas-and-filters)
+   2. [Schemas, filters, and validation rules](#schemas-filters-and-validation-rules)
       1. [Database schemas](#database-schemas)
-      2. [Input / output filters](#input--output-filters)
-   4. [Webhooks](#webhooks)
+      2. [Request / response filters](#request--response-filters)
+   3. [Webhooks](#webhooks)
 
 
 ---
 
 
-## Postman
+## Schemas, filters, and validation rules
 
-This repository contains 1 Postman collection, and 2 Postman environments, which you can import into your Postman application. The Postman collection depends on a Postman environment, so we recommend importing at least `victoria_connect_api.postman_collection.json` and `api.victoria-id.com.postman_environment.json`.
+Each folder within this repository contain database schemas and request / response filters for API end-points and modules.
 
-You can [download Postman here](https://www.postman.com/downloads/).
-
-> The Postman environment defined in `localhost.victoria-id.com.postman_environment.json` is used for API development on a local machine and --in general-- is not needed.
-
-Documentation based on the Postman collection is [published online here](https://documenter.getpostman.com/view/121742/UyrAFHAA).
-
-
----
-
-
-## Schemas and filters
-
-Each folder within this repository contain database schemas and input / output filters for an API end-point or module.
-
-For the validation rules references by the database schemas, check [validation_rules.js](validation_rules.js);
+Validation rules referenced by the schemas and filters can be found in [validation_rules.json](validation_rules.json);
 
 
 ### Database schemas
@@ -57,8 +49,6 @@ Schema excerpt for `screenee`:
    display: { type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validate.name.human },
   },
 
- description: { type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validate.name.relaxed },
-
  locale: { type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validate.locale },
 
  address:
@@ -74,15 +64,15 @@ Schema excerpt for `screenee`:
 ```
 
 
-### Input / output filters
+### Request / response filters
 
-Input and output filters are applied to every API request / response, and define which parts of the JSON data is allowed in or out.
+Request and response filters are applied to every API request / response, and define which parts of the JSON data is allowed in or out.
 
 Here's an example of a filter definition:
 
 ```javascript
 {
- input: // Input filters section.
+ input: // Request filters section.
   {
 
    update: // Filter applied during a request to update.
@@ -92,7 +82,7 @@ Here's an example of a filter definition:
         {
          name:
           {
-           display: String, // `name.display` is allowed and expected to be a `String`.
+           display: core.validate('required', 'name.human'), // `name.display` is required and expected to match name format. See `validation_rules.json`.
           },
         },
       ],
@@ -101,7 +91,7 @@ Here's an example of a filter definition:
   },
 
 
- output: // Output filters section. Applied to the body of an API response.
+ output: // Response filters section. Applied to the body of an API response.
   {
 
    minimal: // Filter definition "minimal". Outputs minimal data.
