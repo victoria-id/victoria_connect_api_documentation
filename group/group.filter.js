@@ -8,7 +8,7 @@
         {
          // id: core.mongodb.object_id,
 
-         name: String,
+         name: core.validate('name.relaxed'),
 
          access:
           [
@@ -42,7 +42,7 @@
         {
          // id: core.mongodb.object_id,
 
-         name: String,
+         name: core.validate('name.relaxed'),
 
          access:
           [

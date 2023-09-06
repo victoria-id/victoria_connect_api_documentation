@@ -63,6 +63,13 @@
   },
 
   {
+   "code": "bank.bic",
+   "description": "Bank Identification Code (BIC-8 & BIC-11).",
+   "pattern": "/^(?:[a-z]{6}(?:[a-z0-9]{2}|[a-z0-9]{5}))?$/is",
+   "exception": "Must be a valid Bank Identification Code (BIC)."
+  },
+
+  {
    "code": "encoding.base64",
    "description": "Base64 encoding.",
    "pattern": "/^[a-zA-Z0-9\\s+/=,_-]*$/s",

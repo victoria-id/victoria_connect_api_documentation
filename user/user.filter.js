@@ -107,7 +107,7 @@
 
          address:
           {
-           mail: core.validation.rule.array({ range: [1, 5] },
+           mail: core.validation.rule.array({ required: false, range: [1, 5] },
             [
               {
                uri: core.validate('address.mail'),
