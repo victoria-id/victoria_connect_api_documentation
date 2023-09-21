@@ -1,6 +1,6 @@
-# Victoria Connect API documentation
+# Victoria Connect API documentation (additional)
 
-The primary API documentation is [published here](https://documenter.getpostman.com/view/29541604/2s9YBxZGWS).
+You can find the primary API documentation at [doc.api.victoria-id.com](https://doc.api.victoria-id.com/).
 
 This repository only contains:
 
@@ -12,7 +12,7 @@ This repository only contains:
 
 ## Table of contents
 
-1. [Victoria Connect API documentation](#victoria-connect-api-documentation)
+1. [Victoria Connect API documentation (additional)](#victoria-connect-api-documentation-additional)
    1. [Table of contents](#table-of-contents)
    2. [Schemas, filters, and validation rules](#schemas-filters-and-validation-rules)
       1. [Database schemas](#database-schemas)
