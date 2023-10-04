@@ -8,7 +8,12 @@
         {
          // id: core.mongodb.object_id,
 
-         type: String,
+         type: core.validation.rule.enum(['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner']),
+
+         organization:
+          {
+           name: core.validate('name.relaxed'),
+          },
 
          name:
           {
@@ -43,7 +48,12 @@
         {
          // id: core.mongodb.object_id,
 
-         type: String,
+         type: core.validation.rule.enum(['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner']),
+
+         organization:
+          {
+           name: core.validate('name.relaxed'),
+          },
 
          name:
           {
@@ -96,7 +106,14 @@
            id: true,
           },
 
+         state: true,
+
          type: true,
+
+         organization:
+          {
+           name: true,
+          },
 
          name: true,
          // description: false,
@@ -154,7 +171,14 @@
            id: true,
           },
 
+         state: true,
+
          type: true,
+
+         organization:
+          {
+           name: true,
+          },
 
          name: true,
          description: true,

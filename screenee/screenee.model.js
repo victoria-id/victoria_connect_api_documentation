@@ -19,7 +19,14 @@
    id: { $type: core.mongodb.schema.type.object_id, index: true, ref: 'user' },
   },
 
- type: { $type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer'], required: true, default: 'candidate' },
+ state: { $type: String, enum: ['new', 'pending', 'declined', 'accepted'], required: true, default: 'new' },
+
+ type: { $type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'candidate' },
+
+ organization:
+  {
+   name: { $type: String, trim: true, maxlength: 256, default: '', validate: core.mongodb.validation.rule.name.relaxed },
+  },
 
  name:
   {
