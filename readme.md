@@ -72,7 +72,7 @@ Here's an example of a filter definition:
 
 ```javascript
 {
- input: // Request filters section.
+ request: // Request filters section.
   {
 
    update: // Filter applied during a request to update.
@@ -91,7 +91,7 @@ Here's an example of a filter definition:
   },
 
 
- output: // Response filters section. Applied to the body of an API response.
+ response: // Response filters section. Applied to the body of an API response.
   {
 
    minimal: // Filter definition "minimal". Outputs minimal data.
