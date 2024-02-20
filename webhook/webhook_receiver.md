@@ -204,7 +204,7 @@ The payload data is primarily encoded in the URI's query string. This query stri
 
 ```sh
 #https://example.com/path/?
-user_id=644b8cb9000af3c567089560&portal_id=644b8cb9000af3c56708955f&group_id=644b8cb9000af3c567089562&screening_id=644b8cb9000af3c567089617&screenee_id=644b8cb9000af3c567089632&code=check.identity.travel_document.text_chip_certificate.release
+user_id=644b8cb9000af3c567089560&portal_id=644b8cb9000af3c56708955f&group_id=644b8cb9000af3c567089562&screening_id=644b8cb9000af3c567089617&screenee_id=644b8cb9000af3c567089632&code=check/identity.travel_document.text_chip_certificate/release
 ```
 
 Here is the same information as shown above but organized to be more readable:
@@ -215,60 +215,60 @@ portal_id    = 644b8cb9000af3c56708955f
 group_id     = 644b8cb9000af3c567089562
 screening_id = 644b8cb9000af3c567089617
 screenee_id  = 644b8cb9000af3c567089632
-code         = check.identity.travel_document.text_chip_certificate.release
+code         = check/identity.travel_document.text_chip_certificate/release
 ```
 
 Most parameters are just references to a user, portal, group, screening, or screenee. The `code` parameter refers to the event or action that was taken.
 
 ### Event codes
 
-Event codes related to checks commonly have the following format: `check.<check_code>.<event_sub_code>`. For example, `check.finance.bank_account.iban.release` where the middle part, `finance.bank_account.iban`, is the check code.
+Event codes related to checks commonly have the following format: `check/<check_code>/<event_sub_code>`. For example, `check/finance.bank_account.iban/release` where the middle part, `finance.bank_account.iban`, is the check code.
 
 Not all checks trigger the same amount or type of codes as checks often differ in the amount and the type of steps required.
-However, all checks trigger events with sub-code `.release` and `.delete`, which are typically the events a webhook receiver wants to act upon.
+However, all checks trigger events with sub-code `release` and `delete`, which are typically the events a webhook receiver wants to act upon.
 
-* `.release` happens when the screenee (candidate) releases the information gathered to the screener (typically a HR role).
+* `release` happens when the screenee (candidate) releases the information gathered to the screener (typically a HR role).
 
-* `.delete` happens when check information is deleted.
+* `delete` happens when check information is deleted.
 
 
 Here is a non-exhaustive list of event codes relating to checks:
 
 | Event code                                                      | Description
 |-----------------------------------------------------------------|-------------------------------------------------------
-| `check.business.chamber_of_commerce.kvk_nl.update`              | Screenee updated their KvK details.
-| `check.business.chamber_of_commerce.kvk_nl.release`             | Screenee released KvK details to the screener.
-| `check.business.chamber_of_commerce.kvk_nl.delete`              | KvK details were deleted.
+| `check/business.chamber_of_commerce.kvk_nl/update`              | Screenee updated their KvK details.
+| `check/business.chamber_of_commerce.kvk_nl/release`             | Screenee released KvK details to the screener.
+| `check/business.chamber_of_commerce.kvk_nl/delete`              | KvK details were deleted.
 |                                                                 |
-| `check.declaration.employment_history.uwv_nl.update`            | Screenee updated their UWV details.
-| `check.declaration.employment_history.uwv_nl.release`           | Screenee released UWV details to the screener.
-| `check.declaration.employment_history.uwv_nl.delete`            | UWV details were deleted.
+| `check/declaration.employment_history.uwv_nl/update`            | Screenee updated their UWV details.
+| `check/declaration.employment_history.uwv_nl/release`           | Screenee released UWV details to the screener.
+| `check/declaration.employment_history.uwv_nl/delete`            | UWV details were deleted.
 |                                                                 |
-| `check.declaration.right_to_work.update`                        | Screenee updated their RTW details.
-| `check.declaration.right_to_work.release`                       | Screenee released RTW details to the screener.
-| `check.declaration.right_to_work.delete`                        | RTW details were deleted.
+| `check/declaration.right_to_work/update`                        | Screenee updated their RTW details.
+| `check/declaration.right_to_work/release`                       | Screenee released RTW details to the screener.
+| `check/declaration.right_to_work/delete`                        | RTW details were deleted.
 |                                                                 |
-| `check.finance.bank_account.iban.update.image`                  | Screenee uploaded images of their debit card.
-| `check.finance.bank_account.iban.update.information`            | Screenee updated debit card information.
-| `check.finance.bank_account.iban.release`                       | Screenee released debit card information to the screener.
-| `check.finance.bank_account.iban.delete`                        | Debit card information was deleted.
+| `check/finance.bank_account.iban/update.image`                  | Screenee uploaded images of their debit card.
+| `check/finance.bank_account.iban/update.information`            | Screenee updated debit card information.
+| `check/finance.bank_account.iban/release`                       | Screenee released debit card information to the screener.
+| `check/finance.bank_account.iban/delete`                        | Debit card information was deleted.
 |                                                                 |
-| `check.finance.insolvency.cir_nl.update`                        | Screenee updated information from the Insolvency Registry.
-| `check.finance.insolvency.cir_nl.release`                       | Screenee released information to the screener.
-| `check.finance.insolvency.cir_nl.delete`                        | Information was deleted.
+| `check/finance.insolvency.cir_nl/update`                        | Screenee updated information from the Insolvency Registry.
+| `check/finance.insolvency.cir_nl/release`                       | Screenee released information to the screener.
+| `check/finance.insolvency.cir_nl/delete`                        | Information was deleted.
 |                                                                 |
-| `check.health.practitioner.big_nl.update`                       | Screenee updated information from the BIG Registry.
-| `check.health.practitioner.big_nl.release`                      | Screenee released information to the screener.
-| `check.health.practitioner.big_nl.delete`                       | Information was deleted.
+| `check/health.practitioner.big_nl/update`                       | Screenee updated information from the BIG Registry.
+| `check/health.practitioner.big_nl/release`                      | Screenee released information to the screener.
+| `check/health.practitioner.big_nl/delete`                       | Information was deleted.
 |                                                                 |
-| `check.identity.travel_document.quick.create`                   | Screenee uploaded images of their ID.
-| `check.identity.travel_document.quick.release`                  | Screenee released information to the screener.
-| `check.identity.travel_document.quick.delete`                   | Information was deleted.
+| `check/identity.travel_document.quick/create`                   | Screenee uploaded images of their ID.
+| `check/identity.travel_document.quick/release`                  | Screenee released information to the screener.
+| `check/identity.travel_document.quick/delete`                   | Information was deleted.
 |                                                                 |
-| `check.identity.travel_document.text_chip_certificate.start`    | Screenee started the ID check on their mobile device.
-| `check.identity.travel_document.text_chip_certificate.create`   | Screenee finished the ID check on their mobile device.
-| `check.identity.travel_document.text_chip_certificate.release`  | Screenee released ID information to the screener.
-| `check.identity.travel_document.text_chip_certificate.delete`   | ID information was deleted.
+| `check/identity.travel_document.text_chip_certificate/start`    | Screenee started the ID check on their mobile device.
+| `check/identity.travel_document.text_chip_certificate/create`   | Screenee finished the ID check on their mobile device.
+| `check/identity.travel_document.text_chip_certificate/release`  | Screenee released ID information to the screener.
+| `check/identity.travel_document.text_chip_certificate/delete`   | ID information was deleted.
 
 
 A non-exhaustive list of events not related to checks:
