@@ -22,12 +22,23 @@
 
  state: { $type: String, enum: ['new', 'pending', 'open', 'closed', 'archived'], required: true, index: true, default: 'new' },
 
+ screenee:
+  {
+   type: { $type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'candidate' },
+  },
+
  check:
   [
     {
+     _id: false,
+
      code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
 
-     configuration: { $type: Object },
+     configuration:
+      {
+       // `data` is checked against `Check.configuration.form.element[]`.
+       data: { $type: core.mongodb.schema.type.mixed },
+      },
     },
   ],
 

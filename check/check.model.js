@@ -17,4 +17,17 @@
    end: { $type: Date },
    description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.description },
   },
+
+ configuration:
+  {
+   form:
+    {
+     present: { $type: String, enum: ['normal', 'expand', 'dialog'], default: 'normal' },
+
+     element:
+      [
+       core.form.element.schema,
+      ],
+    },
+  },
 }

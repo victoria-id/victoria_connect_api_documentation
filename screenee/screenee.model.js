@@ -81,7 +81,7 @@
 
  invite:
   {
-   token: { $type: String, validate: core.mongodb.validation.rule.code.alphanumeric },
+   token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
   },
 
  check:
@@ -91,6 +91,12 @@
 
      state: { $type: String, enum: ['new', 'seen', 'progress', 'requested', 'paid', 'added', 'removed', 'evaluation', 'fail', 'success'], required: true, index: true, default: 'new' },
      progress: { $type: Number, min: 0, max: 100, required: true, default: 0 },
+
+     time:
+      {
+       start: { $type: Date, default: null },
+       end: { $type: Date, default: null },
+      },
 
      data:
       {
