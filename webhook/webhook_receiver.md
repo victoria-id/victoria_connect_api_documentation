@@ -35,11 +35,11 @@ This document describes everything you need to know about Victoria ID's webhooks
 
 * Webhook payload (or simply 'payload')
 
-  A data (package) to be delivered to the webhook receiver.
+  A data package to be delivered to the webhook receiver.
 
 * Webhook receiver
 
-  The receiving API server accessible as configured the webhooks URI.
+  A publicly accessible API server (specified by webhooks URI) able to receive webhook payloads.
 
 * Webhook sender
 
