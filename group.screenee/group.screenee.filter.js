@@ -50,7 +50,7 @@ export default /* group.screenee.filter.js */
          {
           // id: core.mongodb.object_id,
  
-          type: core.validation.rule.enum(['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner']),
+          type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
  
           organization:
            {

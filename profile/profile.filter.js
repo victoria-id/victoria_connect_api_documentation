@@ -26,7 +26,7 @@ export default /* profile.filter.js */
  
           screenee:
            {
-            type: core.validation.rule.enum(['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner']),
+            type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
            },
  
           check:
@@ -65,7 +65,7 @@ export default /* profile.filter.js */
  
           screenee:
            {
-            type: core.validation.rule.enum(['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner']),
+            type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
            },
  
           check:

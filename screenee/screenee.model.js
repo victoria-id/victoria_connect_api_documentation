@@ -19,14 +19,19 @@
    id: { $type: core.mongodb.schema.type.object_id, index: true, ref: 'user' },
   },
 
+
  state: { $type: String, enum: ['new', 'pending', 'declined', 'accepted'], required: true, default: 'new' },
 
- type: { $type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'candidate' },
+
+ // Type of relation. Has effect on retention and other legal aspects.
+ type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
+
 
  organization:
   {
    name: { $type: String, trim: true, maxlength: 256, default: '', validate: core.mongodb.validation.rule.name.relaxed },
   },
+
 
  name:
   {
@@ -79,10 +84,12 @@
     },
   },
 
+
  invite:
   {
    token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
   },
+
 
  check:
   [
@@ -114,6 +121,7 @@
       },
     },
   ],
+
 
  time:
   {

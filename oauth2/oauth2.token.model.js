@@ -1,9 +1,4 @@
 {
- client:
-  {
-   id: { $type: String, trim: true, maxlength: 24 },
-  },
-
  portal:
   {
    id: { $type: core.mongodb.schema.type.object_id, required: true, ref: 'portal' },

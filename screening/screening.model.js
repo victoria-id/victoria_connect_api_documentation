@@ -14,7 +14,10 @@
    id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'profile' },
   },
 
+
+ // Country applicable law.
  country: { $type: String, trim: true, maxlength: 3, upper: true, required: true, validate: core.mongodb.validation.rule.country.code },
+
 
  title: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
 
@@ -22,10 +25,14 @@
 
  state: { $type: String, enum: ['new', 'pending', 'open', 'closed', 'archived'], required: true, index: true, default: 'new' },
 
+
+ // Screenee defaults.
  screenee:
   {
-   type: { $type: String, enum: ['screenee', 'candidate', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'candidate' },
+   // Type of relation. Has effect on retention and other legal aspects.
+   type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
   },
+
 
  check:
   [
@@ -41,6 +48,7 @@
       },
     },
   ],
+
 
  time:
   {

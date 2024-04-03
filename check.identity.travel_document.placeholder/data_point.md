@@ -6,7 +6,7 @@ Passport, ID card, or residence permit.
 * Check progress (%)
 
 * Individual
-  * Citizen Service Number (BSN) / Social Security Number
+  * Citizen Service Number (BSN) / Social Security Number (optional)
 
   * Name
     * Personal name (e.g., 'James Benedict')
@@ -17,12 +17,11 @@ Passport, ID card, or residence permit.
 
   * Birth
     * Date of birth
-    * Place of birth
 
   * Gender
   * Nationality (ISO 3166 alpha-3 country code)
 
-  * Photo of individual (portrait)
+  * Photo (optional)
 
 * Document
   * Type
@@ -34,37 +33,13 @@ Passport, ID card, or residence permit.
     * Date of issue
     * Expiration date
 
-  * Photo
-    * Front of document
-      * OCR
-
-    * Back of document
-      * OCR
-
-  * Format (e.g., 'TD1')
-  * MRZ
-
-* Chip
-
-  * Hashes
-    * Hashing algorithm
-    * Calculcated hash
-    * Expected hash
-
 * Check
-  * Chip present
-  * Chip valid
-  * MRZ present
-  * MRZ valid
-  * Portrait photo present
-  * Portrait photo valid
   * Document ID / number present
   * Document ID / number valid
-  * Document expire date presnet
+  * Document expire date present
   * Document expire date valid
-  * Date of birth presnet
+  * Date of birth present
   * Date of birth valid
 
-  * Specimen (yes / no)
   * Valid (aggregate value)
   * Violation (aggregrate text)
