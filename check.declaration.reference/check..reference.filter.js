@@ -6,7 +6,7 @@ export default /* check..reference.filter.js */
  
     update_reference_type:
      {
-      reference_type: core.validation.rule.enum(['contact', 'document', 'no_reference']),
+      reference_type: core.validation.rule.enum(['contact', 'document', 'none']),
       no_reference_explanation: core.validate('string', 'trim'),
      },
  
@@ -53,7 +53,7 @@ export default /* check..reference.filter.js */
       name:
        {
         personal: core.validate('required', 'name.human.full'),
-        family: core.validate('required', 'name.human.full'),
+        family: core.validate('string', 'name.human.full'),
        },
  
       relation: core.validate('required', 'name.relaxed', 'trim'),
@@ -68,13 +68,14 @@ export default /* check..reference.filter.js */
          },
        },
  
+      locale: core.validate('required', 'locale'),
       message: core.validate('required', 'description'),
      },
  
  
     referent_response:
      {
-      status: core.validation.rule.enum(['success', 'declined']),
+      state: core.validation.rule.enum(['success', 'declined']),
       fired: core.validate('boolean'),
       fired_reason: core.validate('description'),
       trustworthiness: core.validate('boolean'),
@@ -98,6 +99,7 @@ export default /* check..reference.filter.js */
             display: true,
             short: true,
            },
+ 
           group:
            {
             name: true,

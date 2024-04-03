@@ -19,6 +19,9 @@ export default /* check.filter.js */
           name: true,
           description: true,
  
+          country: true,
+          dependency: true,
+ 
           state: true,
           message: true,
  
@@ -50,6 +53,9 @@ export default /* check.filter.js */
  
           name: true,
           description: true,
+ 
+          country: true,
+          dependency: true,
  
           state: true,
           message: true,

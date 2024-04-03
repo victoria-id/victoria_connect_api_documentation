@@ -9,6 +9,8 @@
  access:
   [
     {
+     _id: false,
+
      user:
       {
        id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user' },
