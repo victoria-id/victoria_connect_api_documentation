@@ -14,7 +14,7 @@ export default /* portal.filter.js */
           title: core.validate('name.relaxed'),
           domain: core.validation.rule.array({ range: [1, 10] },
            [
-            core.validate('address.fqdn'),
+            core.validate('address.net.fqdn'),
            ]),
  
           style:
@@ -50,7 +50,7 @@ export default /* portal.filter.js */
                {
                 background:
                  {
-                  image: core.validate('address.http.path.relaxed'),
+                  image: core.validate('address.net.http.path.relaxed'),
                  },
                },
              },
@@ -61,7 +61,7 @@ export default /* portal.filter.js */
             name: core.validate('name.relaxed'),
             logo:
              {
-              uri: core.validate('address.http.path.relaxed'),
+              uri: core.validate('address.net.http.path.relaxed'),
              },
            },
  
@@ -81,10 +81,10 @@ export default /* portal.filter.js */
           title: core.validate('name.relaxed'),
           domain: core.validation.rule.array({ range: [1, 10] },
            [
-            core.validate('address.fqdn'),
+            core.validate('address.net.fqdn'),
            ]),
  
-           style:
+          style:
            {
             global:
              {
@@ -117,7 +117,7 @@ export default /* portal.filter.js */
                {
                 background:
                  {
-                  image: core.validate('address.http.path.relaxed'),
+                  image: core.validate('address.net.http.path.relaxed'),
                  },
                },
              },
@@ -128,7 +128,7 @@ export default /* portal.filter.js */
             name: core.validate('name.relaxed'),
             logo:
              {
-              uri: core.validate('address.http.path.relaxed'),
+              uri: core.validate('address.net.http.path.relaxed'),
              },
            },
  
@@ -225,6 +225,7 @@ export default /* portal.filter.js */
           title: true,
  
           domain: true,
+          api: true,
  
           uri: true,
  

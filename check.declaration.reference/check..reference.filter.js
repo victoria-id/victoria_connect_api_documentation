@@ -61,10 +61,10 @@ export default /* check..reference.filter.js */
  
       address:
        {
-        mail: core.validate('required', 'address.mail'),
+        mail: core.validate('required', 'address.net.mail'),
         tele:
          {
-          phone: core.validate('required', 'address.tele'),
+          phone: core.validate('required', 'address.net.tele'),
          },
        },
  

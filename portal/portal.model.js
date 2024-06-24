@@ -11,12 +11,12 @@
 
  domain:
   [
-    { $type: String, trim: true, maxlength: 100, unique: true, required: true, index: true, validate: core.mongodb.validation.rule.address.fqdn },
+    { $type: String, trim: true, maxlength: 100, unique: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.fqdn },
   ],
 
  api:
   {
-   uri: { $type: String, trim: true, maxlength: 100, required: true, default: 'https://api.victoria-id.com/', validate: core.mongodb.validation.rule.address.http.secure },
+   uri: { $type: String, trim: true, maxlength: 100, required: true, default: 'https://api.victoria-id.com/', validate: core.mongodb.validation.rule.address.net.http.secure },
   },
 
  style:
@@ -40,7 +40,7 @@
          use: { $type: String, enum: ['browser_favorite_icon', 'application_launch_icon', 'apple_touch_icon'], required: true, default: 'browser_favorite_icon' },
          type: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.media.type },
          size: { $type: String, trim: true, maxlength: 100, validate: core.mongodb.validation.rule.image.resolution.multiple },
-         uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+         uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
         },
       ],
 
@@ -53,7 +53,7 @@
       {
        background:
         {
-         // image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+         // image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
          color: { $type: String, trim: true, maxlength: 7, required: true, default: '#eee', validate: core.mongodb.validation.rule.html.color.hexadecimal },
         },
 
@@ -71,7 +71,7 @@
       {
        background:
         {
-         image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.http.path.relaxed },
+         image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
         },
       },
 
@@ -85,7 +85,7 @@
 
    logo:
     {
-     uri: { $type: String, trim: true, maxlength: 1024, required: true, default: 'logo.svg', validate: core.mongodb.validation.rule.address.http.path.relaxed },
+     uri: { $type: String, trim: true, maxlength: 1024, required: true, default: 'logo.svg', validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
 
      caption: { $type: String, trim: true, maxlength: 10, default: '', validate: core.mongodb.validation.rule.name.relaxed },
     },

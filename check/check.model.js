@@ -1,7 +1,7 @@
 {
  code: { $type: String, trim: true, maxlength: 100, required: true, unique: true, validate: core.mongodb.validation.rule.resource.identifier },
 
- path: { $type: String, trim: true, maxlength: 255, required: true, unique: true, validate: core.mongodb.validation.rule.address.http.path.strict },
+ path: { $type: String, trim: true, maxlength: 255, required: true, unique: true, validate: core.mongodb.validation.rule.address.net.http.path.strict },
 
  order: { $type: Number, required: true, index: true, default: 1000 },
 
@@ -45,6 +45,20 @@
      // `check.code` (matching strategy: 'starts with') of the check this check depends on.
      code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
     },
+  ],
+
+
+ /*
+  Determines of which party input is required.
+
+  The screenee (participant) never sees this check unless `input` explicitly contains the value "screenee".
+
+  The screener (HR) is always able to view the check's results, but if `input` includes the value "screener" then the check is explicitly marked as needing input from the screener. The portal will highlight this.
+
+ */
+ target:
+  [
+    { $type: String, enum: ['screenee', 'screener'], default: ['screenee'] },
   ],
 
 

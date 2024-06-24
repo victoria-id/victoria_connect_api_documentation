@@ -30,13 +30,14 @@ export default /* group.screenee.filter.js */
  
           address:
            {
-            mail: core.validate('address.mail'),
+            mail: core.validate('address.net.mail'),
             tele:
              {
-              phone: core.validate('address.tele'),
+              phone: core.validate('address.net.tele'),
              },
            },
  
+          do_not_contact: core.validate('boolean'),
          },
        ],
  
@@ -71,12 +72,14 @@ export default /* group.screenee.filter.js */
  
           address:
            {
-            mail: core.validate('address.mail'),
+            mail: core.validate('address.net.mail'),
             tele:
              {
-              phone: core.validate('address.tele'),
+              phone: core.validate('address.net.tele'),
              },
            },
+ 
+          do_not_contact: core.validate('boolean'),
          },
        ],
  

@@ -22,6 +22,8 @@ export default /* check.filter.js */
           country: true,
           dependency: true,
  
+          target: true,
+ 
           state: true,
           message: true,
  
@@ -56,6 +58,8 @@ export default /* check.filter.js */
  
           country: true,
           dependency: true,
+ 
+          target: true,
  
           state: true,
           message: true,

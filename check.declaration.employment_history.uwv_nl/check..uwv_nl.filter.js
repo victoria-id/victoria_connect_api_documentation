@@ -18,6 +18,15 @@ export default /* check..uwv_nl.filter.js */
        ]),
  
      },
+ 
+ 
+    skip:
+     {
+ 
+      skip_reason: core.validate('required', 'description'),
+ 
+     },
+ 
    },
  
  };
