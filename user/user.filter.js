@@ -29,7 +29,7 @@ export default /* user.filter.js */
             mail: core.validation.rule.array({ range: [1, 5] },
              [
                {
-                uri: core.validate('address.mail'),
+                uri: core.validate('address.net.mail'),
                 primary: core.validate('boolean'),
                },
              ]),
@@ -38,7 +38,7 @@ export default /* user.filter.js */
              [
                {
                 type: core.validation.rule.enum(['http', 'tel']),
-                uri: core.validate('address.uri'),
+                uri: core.validate('address.net.uri'),
                },
              ],
            },
@@ -71,7 +71,7 @@ export default /* user.filter.js */
              mail: core.validation.rule.array({ range: [1, 5] },
               [
                 {
-                 uri: core.validate('address.mail'),
+                 uri: core.validate('address.net.mail'),
                  primary: core.validate('boolean'),
                 },
               ]),
@@ -80,7 +80,7 @@ export default /* user.filter.js */
               [
                 {
                  type: core.validation.rule.enum(['http', 'tel']),
-                 uri: core.validate('address.uri'),
+                 uri: core.validate('address.net.uri'),
                 },
               ],
             },
@@ -113,7 +113,7 @@ export default /* user.filter.js */
             mail: core.validation.rule.array({ required: false, range: [1, 5] },
              [
                {
-                uri: core.validate('address.mail'),
+                uri: core.validate('address.net.mail'),
                 primary: core.validate('boolean'),
                },
              ]),
@@ -122,7 +122,7 @@ export default /* user.filter.js */
              [
                {
                 type: core.validation.rule.enum(['http', 'tel']),
-                uri: core.validate('address.uri'),
+                uri: core.validate('address.net.uri'),
                },
              ],
            },

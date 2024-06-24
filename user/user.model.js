@@ -52,7 +52,7 @@
       {
        _id: false,
 
-       uri: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, validate: core.mongodb.validation.rule.address.mail },
+       uri: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, validate: core.mongodb.validation.rule.address.net.mail },
        primary: { $type: Boolean, required: true, default: false },
        confirmed: { $type: Boolean, required: true, default: false },
        token: { $type: String, default: core.cryptography.code },
@@ -65,7 +65,7 @@
        _id: false,
 
        type: { $type: String, enum: ['http', 'tel'], required: true },
-       uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.uri },
+       uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.net.uri },
       },
     ],
   },

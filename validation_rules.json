@@ -1,104 +1,104 @@
 [
 
   {
-   "code": "address.mail",
+   "code": "address.net.mail",
    "description": "E-mail address.",
    "transform": "(code)",
-   "pattern": "/^(?:[a-z0-9.+_-]+@[a-z0-9.-]+)?$/s",
+   "pattern": "/^(?:[a-z0-9_.+-]+@(?:(?:[a-z0-9-_]+\\.)*[a-z0-9-]+\\.)?[a-z0-9]+)?$/s",
 
    "exception":
     {
-     "code": "validation.rule.address.mail",
+     "code": "validation.rule.address.net.mail",
      "exception": "Must be a valid e-mail address."
     }
   },
 
   {
-   "code": "address.uri",
+   "code": "address.net.uri",
    "description": "URI.",
    "pattern": "/^(?:[0-9a-z.+-]+:[\\w~!@#%$&*()[\\]{}_=+';:,./?-]+)?$/is",
 
    "exception":
     {
-     "code": "validation.rule.address.uri",
+     "code": "validation.rule.address.net.uri",
      "exception": "Must be a valid URI."
     }
   },
 
   {
-   "code": "address.http.insecure",
+   "code": "address.net.http.insecure",
    "description": "HTTP URL.",
    "transform": "(code)",
    "pattern": "/^(?:https?:\\/\\/[\\w~!@#%$&*()[\\]{}_=+';:,./?-]+)?$/is",
 
    "exception":
     {
-     "code": "validation.rule.address.http.insecure",
+     "code": "validation.rule.address.net.http.insecure",
      "exception": "Must be a valid HTTP URL."
     }
   },
 
   {
-   "code": "address.http.secure",
+   "code": "address.net.http.secure",
    "description": "HTTPS URL.",
    "transform": "(code)",
    "pattern": "/^(?:https:\\/\\/[\\w~!@#%$&*()[\\]{}_=+';:,./?-]+)?$/is",
 
    "exception":
     {
-     "code": "validation.rule.address.http.secure",
+     "code": "validation.rule.address.net.http.secure",
      "exception": "Must be a valid HTTPS URL."
     }
   },
 
   {
-   "code": "address.http.path.relaxed",
+   "code": "address.net.http.path.relaxed",
    "description": "Path (relaxed).",
    "transform": "(code)",
    "pattern": "/^[/%0-9a-z `~!@#$%^&()_=+[\\]{};',.-]*$/isu",
 
    "exception":
     {
-     "code": "validation.rule.address.http.path.relaxed",
+     "code": "validation.rule.address.net.http.path.relaxed",
      "exception": "Path may only contain valid characters."
     }
   },
 
   {
-   "code": "address.http.path.strict",
+   "code": "address.net.http.path.strict",
    "description": "Path (strict).",
    "transform": "(code)",
    "pattern": "/^[/%0-9a-z_.]*$/isu",
 
    "exception":
     {
-     "code": "validation.rule.address.http.path.strict",
+     "code": "validation.rule.address.net.http.path.strict",
      "exception": "Path may only contain valid characters."
     }
   },
 
   {
-   "code": "address.tele",
+   "code": "address.net.tele",
    "description": "Tele (phone / fax) number.",
    "transform": "(code)",
    "pattern": "/^\\+?[0-9 ]*$/s",
 
    "exception":
     {
-     "code": "validation.rule.address.tele",
+     "code": "validation.rule.address.net.tele",
      "exception": "Must be a valid telephone number."
     }
   },
 
   {
-   "code": "address.fqdn",
+   "code": "address.net.fqdn",
    "description": "Fully Qualified Domain Name (FQDN).",
    "transform": "(code)",
    "pattern": "/^(?:(?:[0-9a-z_-]+\\.)*[0-9a-z_-]+)?$/is",
 
    "exception":
     {
-     "code": "validation.rule.address.fqdn",
+     "code": "validation.rule.address.net.fqdn",
      "exception": "Must be a fully qualified domain name (FQDN)."
     }
   },

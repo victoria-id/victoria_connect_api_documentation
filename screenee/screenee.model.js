@@ -76,14 +76,15 @@
 
  address:
   {
-   mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.mail },
+   mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail },
 
    tele:
     {
-     phone: { $type: String, trim: true, maxlength: 50, validate: core.mongodb.validation.rule.address.tele },
+     phone: { $type: String, trim: true, maxlength: 50, validate: core.mongodb.validation.rule.address.net.tele },
     },
   },
 
+ do_not_contact: { $type: Boolean, required: true, default: false },
 
  invite:
   {

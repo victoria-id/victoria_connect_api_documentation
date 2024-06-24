@@ -48,7 +48,7 @@ Passport, ID card, or residence permit.
 
   * Hashes
     * Hashing algorithm
-    * Calculcated hash
+    * Calculated hash
     * Expected hash
 
 * Check
@@ -60,11 +60,11 @@ Passport, ID card, or residence permit.
   * Portrait photo valid
   * Document ID / number present
   * Document ID / number valid
-  * Document expire date presnet
+  * Document expire date present
   * Document expire date valid
-  * Date of birth presnet
+  * Date of birth present
   * Date of birth valid
 
   * Specimen (yes / no)
   * Valid (aggregate value)
-  * Violation (aggregrate text)
+  * Violation (aggregate text)

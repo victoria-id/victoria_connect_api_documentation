@@ -28,11 +28,6 @@ export default /* group.filter.js */
              },
            ],
  
-          group:
-           {
-            id: core.mongodb.object_id,
-           },
- 
          },
        ],
  
@@ -63,10 +58,6 @@ export default /* group.filter.js */
              },
            ],
  
-          group:
-           {
-            id: core.mongodb.object_id,
-           },
          },
        ],
  
@@ -103,6 +94,7 @@ export default /* group.filter.js */
           id: true,
  
           name: true,
+ 
           access:
            [
              {

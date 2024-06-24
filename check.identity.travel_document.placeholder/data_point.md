@@ -42,4 +42,4 @@ Passport, ID card, or residence permit.
   * Date of birth valid
 
   * Valid (aggregate value)
-  * Violation (aggregrate text)
+  * Violation (aggregate text)
