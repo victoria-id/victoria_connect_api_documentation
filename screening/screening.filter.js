@@ -33,8 +33,12 @@ export default /* screening.filter.js */
  
           time:
            {
-            from: core.validate('date'),
-            to: core.validate('date'),
+            /*
+             Date format: 2000-12-31T12:00Z.
+             Make sure to use timezone is Zulu (`Z`) or `+0000`, and that time is set to 12:00.
+            */
+            from: core.validate('date', 'date_only'),
+            to: core.validate('date', 'date_only'),
            },
          },
        ],
@@ -66,8 +70,12 @@ export default /* screening.filter.js */
  
           time:
            {
-            from: core.validate('date'),
-            to: core.validate('date'),
+            /*
+             Date format: 2000-12-31T12:00Z.
+             Make sure to use timezone is Zulu (`Z`) or `+0000`, and that time is set to 12:00.
+            */
+            from: core.validate('date', 'date_only'),
+            to: core.validate('date', 'date_only'),
            },
          },
        ],

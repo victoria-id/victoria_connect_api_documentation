@@ -18,19 +18,21 @@ export default /* group.screenee.filter.js */
  
           name:
            {
-            personal: core.validate('name.human.full'),
-            family: core.validate('name.human.full'),
+            personal: core.validate('required', 'name.human.full'),
+            family: core.validate('required', 'name.human.full'),
             display: core.validate('name.human.full'),
             short: core.validate('name.human.full'),
            },
+ 
           description: core.validate('description'),
  
-          locale: core.validate('locale'),
+          locale: core.validate('required', 'locale'),
           gender: core.validate('gender'),
  
           address:
            {
-            mail: core.validate('address.net.mail'),
+            mail: core.validate('required', 'address.net.mail'),
+ 
             tele:
              {
               phone: core.validate('address.net.tele'),
@@ -60,19 +62,21 @@ export default /* group.screenee.filter.js */
  
           name:
            {
-            personal: core.validate('name.human.full'),
-            family: core.validate('name.human.full'),
+            personal: core.validate('required', 'name.human.full'),
+            family: core.validate('required', 'name.human.full'),
             display: core.validate('name.human.full'),
             short: core.validate('name.human.full'),
            },
+ 
           description: core.validate('description'),
  
-          locale: core.validate('locale'),
+          locale: core.validate('required', 'locale'),
           gender: core.validate('gender'),
  
           address:
            {
             mail: core.validate('address.net.mail'),
+ 
             tele:
              {
               phone: core.validate('address.net.tele'),
