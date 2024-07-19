@@ -4,17 +4,19 @@
    id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
   },
 
+ type: { $type: String, enum: ['normal', 'federated', 'service'], required: true, default: 'normal' },
+
  name:
   {
    /*
     Official personal / first / given names.
 
-    Example: James Bennedict Cornelius
+    Example: James Benedict Cornelius
    */
    personal: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.name.human.full },
 
    /*
-    Official family name / last name / sirname:
+    Official family name / last name / surname:
 
     Example: Conner
    */
@@ -79,6 +81,12 @@
      expire: { $type: Date },
     },
   },
+
+ // Scope defines global permissions that applies only to users of `type` 'service'.
+ scope:
+  [
+    { $type: String, enum: ['user.impersonate'] },
+  ],
 
  time:
   {

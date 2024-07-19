@@ -38,12 +38,12 @@
    /*
     Official personal / first / given names.
 
-    Example: James Bennedict Cornelius
+    Example: James Benedict Cornelius
    */
    personal: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.name.human.full },
 
    /*
-    Official family name / last name / sirname:
+    Official family name / last name / surname:
 
     Example: Conner
    */

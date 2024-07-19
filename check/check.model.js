@@ -1,7 +1,7 @@
 {
  code: { $type: String, trim: true, maxlength: 100, required: true, unique: true, validate: core.mongodb.validation.rule.resource.identifier },
 
- path: { $type: String, trim: true, maxlength: 255, required: true, unique: true, validate: core.mongodb.validation.rule.address.net.http.path.strict },
+ path: { $type: String, trim: true, maxlength: 256, required: true, unique: true, validate: core.mongodb.validation.rule.address.net.http.path.strict },
 
  order: { $type: Number, required: true, index: true, default: 1000 },
 
@@ -58,7 +58,7 @@
  */
  target:
   [
-    { $type: String, enum: ['screenee', 'screener'], default: ['screenee'] },
+    { $type: String, enum: ['screenee', 'screener'] },
   ],
 
 

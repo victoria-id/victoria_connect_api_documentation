@@ -61,7 +61,7 @@
         {
          color: { $type: String, trim: true, maxlength: 7, required: true, default: '#333', validate: core.mongodb.validation.rule.html.color.hexadecimal },
 
-         family: { $type: String, trim: true, maxlength: 255, required: true, default: 'Arial', validate: core.mongodb.validation.rule.name.relaxed },
+         family: { $type: String, trim: true, maxlength: 256, required: true, default: 'Arial', validate: core.mongodb.validation.rule.name.relaxed },
 
          size: { $type: String, trim: true, maxlength: 50, required: true, default: '12pt', validate: core.mongodb.validation.rule.html.font.size },
         },

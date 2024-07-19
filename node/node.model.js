@@ -1,7 +1,7 @@
 {
  _id: false,
 
- name: { $type: String, maxlength: 255 },
+ name: { $type: String, maxlength: 256 },
 
  use: { $type: Number, min: 0, required: true },
  free: { $type: Number, min: 0, required: true },

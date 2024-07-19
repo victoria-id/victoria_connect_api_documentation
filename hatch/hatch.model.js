@@ -12,7 +12,7 @@
  token: { $type: String, required: true, default: core.cryptography.code },
 
  // Hatch UI title.
- title: { $type: String, trim: true, maxlength: 255, required: true, validate: core.mongodb.validation.rule.name.relaxed },
+ title: { $type: String, trim: true, maxlength: 256, required: true, validate: core.mongodb.validation.rule.name.relaxed },
  // Hatch UI description.
  description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.description },
 
