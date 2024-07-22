@@ -16,7 +16,7 @@
    personal: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.name.human.full },
 
    /*
-    Official family name / last name / surname:
+    Official family name / last name / surname.
 
     Example: Conner
    */
