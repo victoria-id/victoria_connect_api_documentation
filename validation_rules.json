@@ -4,7 +4,7 @@
    "code": "address.net.mail",
    "description": "E-mail address.",
    "transform": "(code)",
-   "pattern": "/^(?:[a-z0-9_.+-]+@(?:(?:[a-z0-9_-]+\\.)*[a-z0-9-]+\\.)?[a-z0-9]+)?$/s",
+   "pattern": "/^(?:[a-z0-9_.+-]+@(?:[a-z0-9_-]+\\.)*[a-z0-9-]+\\.[a-z0-9]+)?$/s",
 
    "exception":
     {
