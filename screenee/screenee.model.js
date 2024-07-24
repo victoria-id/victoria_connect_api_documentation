@@ -94,33 +94,8 @@
 
  check:
   [
-    {
-     code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
-
-     state: { $type: String, enum: ['new', 'seen', 'progress', 'requested', 'paid', 'added', 'removed', 'evaluation', 'fail', 'success'], required: true, index: true, default: 'new' },
-     progress: { $type: Number, min: 0, max: 100, required: true, default: 0 },
-
-     time:
-      {
-       start: { $type: Date, default: null },
-       end: { $type: Date, default: null },
-      },
-
-     data:
-      {
-       // Visible only to the API.
-       secret: {},
-
-       // Visible to screenee, screener, and API.
-       shared: {},
-
-       // Visible only to the screenee.
-       screenee: {},
-
-       // Visible only to the screener.
-       screener: {},
-      },
-    },
+   // See file `screenee.check.model.js`.
+   core.screenee.check.schema,
   ],
 
 
