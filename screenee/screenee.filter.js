@@ -69,12 +69,18 @@ export default /* screenee.filter.js */
           check:
            [
              {
+              id: true,
+ 
               code: true,
  
               state: true,
               progress: true,
  
               time: true,
+ 
+              badge: true,
+              description: true,
+              score: true,
              },
            ],
  
@@ -121,12 +127,21 @@ export default /* screenee.filter.js */
           check:
            [
              {
+              id: true,
+ 
               code: true,
  
               state: true,
               progress: true,
  
               time: true,
+ 
+              assertion: true,
+              date: true,
+ 
+              badge: true,
+              description: true,
+              score: true,
  
               data:
                {
