@@ -71,7 +71,7 @@
       {
        background:
         {
-         image: { $type: String, trim: true, maxlength: 1024, validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
+         image: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.address.net.http.path.relaxed },
         },
       },
 

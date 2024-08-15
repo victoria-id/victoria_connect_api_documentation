@@ -12,8 +12,8 @@
  header:
   [
     {
-     name: { $type: String },
-     value: { $type: String },
+     name: { $type: String, maxlength: 100, required: true },
+     value: { $type: String, maxlength: 1024, required: true },
     },
   ],
 

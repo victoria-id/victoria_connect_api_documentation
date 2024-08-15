@@ -4,8 +4,9 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
   request:
    {
  
-    create:
+    update:
      {
+ 
       chip:
        {
         lds1:
@@ -100,7 +101,40 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
         //  ]),
  
        },
+     }, // update
+ 
+   }, // request
+ 
+ 
+  response:
+   {
+ 
+    minimal:
+     {
+      screenee:
+       [
+         {
+          check:
+           [
+             {
+              assertion: true,
+              date: true,
+ 
+              badge: true,
+              description: true,
+              score: true,
+ 
+              data:
+               {
+                screenee: true,
+               },
+             },
+           ],
+         },
+       ],
+ 
      },
  
-   },
+   }, // response
+ 
  };

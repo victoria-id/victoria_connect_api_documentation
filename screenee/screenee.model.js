@@ -80,7 +80,7 @@
 
    tele:
     {
-     phone: { $type: String, trim: true, maxlength: 50, validate: core.mongodb.validation.rule.address.net.tele },
+     phone: { $type: String, trim: true, maxlength: 50, default: '', validate: core.mongodb.validation.rule.address.net.tele },
     },
   },
 

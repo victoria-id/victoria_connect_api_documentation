@@ -53,14 +53,14 @@
 
   {
    "code": "address.net.http.path.relaxed",
-   "description": "Path (relaxed).",
+   "description": "HTTP / HTTPS URL or relative path (relaxed).",
    "transform": "(code)",
-   "pattern": "/^[/%0-9a-z `~!@#$%^&()_=+[\\]{};',.-]*$/isu",
+   "pattern": "/^((?=^https?:)|(?![a-z.+-]*:))[/%0-9a-z `~!@#$%^&()_=+[\\]{}:;',.-]*$/isu",
 
    "exception":
     {
      "code": "validation.rule.address.net.http.path.relaxed",
-     "exception": "Path may only contain valid characters."
+     "exception": "Must be a HTTP / HTTPS URL or relative path."
     }
   },
 

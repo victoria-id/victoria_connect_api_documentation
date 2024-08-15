@@ -56,14 +56,22 @@
     {
      /*
 
-      As a rule of thumb, all date codes should end with a '.start`, '.middle` or '.end' suffix in order for API integrations to recognize a beginning or ending something, or an event somewhere in between.
+      API integrations use `date` to recognize a beginning or ending something without parsing the complex internals of the variably structured `Screenee.check[].data.shared.data`. You can still find the original dates inside `Screenee.check[].data.shared.data`, but they are simply copied to `date: []`.
+
+      As a rule of thumb, all date codes should end with a '.start`, '.middle` or '.end' suffix in order for API integrations to recognize a beginning, ending, or middle of something.
 
       Dates with a relation to each other must have the same date code prefix. For example, a document issued date, and an expiration date both refer to a document's validity. Therefore we should NOT refer to them using keywords `issued` and/or `expire`, but rather refer to a document's validity. The resulting date code for this example would be `document.valid.start` and `document.valid.end`.
 
-      * document.valid.start (document.date.issued)
-      * document.valid.end   (document.date.expire)
-      * entity.life.start
-      * entity.life.end
+      Basically the format comes down to this:
+
+      `<subject>`.`<aspect>`.`<moment>`
+
+      Some examples:
+
+      * document.valid.start   (document.date.issued)
+      * document.valid.end     (document.date.expire)
+      * entity.existence.start
+      * entity.existence.end
       * entity.nationality.start
       * right_to_work.valid.start
       * right_to_work.valid.end
@@ -103,7 +111,7 @@
     {
      code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path] },
 
-     level: { $type: String, enum: ['information', 'warning', 'error'], required: true },
+     level: { $type: String, enum: ['information', 'success', 'warning', 'error'], required: true },
 
      _id: false,
     },
