@@ -202,6 +202,8 @@ export default /* user.filter.js */
          {
           id: true,
  
+          type: true,
+ 
           name: true,
  
           locale: true,
@@ -221,6 +223,8 @@ export default /* user.filter.js */
  
             net: true,
            },
+ 
+          scope: true,
  
           time: true,
          },

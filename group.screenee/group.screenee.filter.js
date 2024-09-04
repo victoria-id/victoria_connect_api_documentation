@@ -40,6 +40,11 @@ export default /* group.screenee.filter.js */
            },
  
           do_not_contact: core.validate('boolean'),
+ 
+          user:
+           {
+            id: core.mongodb.object_id,
+           },
          },
        ],
  
