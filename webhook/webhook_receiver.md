@@ -8,20 +8,22 @@ This document describes everything you need to know about Victoria ID's webhooks
 1. [Victoria Connect API - Webhooks - Receiver](#victoria-connect-api---webhooks---receiver)
    1. [Table of contents](#table-of-contents)
    2. [Definitions](#definitions)
-   3. [Health](#health)
-   4. [Retention](#retention)
-   5. [Immediate](#immediate)
-   6. [Guaranteed](#guaranteed)
-   7. [Method](#method)
-   8. [URI](#uri)
-   9. [Base data](#base-data)
-      1. [Headers](#headers)
-         1. [Authorization](#authorization)
-         2. [Content-Type](#content-type)
-      2. [Query and data](#query-and-data)
-   10. [Order guarantee](#order-guarantee)
-   11. [Set-up](#set-up)
-   12. [Payload](#payload)
+   3. [What a webhook is not](#what-a-webhook-is-not)
+   4. [Response](#response)
+   5. [Health](#health)
+   6. [Retention](#retention)
+   7. [Immediate](#immediate)
+   8. [Guaranteed](#guaranteed)
+   9. [Method](#method)
+   10. [URI](#uri)
+   11. [Base data](#base-data)
+       1. [Headers](#headers)
+          1. [Authorization](#authorization)
+          2. [Content-Type](#content-type)
+       2. [Query and data](#query-and-data)
+   12. [Order guarantee](#order-guarantee)
+   13. [Set-up](#set-up)
+   14. [Payload](#payload)
        1. [Query string](#query-string)
        2. [Event codes](#event-codes)
        3. [Request body](#request-body)
@@ -44,6 +46,25 @@ This document describes everything you need to know about Victoria ID's webhooks
 * Webhook sender
 
   The Victoria Connect API server.
+
+
+## What a webhook is not
+
+A webhook is not an message queue. It does not offer repeatability of an event (and the actions that should or should not follow). The sole purpose of a webhook is to notify. A message queue is expected to be part of the webhook receiver's infrastructure and under the control of the integrating party.
+
+
+## Response
+
+A webhook receiver is expected to always accept the payload and respond with a `HTTP 200 OK` regardless of the contents of the payload.
+
+In case of generic problems in terms of infrastructure, the webhook receiver may return any HTTP status code in the 400 or 500 series.
+
+Generic problems with infrastructure can include:
+
+* Network down.
+* Incorrect shared secret.
+* Web server configuration errors.
+* Unable to receive message due to not being able to access internal infrastructure such as a database or message queue.
 
 
 ## Health
