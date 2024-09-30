@@ -35,7 +35,7 @@ export default /* group.screenee.filter.js */
  
             tele:
              {
-              phone: core.validate('address.net.tele'),
+              phone: core.validate('address.net.tele.relaxed'),
              },
            },
  
@@ -84,7 +84,7 @@ export default /* group.screenee.filter.js */
  
             tele:
              {
-              phone: core.validate('address.net.tele'),
+              phone: core.validate('address.net.tele.relaxed'),
              },
            },
  

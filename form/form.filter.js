@@ -11,6 +11,8 @@ export default /* form.filter.js */
          {
           name: core.validate('name.relaxed'),
  
+          tag: core.validate('alphanumeric.snake_case.mixed_case'),
+ 
           element: core.form.element.filter.request.element,
          },
        ],
@@ -23,6 +25,8 @@ export default /* form.filter.js */
        [
          {
           name: core.validate('name.relaxed'),
+ 
+          tag: core.validate('alphanumeric.snake_case.mixed_case'),
  
           element: core.form.element.filter.request.element,
          },
@@ -44,6 +48,8 @@ export default /* form.filter.js */
  
           name: true,
  
+          tag: true,
+ 
           time: true,
          },
        ],
@@ -60,6 +66,8 @@ export default /* form.filter.js */
           id: true,
  
           name: true,
+ 
+          tag: true,
  
           element: core.form.element.filter.response.element,
  

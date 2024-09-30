@@ -48,6 +48,8 @@ export default /* check..form.filter.js */
           state: true,
  
           name: true,
+ 
+          tag: true,
          },
        ],
      },
@@ -62,6 +64,8 @@ export default /* check..form.filter.js */
           state: true,
  
           name: true,
+ 
+          tag: true,
  
           element: core.form.element.filter.response.element,
          },
