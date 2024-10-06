@@ -79,7 +79,7 @@
       * work_permit.valid.end
 
      */
-     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path] },
+     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path.strict] },
 
      /*
       The `value` of a date object can be `null`. For example, when a document explicitly has no expire date.
@@ -96,7 +96,7 @@
  badge:
   [
     {
-     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path] },
+     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path.strict] },
 
      value: { $type: String, enum: ['invalid', 'inconclusive', 'valid'], required: true },
 
@@ -109,7 +109,7 @@
  description:
   [
     {
-     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path] },
+     code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path.strict] },
 
      level: { $type: String, enum: ['information', 'success', 'warning', 'error'], required: true },
 

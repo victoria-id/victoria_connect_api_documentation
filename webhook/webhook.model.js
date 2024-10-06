@@ -12,8 +12,8 @@
  header:
   [
     {
-     name: { $type: String, maxlength: 100, required: true },
-     value: { $type: String, maxlength: 1024, required: true },
+     name: { $type: String, maxlength: 100, required: true, validate: core.mongodb.validation.rule.header },
+     value: { $type: String, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.description },
     },
   ],
 
