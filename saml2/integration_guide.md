@@ -125,7 +125,7 @@ Multiple mapping can be created by click the **Add group assignment mapping**
 
 2. **Complete authentication**: Log in with your IDP credentials. Upon successful authentication, you should be redirected back to your Victoria ID screening portal and logged in as the authenticated user.
 
-3. **Verify your access **: Ensure that the groups are correctly mapped and shown in your Victoria ID screening portal.
+3. **Verify your access**: Ensure that the groups are correctly mapped and shown in your Victoria ID screening portal.
 
 
 ### Step 6: Enable SAML2 for all users

@@ -1,6 +1,6 @@
 {
  // Check code.
- code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
+ code: { $type: String, trim: true, maxlength: 100, required: true, index: true, validate: core.mongodb.validation.rule.resource.identifier },
 
 
  /*

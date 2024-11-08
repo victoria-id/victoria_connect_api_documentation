@@ -15,7 +15,7 @@
 
    entity_id: { $type: String, trim: true, maxlength: 1024, required: true, validate: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.description] },
 
-   // This is required for the metadata generation. We override this in the post assert since Azure does not encrypt assertions.
+   // This is required for the metadata generation. We overwrite this in the post assert since Azure does not encrypt assertions.
    allow_unencrypted_assertion: { $type: Boolean, required: true, default: true },
 
    sign_get_request: { $type: Boolean, required: true, default: true },

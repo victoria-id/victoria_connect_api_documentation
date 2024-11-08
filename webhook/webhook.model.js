@@ -6,7 +6,7 @@
 
 
  method: { $type: String, enum: ['get', 'put'], required: true, default: 'get' },
- uri: { $type: String, trim: true, maxlength: 100, required: true, validate: core_mongodb_validation_rule_address_net_http_secure },
+ uri: { $type: String, trim: true, maxlength: 512, required: true, validate: core_mongodb_validation_rule_address_net_http_secure },
 
  // Default headers to add to webhook payload.
  header:

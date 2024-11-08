@@ -33,7 +33,7 @@ This document describes everything you need to know about Victoria ID's webhooks
 
 * Webhook
 
-  A preconfigured HTTP-based callback mechanism for lightweight and event-driven communication between two APIs.
+  A pre-configured HTTP-based callback mechanism for lightweight and event-driven communication between two APIs.
 
 * Webhook payload (or simply 'payload')
 
@@ -145,7 +145,7 @@ A good method of rotating shared secrets is to configure a secondary secret on t
 
 Because headers (and other base data) are merged just before sending a payload, changes to base data is applied almost instantly. Therefore, old secrets can be removed almost instantly.
 
-If somehow generating a new secret overrides the current secret, rest assured that failed payloads are automatically retried (if the webhook is configured to be [guaranteed](#guaranteed)) after updating the shared secret on the webhook (sender).
+If somehow generating a new secret overwrites the current secret, rest assured that failed payloads are automatically retried (if the webhook is configured to be [guaranteed](#guaranteed)) after updating the shared secret on the webhook (sender).
 
 #### Content-Type
 
@@ -225,21 +225,23 @@ The payload data is primarily encoded in the URI's query string. This query stri
 
 ```sh
 #https://example.com/path/?
-user_id=644b8cb9000af3c567089560&portal_id=644b8cb9000af3c56708955f&group_id=644b8cb9000af3c567089562&screening_id=644b8cb9000af3c567089617&screenee_id=644b8cb9000af3c567089632&code=check/identity.travel_document.text_chip_certificate/release
+request_user_id=644b8cb9000af3c567089560&portal_id=644b8cb9000af3c56708955f&group_id=644b8cb9000af3c567089562&screening_id=644b8cb9000af3c567089617&screenee_id=644b8cb9000af3c567089632&code=check/identity.travel_document.text_chip_certificate/release
 ```
 
 Here is the same information as shown above but organized to be more readable:
 
 ```sh
-user_id      = 644b8cb9000af3c567089560
-portal_id    = 644b8cb9000af3c56708955f
-group_id     = 644b8cb9000af3c567089562
-screening_id = 644b8cb9000af3c567089617
-screenee_id  = 644b8cb9000af3c567089632
-code         = check/identity.travel_document.text_chip_certificate/release
+request_user_id  = 644b8cb9000af3c567089560
+portal_id        = 644b8cb9000af3c56708955f
+group_id         = 644b8cb9000af3c567089562
+screening_id     = 644b8cb9000af3c567089617
+screenee_id      = 644b8cb9000af3c567089632
+code             = check/identity.travel_document.text_chip_certificate/release
 ```
 
 Most parameters are just references to a user, portal, group, screening, or screenee. The `code` parameter refers to the event or action that was taken.
+
+Some webhook events mention **2 users**: The user being created / modified / deleted is references using `user_id`, and the requesting user —which does the request— is always referred to as `request_user_id`.
 
 ### Event codes
 
