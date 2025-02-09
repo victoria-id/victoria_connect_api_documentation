@@ -9,7 +9,7 @@ export default /* portal.filter.js */
       portal:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           title: core.validate('name.relaxed'),
           domain: core.validation.rule.array({ range: [1, 10] },
@@ -76,7 +76,7 @@ export default /* portal.filter.js */
       portal:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           title: core.validate('name.relaxed'),
           domain: core.validation.rule.array({ range: [1, 10] },

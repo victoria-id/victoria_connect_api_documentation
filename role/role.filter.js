@@ -1,4 +1,4 @@
-export default /* group.filter.js */
+export default /* role.filter.js */
  {
  
   request:
@@ -6,32 +6,42 @@ export default /* group.filter.js */
  
     create:
      {
-      group:
+      role:
        [
          {
           // id: core.mongodb.type.object_id,
  
           name: core.validate('name.relaxed'),
  
+          permission: core.validation.rule.array({ required: false },
+           [
+            core.validate('permission'),
+           ]),
+ 
          },
        ],
  
-     },
+     }, // create
  
  
     update:
      {
-      group:
+      role:
        [
          {
           // id: core.mongodb.type.object_id,
  
           name: core.validate('name.relaxed'),
  
+          permission: core.validation.rule.array({ required: false },
+           [
+            core.validate('permission'),
+           ]),
+ 
          },
        ],
  
-     },
+     }, // update
  
    },
  
@@ -41,12 +51,17 @@ export default /* group.filter.js */
  
     list:
      {
-      group:
+      role:
        [
          {
           id: true,
  
           name: true,
+ 
+          code: true,
+          protected: true,
+ 
+          permission: true,
  
           time: true,
          },
@@ -58,40 +73,15 @@ export default /* group.filter.js */
  
     detail:
      {
-      group:
+      role:
        [
          {
           id: true,
  
           name: true,
  
-          access:
-           [
-             {
-              id: true,
- 
-              user: true,
-              role: true,
-             },
-           ],
- 
-          time: true,
-         },
-       ],
- 
-     },
- 
- 
-    role:
-     {
-      group:
-       [
-         {
-          id: true,
- 
-          name: true,
- 
-          role: true,
+          code: true,
+          protected: true,
  
           time: true,
          },

@@ -41,7 +41,7 @@ export default /* check..vog_nl.filter.js */
  
         tele:
          {
-          phone: core.validate('address.net.tele.relaxed'),
+          phone: core.validate('address.net.tele.e164'),
          },
        },
      }, // request

@@ -9,7 +9,7 @@ export default /* webhook.filter.js */
       webhook:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           method: core.validation.rule.enum(['get', 'put']),
           uri: core.validate('required', 'address.net.http.secure'),
@@ -42,7 +42,7 @@ export default /* webhook.filter.js */
       webhook:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           method: core.validation.rule.enum(['get', 'put']),
           uri: core.validate('required', 'address.net.http.secure'),

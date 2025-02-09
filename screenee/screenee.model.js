@@ -1,108 +1,110 @@
-{
- portal:
-  {
-   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
-  },
+export default
+ {
+  portal:
+   {
+    id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
+   },
 
- group:
-  {
-   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'group' },
-  },
+  group:
+   {
+    id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'group' },
+   },
 
- screening:
-  {
-   id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'screening' },
-  },
+  screening:
+   {
+    id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'screening' },
+   },
 
- user:
-  {
-   id: { $type: core.mongodb.schema.type.object_id, index: true, ref: 'user' },
-  },
-
-
- state: { $type: String, enum: ['new', 'pending', 'declined', 'accepted'], required: true, default: 'new' },
+  user:
+   {
+    id: { $type: core.mongodb.schema.type.object_id, index: true, ref: 'user' },
+   },
 
 
- // Type of relation. Has effect on retention and other legal aspects.
- type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
+  state: { $type: String, enum: ['new', 'pending', 'declined', 'accepted'], required: true, default: 'new' },
 
 
- organization:
-  {
-   name: { $type: String, trim: true, maxlength: 256, default: '', validate: core.mongodb.validation.rule.name.relaxed },
-  },
+  // Type of relation. Has effect on retention and other legal aspects.
+  type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
 
 
- name:
-  {
-   /*
-    Official personal / first / given names.
-
-    Example: James Benedict Cornelius
-   */
-   personal: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.name.human.full },
-
-   /*
-    Official family name / last name / surname.
-
-    Example: Conner
-   */
-   family: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.name.human.full },
-
-   /*
-    Display name is used in e-mail fields (`To`, `CC`, `BCC`), user overview lists (like a company directory), etc.
-    This field defaults to the first name found in `name.personal` + `name.family`.
-
-    Example: James Conner
-   */
-   display: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.human.full },
-
-   /*
-    Short name can be used to address someone in conversations,
-     either in an informal way like 'Jay', or more formal like 'James'.
-    It could also be a nickname ('Bob') which has no relation to a person's official names.
-    This field defaults to the first name found in `name.personal`.
-
-    Example: Jay
-   */
-   short: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.name.human.full },
-  },
-
- description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.name.relaxed },
-
- locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validation.rule.locale },
-
- gender: { $type: String, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
-
- address:
-  {
-   mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail },
-
-   tele:
-    {
-     phone: { $type: String, trim: true, maxlength: 50, default: '', validate: core.mongodb.validation.rule.address.net.tele.relaxed },
-    },
-  },
-
- do_not_contact: { $type: Boolean, required: true, default: false },
-
- invite:
-  {
-   token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
-  },
+  organization:
+   {
+    name: { $type: String, trim: true, maxlength: 256, index: true, default: '', validate: core.mongodb.validation.rule.name.relaxed },
+   },
 
 
- check:
-  [
-   // See file `screenee.check.model.js`.
-   core.screenee.check.schema,
-  ],
+  name:
+   {
+    /*
+     Official personal / first / given names.
+
+     Example: James Benedict Cornelius
+    */
+    personal: { $type: String, trim: true, maxlength: 1024, required: true, index: true, validate: core.mongodb.validation.rule.name.human.full },
+
+    /*
+     Official family name / last name / surname.
+
+     Example: Conner
+    */
+    family: { $type: String, trim: true, maxlength: 1024, required: true, index: true, validate: core.mongodb.validation.rule.name.human.full },
+
+    /*
+     Display name is used in e-mail fields (`To`, `CC`, `BCC`), user overview lists (like a company directory), etc.
+     This field defaults to the first name found in `name.personal` + `name.family`.
+
+     Example: James Conner
+    */
+    display: { $type: String, trim: true, maxlength: 100, required: true, index: true, validate: core.mongodb.validation.rule.name.human.full },
+
+    /*
+     Short name can be used to address someone in conversations,
+      either in an informal way like 'Jay', or more formal like 'James'.
+     It could also be a nickname ('Bob') which has no relation to a person's official names.
+     This field defaults to the first name found in `name.personal`.
+
+     Example: Jay
+    */
+    short: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.name.human.full },
+   },
+
+  description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.name.relaxed },
+
+  locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validation.rule.locale },
+
+  gender: { $type: String, enum: ['female', 'male', 'unknown'], required: true, default: 'unknown' },
+
+  address:
+   {
+    mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail },
+
+    tele:
+     {
+      phone: { $type: String, trim: true, maxlength: 50, default: '', validate: core.mongodb.validation.rule.address.net.tele.relaxed },
+     },
+   },
+
+  do_not_contact: { $type: Boolean, required: true, default: false },
+
+  invite:
+   {
+    token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
+   },
 
 
- time:
-  {
-   invite: { $type: Date },
-   accept: { $type: Date },
-  },
+  check:
+   [
+    // See file `screenee.check.model.js`.
+    core.screenee.check.schema,
+   ],
 
-}
+
+  time:
+   {
+    invite: { $type: Date },
+    accept: { $type: Date },
+    remind: { $type: Date },
+   },
+
+ };

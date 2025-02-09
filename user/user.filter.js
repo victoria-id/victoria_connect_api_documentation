@@ -4,18 +4,24 @@ export default /* user.filter.js */
   request:
    {
  
+    /**
+     Registration is the process of an anonymous user creating an account for him/herself by
+      supplying various pieces of information including a password.
+     The user cannot specify account type as the account type is always 'normal'.
+    */
     register:
      {
+ 
       user:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           password: String,
  
           name:
            {
-            personal: core.validate('name.human.full'),
+            personal: core.validate('required', 'name.human.full'),
             family: core.validate('name.human.full'),
             display: core.validate('name.human.full'),
             short: core.validate('name.human.full'),
@@ -34,68 +40,79 @@ export default /* user.filter.js */
                },
              ]),
  
-            net:
+            net: core.validation.rule.array({ required: false, range: [0, 3] },
              [
                {
                 type: core.validation.rule.enum(['http', 'tel']),
                 uri: core.validate('address.net.uri'),
                },
-             ],
+             ]),
            },
+ 
          },
        ],
  
-     },
+     }, // register
  
  
+    /**
+     User creation is the process of a portal / group administrator creating an account for someone else by
+      supplying various pieces of information excluding password.
+     The user can be of type 'normal' or 'federated'.
+    */
     create:
      {
+ 
       user:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
+ 
+          type: core.validate('required', core.validation.rule.enum(['normal', 'federated'])),
  
           name:
            {
-            personal: core.validate('name.human.full'),
+            personal: core.validate('required', 'name.human.full'),
             family: core.validate('name.human.full'),
             display: core.validate('name.human.full'),
             short: core.validate('name.human.full'),
            },
  
-           locale: core.validate('locale'),
-           gender: core.validate('gender'),
+          locale: core.validate('locale'),
+          gender: core.validate('gender'),
  
-           address:
-            {
-             mail: core.validation.rule.array({ range: [1, 5] },
-              [
-                {
-                 uri: core.validate('address.net.mail'),
-                 primary: core.validate('boolean'),
-                },
-              ]),
+          address:
+           {
+            mail: core.validation.rule.array({ range: [1, 5] },
+             [
+               {
+                uri: core.validate('address.net.mail'),
+                primary: core.validate('boolean'),
+               },
+             ]),
  
-             net:
-              [
-                {
-                 type: core.validation.rule.enum(['http', 'tel']),
-                 uri: core.validate('address.net.uri'),
-                },
-              ],
-            },
+            net: core.validation.rule.array({ required: false, range: [0, 3] },
+             [
+               {
+                type: core.validation.rule.enum(['http', 'tel']),
+                uri: core.validate('address.net.uri'),
+               },
+             ]),
+           },
+ 
          },
        ],
  
-     },
+     }, // create
  
  
     update:
      {
+ 
       user:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           name:
            {
@@ -118,26 +135,28 @@ export default /* user.filter.js */
                },
              ]),
  
-            net:
+            net: core.validation.rule.array({ required: false, range: [0, 3] },
              [
                {
                 type: core.validation.rule.enum(['http', 'tel']),
                 uri: core.validate('address.net.uri'),
                },
-             ],
+             ]),
            },
+ 
          },
        ],
  
-     },
+     }, // update
  
  
     password:
      {
+ 
       user:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           password:
            {
@@ -153,7 +172,26 @@ export default /* user.filter.js */
          },
        ],
  
-     },
+     }, // password
+ 
+ 
+    confirm:
+     {
+ 
+      user:
+       [
+         {
+          // id: core.mongodb.type.object_id,
+ 
+          password:
+           {
+            new: String,
+           },
+ 
+         },
+       ],
+ 
+     }, // confirm
  
    },
  
@@ -163,6 +201,7 @@ export default /* user.filter.js */
  
     minimal:
      {
+ 
       user:
        [
          {
@@ -175,11 +214,12 @@ export default /* user.filter.js */
          },
        ],
  
-     },
+     }, // minimal
  
  
-    list:
+    verify:
      {
+ 
       user:
        [
          {
@@ -187,16 +227,26 @@ export default /* user.filter.js */
  
           name: true,
  
-          locale: true,
-          gender: true,
+          type: true,
+ 
+          address:
+           {
+            mail:
+             [
+              {
+               uri: true,
+              },
+             ],
+           },
          },
        ],
  
-     },
+     }, // verify
  
  
-    detail:
+    list:
      {
+ 
       user:
        [
          {
@@ -206,8 +256,45 @@ export default /* user.filter.js */
  
           name: true,
  
-          locale: true,
           gender: true,
+          locale: true,
+ 
+          address:
+           {
+            mail:
+             [
+               {
+                uri: true,
+ 
+                primary: true,
+                confirmed: true,
+               },
+             ],
+           },
+ 
+          role: true,
+         },
+       ],
+ 
+      query: true,
+ 
+     }, // list
+ 
+ 
+    detail:
+     {
+ 
+      user:
+       [
+         {
+          id: true,
+ 
+          type: true,
+ 
+          name: true,
+ 
+          gender: true,
+          locale: true,
  
           address:
            {
@@ -226,11 +313,14 @@ export default /* user.filter.js */
  
           scope: true,
  
+          role: true,
+ 
           time: true,
          },
        ],
  
-     },
+      query: true,
+     }, // detail
  
    },
  };

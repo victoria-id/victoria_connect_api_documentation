@@ -9,20 +9,25 @@ export default /* profile.filter.js */
       profile:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           // portal:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           // group:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           title: core.validate('name.relaxed'),
           description: core.validate('description'),
+ 
+          reminder:
+           {
+            id: core.validate('object_id'),
+           },
  
           screenee:
            {
@@ -53,15 +58,20 @@ export default /* profile.filter.js */
       profile:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           // group:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           title: core.validate('name.relaxed'),
           description: core.validate('description'),
+ 
+          reminder:
+           {
+            id: core.validate('object_id'),
+           },
  
           screenee:
            {
@@ -154,6 +164,11 @@ export default /* profile.filter.js */
           description: true,
  
           screenee: true,
+ 
+          reminder:
+           {
+            id: true,
+           },
  
           check:
            [

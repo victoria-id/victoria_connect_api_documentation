@@ -10,7 +10,7 @@ export default /* sso.filter.js */
       sso:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           name: core.validate('required', 'name.relaxed'),
  
@@ -26,7 +26,7 @@ export default /* sso.filter.js */
       sso:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           name: core.validate('required', 'name.relaxed'),
  

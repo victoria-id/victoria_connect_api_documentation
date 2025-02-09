@@ -10,7 +10,7 @@ export default /* saml2.filter.js */
       saml2:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           name: core.validate('required', 'name.relaxed'),
  
@@ -26,7 +26,7 @@ export default /* saml2.filter.js */
       saml2:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           name: core.validate('required', 'name.relaxed'),
  
@@ -69,14 +69,14 @@ export default /* saml2.filter.js */
           group: core.validation.rule.array({ range: [1, 10000] },
            [
              {
-              id: core.mongodb.object_id,
+              id: core.mongodb.type.object_id,
  
               reference: core.validate('required', 'description'),
  
-              permission:
-               [
-                core.validate('required', 'permission'),
-               ],
+              role:
+               {
+                id: core.mongodb.type.object_id,
+               },
              },
            ]), // group
  

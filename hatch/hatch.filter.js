@@ -9,7 +9,7 @@ export default /* hatch.filter.js */
       hatch:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           title: core.validate('required', 'name.relaxed'),
           description: core.validate('description'),
@@ -45,7 +45,7 @@ export default /* hatch.filter.js */
             compression: core.validate('number.round', core.validation.rule.range([80, 100])),
            },
  
-          minimum: core.validate('number.round', core.validation.rule.range([1, 10])),
+          minimum: core.validate('number.round', core.validation.rule.range([0, 10])),
           maximum: core.validate('number.round', core.validation.rule.range([1, 10])),
  
          },
@@ -59,7 +59,7 @@ export default /* hatch.filter.js */
       hatch:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           data:
            [

@@ -9,21 +9,21 @@ export default /* screening.filter.js */
       screening:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           // portal:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           // group:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           profile:
            {
-            id: core.mongodb.object_id,
+            id: core.mongodb.type.object_id,
            },
  
           country: core.validate('country.code'),
@@ -51,17 +51,22 @@ export default /* screening.filter.js */
       screening:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           // group:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
  
           // profile:
           //  {
-          //   id: core.mongodb.object_id,
+          //   id: core.mongodb.type.object_id,
           //  },
+ 
+          reminder:
+           {
+            id: true,
+           },
  
           title: core.validate('name.relaxed'),
           description: core.validate('description'),
@@ -154,6 +159,11 @@ export default /* screening.filter.js */
            },
  
           profile:
+           {
+            id: true,
+           },
+ 
+          reminder:
            {
             id: true,
            },

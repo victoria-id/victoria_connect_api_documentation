@@ -104,6 +104,13 @@
   },
 
   {
+   "code": "address.net.tele.e164",
+   "description": "Tele (phone / fax) number, in E.164 format.",
+   "transform": "(code)",
+   "test": "(code)"
+  },
+
+  {
    "code": "address.net.fqdn",
    "description": "Fully Qualified Domain Name (FQDN).",
    "transform": "(code)",
@@ -473,7 +480,9 @@
     {
      "code": "validation.rule.media.type",
      "exception": "Must fit the media type format (e.g. 'image/jpeg')."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -485,7 +494,9 @@
     {
      "code": "validation.rule.media.type.image.common",
      "exception": "Media type must be 'image/jpeg', 'image/webp', 'image/png', or 'image/svg+xml'."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -497,7 +508,9 @@
     {
      "code": "validation.rule.media.type.image.raster.common",
      "exception": "Media type must be 'image/jpeg', 'image/webp', or 'image/png'."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -509,7 +522,9 @@
     {
      "code": "validation.rule.media.type.image.photo.common",
      "exception": "Media type must be 'image/jpeg', 'image/webp'."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -521,7 +536,9 @@
     {
      "code": "validation.rule.media.type.image.jpeg",
      "exception": "Media type must be 'image/jpeg'."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -533,7 +550,9 @@
     {
      "code": "validation.rule.media.type.application.pdf",
      "exception": "Media type must be 'application/pdf'."
-    }
+    },
+
+   "test": "(code)"
   },
 
   {
@@ -703,6 +722,12 @@
   {
    "code": "date",
    "description": "Ensure `Date`.",
+   "transform": "(code)"
+  },
+
+  {
+   "code": "object_id",
+   "description": "Ensure `ObjectID`.",
    "transform": "(code)"
   },
 

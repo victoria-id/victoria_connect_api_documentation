@@ -9,7 +9,7 @@ export default /* group.screenee.filter.js */
       screenee:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           organization:
            {
@@ -35,7 +35,7 @@ export default /* group.screenee.filter.js */
  
             tele:
              {
-              phone: core.validate('address.net.tele.relaxed'),
+              phone: core.validate('address.net.tele.e164'),
              },
            },
  
@@ -43,7 +43,7 @@ export default /* group.screenee.filter.js */
  
           user:
            {
-            id: core.mongodb.object_id,
+            id: core.mongodb.type.object_id,
            },
          },
        ],
@@ -56,7 +56,7 @@ export default /* group.screenee.filter.js */
       screenee:
        [
          {
-          // id: core.mongodb.object_id,
+          // id: core.mongodb.type.object_id,
  
           type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
  
