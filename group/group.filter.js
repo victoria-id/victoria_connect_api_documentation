@@ -13,6 +13,21 @@ export default /* group.filter.js */
  
           name: core.validate('name.relaxed'),
  
+          address:
+           {
+            mail: core.validation.rule.array({ required: false },
+             [
+               {
+                name: core.validate('required', 'name.relaxed'),
+                uri: core.validate('required', 'address.net.mail.relaxed'),
+                use: core.validation.rule.array({ required: false },
+                 [
+                  core.validation.rule.enum(['alert']),
+                 ]),
+               },
+             ]),
+           },
+ 
          },
        ],
  
@@ -27,6 +42,21 @@ export default /* group.filter.js */
           // id: core.mongodb.type.object_id,
  
           name: core.validate('name.relaxed'),
+ 
+          address:
+           {
+            mail: core.validation.rule.array({ required: false },
+             [
+               {
+                name: core.validate('required', 'name.relaxed'),
+                uri: core.validate('required', 'address.net.mail.relaxed'),
+                use: core.validation.rule.array({ required: false },
+                 [
+                  core.validation.rule.enum(['alert']),
+                 ]),
+               },
+             ]),
+           },
  
          },
        ],
@@ -74,6 +104,21 @@ export default /* group.filter.js */
               role: true,
              },
            ],
+ 
+ 
+          address:
+           {
+            mail:
+             [
+               {
+                id: true,
+ 
+                name: true,
+                uri: true,
+                use: true,
+               },
+             ],
+           },
  
           time: true,
          },

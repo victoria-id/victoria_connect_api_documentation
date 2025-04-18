@@ -63,6 +63,14 @@ export default
    ],
 
 
+  // When the screenee successfully completes a check, the check should either get state 'success' or 'evaluation'.
+  // This is controlled in the check settings in the portal. These check settings have a default.
+  // This value controls that default.
+  state_finish_default: { $type: String, enum: ['evaluation', 'success'], required: true, default: 'evaluation' },
+
+
+  // Global state of the check module (not the result of the check). For example, a check might depend on a third-party API.
+  // If that third-party API is offline, the check itself is not ready.
   state: { $type: String, enum: ['unknown', 'fail', 'ready'], required: true, default: 'unknown' },
   message: { $type: String, trim: true, maxlength: 1024, default: 'Service temporarily unavailable.', validate: core.mongodb.validation.rule.description },
 
@@ -72,6 +80,7 @@ export default
     end: { $type: Date },
     description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.description },
    },
+
 
   configuration:
    {

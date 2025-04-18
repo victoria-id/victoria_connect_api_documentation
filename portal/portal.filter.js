@@ -181,6 +181,7 @@ export default /* portal.filter.js */
           brand: true,
  
           // check: true,
+          // feature: true,
  
           // time: true,
          },
@@ -207,6 +208,7 @@ export default /* portal.filter.js */
           brand: true,
  
           check: true,
+          feature: true,
  
           time: true,
          },

@@ -14,7 +14,7 @@ export default /* saml2.filter.js */
  
           name: core.validate('required', 'name.relaxed'),
  
-          technical_contact_mail: core.validate('required', 'address.net.mail'),
+          technical_contact_mail: core.validate('required', 'address.net.mail.relaxed'),
          },
        ],
  
@@ -30,7 +30,7 @@ export default /* saml2.filter.js */
  
           name: core.validate('required', 'name.relaxed'),
  
-          technical_contact_mail: core.validate('required', 'address.net.mail'),
+          technical_contact_mail: core.validate('required', 'address.net.mail.relaxed'),
  
           // We don't allow for update of the SP at this moment, we can add a function to rebuild / update the private key later.
           // sp: false,

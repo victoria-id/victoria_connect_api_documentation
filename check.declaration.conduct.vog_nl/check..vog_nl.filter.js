@@ -37,7 +37,7 @@ export default /* check..vog_nl.filter.js */
           street: core.validate('required', 'name.relaxed'),
          },
  
-        mail: core.validate('required', 'address.net.mail'),
+        mail: core.validate('required', 'address.net.mail.relaxed'),
  
         tele:
          {

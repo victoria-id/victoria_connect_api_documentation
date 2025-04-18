@@ -19,6 +19,29 @@ export default /* screenee.file.filter.js */
            {
             code: true,
            },
+ 
+          tag: true,
+ 
+          envelope:
+           {
+            id: true,
+            action: true,
+           },
+ 
+          file:
+           {
+            version: true,
+           },
+ 
+          form:
+           {
+            id: true,
+           },
+ 
+          document:
+           {
+            id: true,
+           },
          },
        ],
  

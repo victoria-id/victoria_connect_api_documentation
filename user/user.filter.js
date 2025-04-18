@@ -35,7 +35,7 @@ export default /* user.filter.js */
             mail: core.validation.rule.array({ range: [1, 5] },
              [
                {
-                uri: core.validate('address.net.mail'),
+                uri: core.validate('address.net.mail.relaxed'),
                 primary: core.validate('boolean'),
                },
              ]),
@@ -86,7 +86,7 @@ export default /* user.filter.js */
             mail: core.validation.rule.array({ range: [1, 5] },
              [
                {
-                uri: core.validate('address.net.mail'),
+                uri: core.validate('address.net.mail.relaxed'),
                 primary: core.validate('boolean'),
                },
              ]),
@@ -130,7 +130,7 @@ export default /* user.filter.js */
             mail: core.validation.rule.array({ required: false, range: [1, 5] },
              [
                {
-                uri: core.validate('address.net.mail'),
+                uri: core.validate('address.net.mail.relaxed'),
                 primary: core.validate('boolean'),
                },
              ]),
@@ -314,6 +314,8 @@ export default /* user.filter.js */
           scope: true,
  
           role: true,
+ 
+          consent: true,
  
           time: true,
          },

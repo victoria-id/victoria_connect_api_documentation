@@ -54,7 +54,7 @@ export default
        {
         _id: false,
 
-        uri: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail },
+        uri: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail.relaxed },
         primary: { $type: Boolean, required: true, default: false },
         confirmed: { $type: Boolean, required: true, default: false },
         token: { $type: String, default: () => core.cryptography.code(32) },
@@ -87,6 +87,8 @@ export default
    [
      { $type: String, enum: ['user.impersonate'] },
    ],
+
+  consent: { $type: Boolean, default: false },
 
   time:
    {

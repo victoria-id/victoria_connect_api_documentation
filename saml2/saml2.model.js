@@ -8,7 +8,7 @@ export default
 
   name: { $type: String, trim: true, maxlength: 50, required: true, validate: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.name.relaxed] },
 
-  technical_contact_mail: { $type: String, trim: true, maxlength: 256, lowercase: true, required: true, validate: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.address.net.mail] },
+  technical_contact_mail: { $type: String, trim: true, maxlength: 256, lowercase: true, required: true, validate: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.address.net.mail.relaxed] },
 
 
   sp:

@@ -6,6 +6,7 @@ export default /* screening.filter.js */
  
     create:
      {
+ 
       screening:
        [
          {
@@ -31,6 +32,13 @@ export default /* screening.filter.js */
           title: core.validate('name.relaxed'),
           description: core.validate('description'),
  
+          state: core.validation.rule.enum(['new', 'pending', 'open', 'closed', 'archived']),
+ 
+          screener: core.validation.rule.array({ required: false, range: [0, 5] },
+           [
+            core.validate('resource.identifier'),
+           ]),
+ 
           time:
            {
             /*
@@ -48,6 +56,7 @@ export default /* screening.filter.js */
  
     update:
      {
+ 
       screening:
        [
          {
@@ -65,13 +74,18 @@ export default /* screening.filter.js */
  
           reminder:
            {
-            id: true,
+            id: core.validate('object_id'),
            },
  
           title: core.validate('name.relaxed'),
           description: core.validate('description'),
  
           state: core.validation.rule.enum(['new', 'pending', 'open', 'closed', 'archived']),
+ 
+          screener: core.validation.rule.array({ required: false, range: [0, 5] },
+           [
+            core.validate('resource.identifier'),
+           ]),
  
           time:
            {
@@ -95,6 +109,7 @@ export default /* screening.filter.js */
  
     list:
      {
+ 
       screening:
        [
          {
@@ -124,6 +139,8 @@ export default /* screening.filter.js */
  
           state: true,
  
+          screener: true,
+ 
           check:
            [
              {
@@ -137,12 +154,20 @@ export default /* screening.filter.js */
          },
        ],
  
+      group:
+       [
+         {
+          name: true,
+         },
+       ],
+ 
       query: true,
      },
  
  
     detail:
      {
+ 
       screening:
        [
          {
@@ -176,6 +201,8 @@ export default /* screening.filter.js */
           screenee: true,
  
           state: true,
+ 
+          screener: true,
  
           check:
            [

@@ -92,7 +92,14 @@ export default
      },
    },
 
+  // Determines which checks are enabled within the portal.
   check:
+   [
+     { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
+   ],
+
+  // Feature flags determines which features are enabled within the portal.
+  feature:
    [
      { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
    ],

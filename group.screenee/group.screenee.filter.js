@@ -11,6 +11,13 @@ export default /* group.screenee.filter.js */
          {
           // id: core.mongodb.type.object_id,
  
+          user:
+           {
+            id: core.mongodb.type.object_id,
+           },
+ 
+          reference: core.validate('resource.identifier'),
+ 
           organization:
            {
             name: core.validate('name.relaxed'),
@@ -31,7 +38,7 @@ export default /* group.screenee.filter.js */
  
           address:
            {
-            mail: core.validate('required', 'address.net.mail'),
+            mail: core.validate('required', 'address.net.mail.relaxed'),
  
             tele:
              {
@@ -39,11 +46,17 @@ export default /* group.screenee.filter.js */
              },
            },
  
+          screener: core.validation.rule.array({ range: [0, 5] },
+           [
+            core.validate('resource.identifier'),
+           ]),
+ 
           do_not_contact: core.validate('boolean'),
  
-          user:
+          time:
            {
-            id: core.mongodb.type.object_id,
+            end: core.validate('date', 'date_only'),
+            deadline: core.validate('date', 'date_only'),
            },
          },
        ],
@@ -57,8 +70,9 @@ export default /* group.screenee.filter.js */
        [
          {
           // id: core.mongodb.type.object_id,
+          reference: core.validate('resource.identifier'),
  
-          type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
+          type: core.validation.rule.enum(['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner']),
  
           organization:
            {
@@ -80,15 +94,26 @@ export default /* group.screenee.filter.js */
  
           address:
            {
-            mail: core.validate('address.net.mail'),
+            mail: core.validate('address.net.mail.relaxed'),
  
             tele:
              {
-              phone: core.validate('address.net.tele.relaxed'),
+              phone: core.validate('address.net.tele.e164'),
              },
            },
  
+          screener: core.validation.rule.array({ range: [0, 5] },
+           [
+            core.validate('resource.identifier'),
+           ]),
+ 
           do_not_contact: core.validate('boolean'),
+ 
+          time:
+           {
+            end: core.validate('date', 'date_only'),
+            deadline: core.validate('date', 'date_only'),
+           },
          },
        ],
  
@@ -106,6 +131,7 @@ export default /* group.screenee.filter.js */
        [
          {
           id: true,
+          reference: true,
  
           group:
            {
@@ -139,6 +165,8 @@ export default /* group.screenee.filter.js */
  
           address: true,
  
+          screener: true,
+ 
           check:
            [
              {
@@ -171,6 +199,7 @@ export default /* group.screenee.filter.js */
        [
          {
           id: true,
+          reference: true,
  
           group:
            {
@@ -203,6 +232,8 @@ export default /* group.screenee.filter.js */
           gender: true,
  
           address: true,
+ 
+          screener: true,
  
           check:
            [

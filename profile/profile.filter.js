@@ -31,13 +31,15 @@ export default /* profile.filter.js */
  
           screenee:
            {
-            type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
+            type: core.validation.rule.enum(['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner']),
            },
  
           check:
            [
              {
               code: core.validate('resource.identifier'),
+ 
+              state_finish: core.validate('string'),
  
               configuration:
                {
@@ -75,13 +77,15 @@ export default /* profile.filter.js */
  
           screenee:
            {
-            type: core.validation.rule.enum(['screenee', 'employee', 'client', 'customer', 'supplier', 'partner']),
+            type: core.validation.rule.enum(['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner']),
            },
  
           check:
            [
              {
               code: core.validate('resource.identifier'),
+ 
+              state_finish: core.validation.rule.enum(['evaluation', 'success']),
  
               configuration:
                {
@@ -174,6 +178,8 @@ export default /* profile.filter.js */
            [
              {
               id: true,
+ 
+              state_finish: true,
  
               code: true,
  

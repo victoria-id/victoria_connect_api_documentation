@@ -7,6 +7,22 @@ export default
 
   name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
 
+  address:
+   {
+    mail:
+     [
+       {
+        name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
+        uri: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, validate: core.mongodb.validation.rule.address.net.mail.relaxed },
+        use:
+         [
+           { $type: String, enum: ['alert'] },
+         ],
+       },
+     ],
+   },
+
+
   access:
    [
      {

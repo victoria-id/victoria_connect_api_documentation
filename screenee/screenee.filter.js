@@ -40,6 +40,7 @@ export default /* screenee.filter.js */
        [
          {
           id: true,
+          reference: true,
  
           group:
            {
@@ -98,6 +99,7 @@ export default /* screenee.filter.js */
        [
          {
           id: true,
+          reference: true,
  
           group:
            {

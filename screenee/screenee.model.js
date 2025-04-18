@@ -1,5 +1,7 @@
 export default
  {
+  reference: { $type: String, trim: true, maxlength: 100, validate: core.mongodb.validation.rule.resource.identifier },
+
   portal:
    {
     id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
@@ -25,7 +27,7 @@ export default
 
 
   // Type of relation. Has effect on retention and other legal aspects.
-  type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
+  type: { $type: String, enum: ['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
 
 
   organization:
@@ -77,7 +79,7 @@ export default
 
   address:
    {
-    mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail },
+    mail: { $type: String, trim: true, maxlength: 100, lowercase: true, required: true, index: true, validate: core.mongodb.validation.rule.address.net.mail.relaxed },
 
     tele:
      {
@@ -87,11 +89,31 @@ export default
 
   do_not_contact: { $type: Boolean, required: true, default: false },
 
+  subscription:
+   [
+     {
+      _id: false,
+
+      category: { $type: String, trim: true, index: true, maxlength: 50, lowercase: true, required: true, validate: core.mongodb.validation.rule.resource.identifier },
+
+      token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase, required: true },
+
+      subscribe: { $type: Boolean, required: true },
+     },
+   ],
+
   invite:
    {
     token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
    },
 
+  // The screener(s) responsible for this screenee
+  screener:
+   [
+     {
+      $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'user',
+     },
+   ],
 
   check:
    [
@@ -105,6 +127,8 @@ export default
     invite: { $type: Date },
     accept: { $type: Date },
     remind: { $type: Date },
+    end: { $type: Date },
+    deadline: { $type: Date },
    },
 
  };

@@ -24,7 +24,7 @@ export default
   screenee:
    {
     // Type of relation. Has effect on retention and other legal aspects.
-    type: { $type: String, enum: ['screenee', 'employee', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
+    type: { $type: String, enum: ['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
    },
 
 
@@ -34,6 +34,8 @@ export default
       _id: false,
 
       code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
+
+      state_finish: { $type: String, enum: ['evaluation', 'success'], required: true, default: 'success' },
 
       configuration:
        {
