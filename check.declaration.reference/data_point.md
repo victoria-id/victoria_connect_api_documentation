@@ -40,8 +40,8 @@
     * Referent name
     * Referent relation (e.g., 'Direct supervisor', 'Hierarchically superior manager', 'HR professional')
     * Referent function
-    * Referent email
-    * Referent phone
+    * Referent e-mail address
+    * Referent phone number
     * Referent message
 
     * Date mail sent

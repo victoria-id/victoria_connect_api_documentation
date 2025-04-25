@@ -14,7 +14,7 @@
 * Bank account number (e.g., 'NL43 ASNB 0000 0000 00')
 * Bank account holder type (e.g., 'personal', 'business')
 * Bank account holder name (e.g., 'W L de Bruijn')
-* Bank account holder organization (e.g., 'Victoria ID B.V.')
+* Bank account holder organization (e.g., 'Victoria-ID B.V.')
 
 * Check
   * Bank account number from image (yes / no)

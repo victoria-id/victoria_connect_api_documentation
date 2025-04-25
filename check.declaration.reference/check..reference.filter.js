@@ -4,7 +4,7 @@ export default /* check..reference.filter.js */
   request:
    {
  
-    update_reference_type:
+    reference_type_update:
      {
       reference_type: core.validation.rule.enum(['contact', 'document', 'none']),
       no_reference_explanation: core.validate('string', 'trim'),

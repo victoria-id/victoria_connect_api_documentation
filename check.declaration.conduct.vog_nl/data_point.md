@@ -15,7 +15,7 @@
     * Date
     * Place
   * Citizen service number (BSN)
-  * Email
+  * E-mail address
   * Personal name
   * Family name
   * Nationalities

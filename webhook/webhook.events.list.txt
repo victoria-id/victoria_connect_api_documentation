@@ -113,7 +113,6 @@ check/finance.insolvency.cir_nl/create
 check/finance.insolvency.cir_nl/release
 check/finance.insolvency.cir_nl/delete
 check/education.diploma.emrex_eu/update
-check/education.diploma/update
 check/health.practitioner.big_nl/create
 check/health.practitioner.big_nl/release
 check/health.practitioner.big_nl/delete
@@ -151,14 +150,15 @@ check/identity.travel_document.quick/create
 check/identity.travel_document.quick/release
 check/identity.travel_document.quick/delete
 check/declaration.reference.form/item.create
+check/declaration.reference.form/release
 check/declaration.reference.form/item.document.upload
 check/declaration.reference.form/item.referent.mail
 check/declaration.reference.form/item.referent.approach
 check/declaration.reference.form/item.referent.seen
 check/declaration.reference.form/item.referent.response
-check/declaration.reference.form/release
 check/declaration.reference.form/item.release
 check/declaration.reference.form/item.delete
+check/declaration.reference.form/item.finalize
 check/declaration.reference.form/delete
 check/company_info.criminal_record/create
 check/company_info.criminal_record/release
@@ -172,6 +172,7 @@ check/education.diploma/item.update
 check/education.diploma/release
 check/education.diploma/delete
 check/education.diploma/item.delete
+check/education.diploma/update
 check/declaration.reference/evaluation.fail
 check/declaration.reference/evaluation.success
 check/declaration.conduct.vog_nl/evaluation.fail
@@ -198,8 +199,6 @@ check/finance.insolvency.cir_nl/evaluation.fail
 check/finance.insolvency.cir_nl/evaluation.success
 check/education.diploma.emrex_eu/evaluation.fail
 check/education.diploma.emrex_eu/evaluation.success
-check/education.diploma/evaluation.fail
-check/education.diploma/evaluation.success
 check/health.practitioner.big_nl/evaluation.fail
 check/health.practitioner.big_nl/evaluation.success
 check/business.chamber_of_commerce.kvk_nl/evaluation.fail
@@ -218,3 +217,5 @@ check/company_info.criminal_record/evaluation.fail
 check/company_info.criminal_record/evaluation.success
 check/declaration.employment_history.uwv_nl/evaluation.fail
 check/declaration.employment_history.uwv_nl/evaluation.success
+check/education.diploma/evaluation.fail
+check/education.diploma/evaluation.success

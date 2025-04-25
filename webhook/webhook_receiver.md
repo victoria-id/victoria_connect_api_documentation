@@ -1,6 +1,6 @@
 # Victoria Connect API - Webhooks - Receiver
 
-This document describes everything you need to know about Victoria ID's webhooks from a webhook receiver's perspective.
+This document describes everything you need to know about Victoria-ID's webhooks from a webhook receiver's perspective.
 
 
 ## Table of contents
@@ -217,7 +217,7 @@ Although the delivery algorithm makes a best effort to deliver payloads in order
 
 ## Set-up
 
-Webhooks need to be configured per portal and (currently) can only be set up by Victoria ID. Please let us know where you'd like us to send the callbacks.
+Webhooks need to be configured per portal and (currently) can only be set up by Victoria-ID. Please let us know where you'd like us to send the callbacks.
 
 If the webhook defaults are suitable for your webhook receiver, then all you have to specify is the `uri` of the webserver to which to send the payloads to. However, it is strongly recommended to also specify an `Authorization` [header](#headers) (or something similar).
 
