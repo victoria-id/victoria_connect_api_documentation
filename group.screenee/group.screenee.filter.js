@@ -46,7 +46,7 @@ export default /* group.screenee.filter.js */
              },
            },
  
-          screener: core.validation.rule.array({ range: [0, 5] },
+          screener: core.validation.rule.array({ required: false, range: [0, 5] },
            [
             core.validate('resource.identifier'),
            ]),
@@ -102,7 +102,7 @@ export default /* group.screenee.filter.js */
              },
            },
  
-          screener: core.validation.rule.array({ range: [0, 5] },
+          screener: core.validation.rule.array({ required: false, range: [0, 5] },
            [
             core.validate('resource.identifier'),
            ]),
