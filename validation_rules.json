@@ -154,7 +154,7 @@
    "code": "address.physical.postal_code.nld",
    "description": "Postal code, Dutch.",
    "transform": "(code)",
-   "pattern": "/^(?:[0-9]{4}\\s[A-Z]{2})?$/",
+   "pattern": "/^(?:[1-9][0-9]{3}\\s[A-Z]{2})?$/",
 
    "exception":
     {

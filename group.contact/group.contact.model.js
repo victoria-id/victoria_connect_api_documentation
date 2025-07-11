@@ -15,10 +15,10 @@ export default
   image:
    [
      {
-      name: { $type: String, trim: true, maxlength: 50, required: true },
+      name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.file.name.strict },
       type: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.media.type },
-      encoding: { $type: String, trim: true, maxlength: 50, required: true, default: 'base64' },
-      content: { $type: String, maxlength: core.configuration.hatch.file.size, required: true },
+      encoding: { $type: String, trim: true, enum: ['base64'], required: true, default: 'base64' },
+      content: { $type: String, maxlength: core.configuration.hatch.file.size, required: true, validate: core.mongodb.validation.rule.encoding.base64 },
      },
    ],
 

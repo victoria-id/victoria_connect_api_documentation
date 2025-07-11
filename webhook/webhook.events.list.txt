@@ -28,6 +28,8 @@ check/generic.finish/release
 sso.create
 sso.update
 sso.delete
+check/business.chamber_of_commerce.placeholder/release
+check/business.chamber_of_commerce.placeholder/delete
 role.create
 role.update
 role.delete
@@ -158,7 +160,6 @@ check/declaration.reference.form/item.referent.seen
 check/declaration.reference.form/item.referent.response
 check/declaration.reference.form/item.release
 check/declaration.reference.form/item.delete
-check/declaration.reference.form/item.finalize
 check/declaration.reference.form/delete
 check/company_info.criminal_record/create
 check/company_info.criminal_record/release
@@ -179,6 +180,8 @@ check/declaration.conduct.vog_nl/evaluation.fail
 check/declaration.conduct.vog_nl/evaluation.success
 check/generic.finish/evaluation.fail
 check/generic.finish/evaluation.success
+check/business.chamber_of_commerce.placeholder/evaluation.fail
+check/business.chamber_of_commerce.placeholder/evaluation.success
 check/generic.sign/evaluation.fail
 check/generic.sign/evaluation.success
 check/finance.bank_account.iban/evaluation.fail

@@ -35,7 +35,7 @@ export default /* check..travel_document.placeholder.filter.js */
         name:
          {
           personal: core.validate('required', 'name.relaxed'),
-          family: core.validate('required', 'name.relaxed'),
+          family: core.validate('name.relaxed'),
           married: core.validate('name.relaxed'),
          },
  

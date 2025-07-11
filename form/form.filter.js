@@ -50,6 +50,8 @@ export default /* form.filter.js */
  
           tag: true,
  
+          profile: true,
+ 
           time: true,
          },
        ],
@@ -68,6 +70,8 @@ export default /* form.filter.js */
           name: true,
  
           tag: true,
+ 
+          profile: true,
  
           element: core.form.element.filter.response.element,
  

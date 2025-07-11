@@ -43,6 +43,8 @@ export default /* group.document.filter.js */
           name: true,
           type: true,
  
+          profile: true,
+ 
          },
        ],
  

@@ -193,5 +193,19 @@ export default /* profile.filter.js */
  
      },
  
+ 
+    minimal:
+     {
+      profile:
+       [
+         {
+          id: true,
+ 
+          title: true,
+         },
+ 
+       ],
+     },
+ 
    },
  };

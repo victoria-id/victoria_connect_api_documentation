@@ -24,6 +24,7 @@ export default /* group.filter.js */
                  [
                   core.validation.rule.enum(['alert']),
                  ]),
+                locale: core.validate('required', 'locale'),
                },
              ]),
            },
@@ -54,6 +55,7 @@ export default /* group.filter.js */
                  [
                   core.validation.rule.enum(['alert']),
                  ]),
+                locale: core.validate('required', 'locale'),
                },
              ]),
            },
@@ -116,6 +118,7 @@ export default /* group.filter.js */
                 name: true,
                 uri: true,
                 use: true,
+                locale: true,
                },
              ],
            },

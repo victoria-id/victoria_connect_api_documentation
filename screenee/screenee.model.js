@@ -71,7 +71,7 @@ export default
     short: { $type: String, trim: true, maxlength: 50, required: true, validate: core.mongodb.validation.rule.name.human.full },
    },
 
-  description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.name.relaxed },
+  description: { $type: String, trim: true, maxlength: 1024, default: '', validate: core.mongodb.validation.rule.description },
 
   locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, validate: core.mongodb.validation.rule.locale },
 

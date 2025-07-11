@@ -12,37 +12,13 @@ export default /* check..vog_nl.filter.js */
  
     request:
      {
-      id: core.validate('required', 'string', 'trim'),
- 
       birth:
        {
-        country: core.validate('required', 'country.code'),
         date: core.validate('required', 'date'),
-        place: core.validate('required', 'name.relaxed'),
        },
- 
-      nationality: core.validation.rule.array({ range: [0, 10], required: false },
-       [
-        core.validate('country.code'),
-       ]),
- 
       address:
        {
-        physical:
-         {
-          city: core.validate('required', 'name.relaxed'),
-          country: core.validate('required', 'country.code'),
-          house_number: core.validate('required', 'string', 'trim'),
-          postal_code: core.validate('required', 'address.physical.postal_code.relaxed'),
-          street: core.validate('required', 'name.relaxed'),
-         },
- 
         mail: core.validate('required', 'address.net.mail.relaxed'),
- 
-        tele:
-         {
-          phone: core.validate('address.net.tele.e164'),
-         },
        },
      }, // request
  

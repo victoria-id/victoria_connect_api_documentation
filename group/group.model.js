@@ -18,6 +18,7 @@ export default
          [
            { $type: String, enum: ['alert'] },
          ],
+        locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, default: 'en_us', validate: core.mongodb.validation.rule.locale },
        },
      ],
    },

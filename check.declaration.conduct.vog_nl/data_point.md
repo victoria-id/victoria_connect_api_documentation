@@ -3,24 +3,12 @@
 * Check state
 * Check progress (%)
 
+* VOG ID
 * Person
-  * Address
-    * City
-    * Country
-    * House number
-    * Postal code
-    * Street
-  * Birth
-    * Country
-    * Date
-    * Place
-  * Citizen service number (BSN)
-  * E-mail address
   * Personal name
   * Family name
-  * Nationalities
-  * Phone number
-  * VOG ID
+  * Date of birth
+  * E-mail address
 
 * Files
   * Proof of payment image
@@ -29,12 +17,9 @@
 * VOG certificate profile details
 
 * Assertions
-  * Validatie.nl validation status
-  * Country of birth matches in certificate
   * VOG certificate expiration status
   * Personal name matches in certificate
   * Family name matches in certificate
-  * Place of birth matches in certificate
   * Provided digital certificate
   * Information is valid
   * Specimen was used

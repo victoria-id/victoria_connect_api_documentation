@@ -70,6 +70,23 @@ export default
         uri: { $type: String, trim: true, maxlength: 1024, required: true, validate: core.mongodb.validation.rule.address.net.uri },
        },
      ],
+
+    tele:
+     [
+       {
+        _id: false,
+
+        uri: { $type: String, trim: true, maxlength: 50, default: '', validate: core.mongodb.validation.rule.address.net.tele.e164 },
+        primary: { $type: Boolean, required: true, default: false },
+        confirmed: { $type: Boolean, required: true, default: false },
+
+        otp:
+         {
+          // The ID of the OTP document used for confirming the phone number.
+          id: { $type: core.mongodb.schema.type.object_id, index: true, ref: 'otp' },
+         },
+       },
+     ],
    },
 
   reset:

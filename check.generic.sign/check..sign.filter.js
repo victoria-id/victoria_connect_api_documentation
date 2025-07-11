@@ -189,7 +189,27 @@ export default /* check..sign.filter.js */
        ],
      },
  
+ 
+    otp:
+     {
+ 
+      detail:
+       {
+        signee:
+         [
+          {
+           address:
+            {
+             mail: true,
+             tele_phone: true,
+            },
+          },
+         ],
+       },
+ 
+     },
    },
+ 
  
   envelope:
    {

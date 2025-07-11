@@ -28,20 +28,8 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
           dg15: String,
           sod: String,
          },
- 
-        // authentication:
-        //  {
-        //   passive:
-        //    {
-        //     status: String,
-        //    },
-        //   active:
-        //    {
-        //     status: String,
-        //    },
-        //  },
- 
        },
+ 
  
       document:
        {
@@ -73,6 +61,7 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
          ]),
        },
  
+ 
       entity:
        {
         id: String, // BSN for example.
@@ -101,6 +90,25 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
         //     content: core.validate('required', 'encoding.base64'),
         //    }),
         //  ]),
+ 
+       },
+ 
+ 
+      // Optional metadata used for the purpose of debugging and quality assurance.
+      meta:
+       {
+ 
+        platform:
+         {
+          id: core.validate('resource.identifier'),
+          version: core.validate('name.relaxed'),
+         },
+ 
+        application:
+         {
+          id: core.validate('resource.identifier'),
+          version: core.validate('name.relaxed'),
+         },
  
        },
      }, // update

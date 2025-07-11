@@ -92,6 +92,7 @@ export default
      },
    },
 
+
   // Determines which checks are enabled within the portal.
   check:
    [
@@ -103,5 +104,11 @@ export default
    [
      { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
    ],
+
+
+  time:
+   {
+    disabled: { $type: Date, index: true, default: null },
+   },
 
  };

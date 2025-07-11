@@ -38,7 +38,7 @@
 
   * Referent
     * Referent name
-    * Referent relation (e.g., 'Direct supervisor', 'Hierarchically superior manager', 'HR professional')
+    * Referent relation (e.g., 'Direct supervisor / manager', 'Senior manager', 'HR professional')
     * Referent function
     * Referent e-mail address
     * Referent phone number
