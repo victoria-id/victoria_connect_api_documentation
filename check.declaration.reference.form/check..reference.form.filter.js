@@ -142,6 +142,18 @@ export default /* check..reference.form.filter.js */
        ],
      },
  
+ 
+    referent_message:
+     {
+      referent_message:
+       [
+         {
+          body: true,
+          locale: true,
+         },
+       ],
+     },
+ 
    },
  
  };

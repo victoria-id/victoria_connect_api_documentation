@@ -246,5 +246,20 @@ export default /* portal.filter.js */
      },
  
  
+    storage:
+     {
+      storage:
+       [
+         {
+          code: true,
+          type: true,
+          count: true,
+          size: true,
+         },
+       ],
+ 
+     },
+ 
+ 
    },
  };

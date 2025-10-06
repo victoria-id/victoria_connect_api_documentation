@@ -42,9 +42,9 @@ group.contact.delete
 check/generic.sign/document.view
 check/generic.sign/document.approve
 check/generic.sign/document.release
+check/generic.sign/release
 check/generic.sign/document.decline
 check/generic.sign/document.sign
-check/generic.sign/release
 check/generic.sign/document.upload
 check/generic.sign/document.cancel
 form.convert.pdf
