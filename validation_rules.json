@@ -579,7 +579,7 @@
    "code": "name.human.full",
    "description": "Human names (full).",
    "transform": "(code)",
-   "pattern": "/^[\\p{L}\\p{N}' -]*$/su",
+   "pattern": "/^[\\p{L}\\p{N}'‛‘’ -]*$/su",
 
    "exception":
     {
@@ -592,7 +592,7 @@
    "code": "name.human.initial",
    "description": "Human names with initials.",
    "transform": "(code)",
-   "pattern": "/^[\\p{L}\\p{N}' .-]*$/su",
+   "pattern": "/^[\\p{L}\\p{N}'‛‘’ .-]*$/su",
 
    "exception":
     {

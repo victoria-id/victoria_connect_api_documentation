@@ -38,10 +38,6 @@ export default
        [
          { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'role' },
        ],
-
-      // Obsolete: Permissions are determined by `Role.permission[]`.
-      // TODO: Remove from version 0.14.
-      permission: { $type: core.mongodb.schema.type.mixed },
      },
    ],
 

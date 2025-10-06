@@ -62,6 +62,7 @@ check/identity.travel_document.text_chip_certificate/start
 check/identity.travel_document.text_chip_certificate/create
 check/identity.travel_document.text_chip_certificate/liveness.start
 check/identity.travel_document.text_chip_certificate/liveness.success
+check/identity.travel_document.text_chip_certificate/liveness.failure
 check/identity.travel_document.text_chip_certificate/release
 check/identity.travel_document.text_chip_certificate/delete
 document.create
@@ -102,6 +103,7 @@ portal.save
 portal.save.before
 portal.save.after
 portal.update
+user.merge
 webhook.create
 webhook.update
 webhook.delete
