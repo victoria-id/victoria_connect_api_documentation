@@ -6,8 +6,7 @@ export default /* check..reference.form.filter.js */
  
     reference_type_update:
      {
-      reference_type: core.validation.rule.enum(['contact', 'document', 'none']),
-      no_reference_explanation: core.validate('string', 'trim'),
+      reference_type: core.validation.rule.enum(['contact', 'document']),
      },
  
  
@@ -31,6 +30,12 @@ export default /* check..reference.form.filter.js */
           country: core.validate('country.code'),
          },
        },
+     },
+ 
+ 
+    finalize:
+     {
+      reason: core.validate('description'),
      },
  
  
@@ -125,6 +130,15 @@ export default /* check..reference.form.filter.js */
           group:
            {
             name: true,
+           },
+ 
+          employment:
+           {
+            start: true,
+            end: true,
+ 
+            job_title: true,
+            organization_name: true,
            },
          },
        ],

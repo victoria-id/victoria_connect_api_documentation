@@ -10,7 +10,6 @@ check/declaration.reference/item.referent.mail
 check/declaration.reference/item.referent.seen
 check/declaration.reference/item.referent.response
 check/declaration.reference/release
-check/declaration.reference/item.delete
 check/declaration.reference/delete
 group.user.role.add
 group.user.role.remove

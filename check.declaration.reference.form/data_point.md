@@ -2,16 +2,11 @@
 
 * Check state
 * Check progress (%)
+* Explanation why participant has no reference
 
 * References
   * Reference state
-  * Reference type ('contact', 'document', 'none')
-
-
-  In case of reference type 'none':
-
-  * Explanation why participant has no reference
-
+  * Reference type ('contact', 'document')
 
   In case of reference type 'contact' or 'document':
 
