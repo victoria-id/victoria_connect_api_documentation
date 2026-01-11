@@ -149,7 +149,74 @@ export default /* webhook.filter.js */
           uri: true,
  
           // // Default headers to add to webhook payload.
-          // header: true,
+          header:
+           [
+             {
+              name: true,
+             },
+           ],
+ 
+          // // Default query and data payload.
+          // query: true,
+          // data: true,
+ 
+ 
+          // Execution behavior.
+          immediate: true,
+          guaranteed: true,
+ 
+ 
+          error:
+           {
+            // 0 = healthy.
+            level: true,
+            // `count` resets on every successfully delivered payload.
+            count: true,
+           },
+ 
+ 
+          // Success count and timestamp for statistics.
+          success:
+           {
+            count: true,
+            update: true,
+           },
+ 
+          // Exception count and timestamp for statistics.
+          exception:
+           {
+            count: true,
+            update: true,
+           },
+ 
+ 
+          node:
+           {
+            id: true,
+           },
+ 
+ 
+          time: true,
+         },
+       ],
+ 
+     },
+ 
+ 
+    secret:
+     {
+      webhook:
+       [
+         {
+          id: true,
+ 
+ 
+          method: true,
+          uri: true,
+ 
+          // `header` contains secrets! This is displayed only during webhook creation.
+          // Default headers to add to webhook payload.
+          header: true,
  
           // // Default query and data payload.
           // query: true,

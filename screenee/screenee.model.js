@@ -96,7 +96,7 @@ export default
 
       category: { $type: String, trim: true, index: true, maxlength: 50, lowercase: true, required: true, validate: core.mongodb.validation.rule.resource.identifier },
 
-      token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase, required: true },
+      token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.mixed_case, required: true },
 
       subscribe: { $type: Boolean, required: true },
      },
@@ -104,7 +104,7 @@ export default
 
   invite:
    {
-    token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.lowercase },
+    token: { $type: String, validate: core.mongodb.validation.rule.alphanumeric.mixed_case },
    },
 
   // The screener(s) responsible for this screenee

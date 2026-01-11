@@ -119,6 +119,24 @@ export default /* group.screenee.filter.js */
  
      },
  
+ 
+    group_screenee_update:
+     {
+      screenee:
+       [
+         {
+          id: core.mongodb.type.object_id,
+ 
+          screener: core.validation.rule.array({ required: false, range: [0, 5] },
+           [
+            core.validate('resource.identifier'),
+           ]),
+ 
+          type: core.validation.rule.enum(['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner']),
+         },
+       ],
+     },
+ 
    },
  
  

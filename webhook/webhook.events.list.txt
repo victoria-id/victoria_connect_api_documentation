@@ -22,6 +22,10 @@ check/declaration.conduct.vog_nl/receipt.upload
 check/declaration.conduct.vog_nl/certificate.upload
 check/declaration.conduct.vog_nl/release
 check/declaration.conduct.vog_nl/delete
+mail.template.create
+mail.template.update
+mail.template.reset
+mail.template.delete
 check/generic.finish/update
 check/generic.finish/release
 sso.create

@@ -16,13 +16,29 @@ export default /* check..diploma.filter.js */
  
       file: core.validation.rule.array({ range: [0, 10] },
        [
+        core.validation.rule.file.object(
          {
           name: core.validate('required', 'file.name.strict'),
-          type: core.validate('required', 'media.type', 'media.type.application.pdf'),
+ 
+          type: core.validate('required', 'media.type', strMedia_Type =>
+           {
+            try
+             {
+              core.validation.rule.media.type.application.pdf(strMedia_Type);
+             }
+            catch
+             {
+              core.validation.rule.media.type.image.raster.common(strMedia_Type);
+             }
+ 
+            return strMedia_Type;
+           }),
+ 
           encoding: core.validate('required', core.validation.rule.enum(['base64'])),
           content: core.validate('required', 'encoding.base64'),
+ 
           date_issue: core.validate('required', 'date'),
-         },
+         }),
        ]),
  
      },
@@ -46,32 +62,32 @@ export default /* check..diploma.filter.js */
  
       diploma:
        [
-        {
-         id: true,
-         name: true,
+         {
+          id: true,
+          name: true,
  
-         source: true,
+          source: true,
  
-         emp:
-          {
-           id: true,
-           token: true,
-           name: true,
-          },
+          emp:
+           {
+            id: true,
+            token: true,
+            name: true,
+           },
  
-         issuer: true,
-         student: true,
+          issuer: true,
+          student: true,
  
-         date: true,
-         time: true,
+          date: true,
+          time: true,
  
-         grading_scheme: true,
-         learning_opportunity_specification: true,
+          grading_scheme: true,
+          learning_opportunity_specification: true,
  
-         file: true,
-         assertion: true,
-         state: true,
-        },
+          file: true,
+          assertion: true,
+          state: true,
+         },
        ],
  
      },

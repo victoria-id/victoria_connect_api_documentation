@@ -13,6 +13,7 @@ export default /* exception.filter.js */
           path: true,  // MongoDB
           value: true, // MongoDB
           message: 'description',
+          detail: true,
  
           object:
            {

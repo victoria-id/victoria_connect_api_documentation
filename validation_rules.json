@@ -385,6 +385,18 @@
    "exception":
     {
      "code": "validation.rule.alphanumeric.lowercase",
+     "exception": "May only contain lower-case alphanumeric characters."
+    }
+  },
+
+  {
+   "code": "alphanumeric.mixed_case",
+   "description": "Alphanumeric, mixed-case.",
+   "pattern": "/^[a-z0-9]*$/is",
+
+   "exception":
+    {
+     "code": "validation.rule.alphanumeric.mixed_case",
      "exception": "May only contain alphanumeric characters."
     }
   },
