@@ -68,6 +68,8 @@ export default /* check..form.filter.js */
           tag: true,
  
           element: core.form.element.filter.response.element,
+ 
+          file: true,
          },
        ],
      },

@@ -6,13 +6,19 @@ export default /* check..reference.form.filter.js */
  
     reference_type_update:
      {
-      reference_type: core.validation.rule.enum(['contact', 'document']),
+      reference_type: core.validate('required', core.validation.rule.enum(['contact', 'document'])),
+     },
+ 
+ 
+    reference_source_update:
+     {
+      reference_source: core.validate('required', core.validation.rule.enum(['external', 'internal'])),
      },
  
  
     employment_detail:
      {
-      type: core.validation.rule.enum(['employee', 'freelancer', 'temporary', 'consultant', 'owner', 'intern', 'volunteer']),
+      type: core.validate('required', core.validation.rule.enum(['employee', 'freelancer', 'temporary', 'consultant', 'owner', 'intern', 'volunteer'])),
       start: core.validate('required', 'date'),
       end: core.validate('date'),
  
@@ -81,7 +87,7 @@ export default /* check..reference.form.filter.js */
  
     referent_response:
      {
-      state: core.validation.rule.enum(['success', 'declined']),
+      state: core.validate('required', core.validation.rule.enum(['success', 'declined'])),
       decline_reason: core.validate('description'),
       form:
        {

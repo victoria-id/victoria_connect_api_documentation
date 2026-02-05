@@ -28,7 +28,7 @@ export default /* emrex_eu.filter.js */
     emp_response:
      {
       elmo: core.validate('string'),
-      sessionId: core.validate('required', 'resource.identifier'),
+      sessionId: core.validate('required', 'alphanumeric.mixed_case'),
       returnCode: core.validation.rule.enum(['EMP_OK', 'EMP_ERROR', 'EMP_NO_RESULTS', 'EMP_CANCEL', 'NCP_OK', 'NCP_ERROR', 'NCP_NO_RESULTS', 'NCP_CANCEL']),
       returnMessage: core.validate('string'),
      },
