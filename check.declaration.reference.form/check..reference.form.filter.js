@@ -81,7 +81,7 @@ export default /* check..reference.form.filter.js */
        },
  
       locale: core.validate('required', 'locale'),
-      message: core.validate('required', 'description'),
+      message: core.validate('description'),
      },
  
  
@@ -158,18 +158,6 @@ export default /* check..reference.form.filter.js */
        [
          {
           name: true,
-         },
-       ],
-     },
- 
- 
-    referent_message:
-     {
-      referent_message:
-       [
-         {
-          body: true,
-          locale: true,
          },
        ],
      },
