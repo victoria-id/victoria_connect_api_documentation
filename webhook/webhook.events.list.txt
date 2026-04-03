@@ -102,9 +102,6 @@ screenee.reminder.send
 check/declaration.right_to_work/create
 check/declaration.right_to_work/release
 check/declaration.right_to_work/delete
-portal.save
-portal.save.before
-portal.save.after
 portal.update
 user.merge
 webhook.create
