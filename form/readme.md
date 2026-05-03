@@ -25,10 +25,10 @@ Every form element type carries these properties regardless of type:
 
 property    | Type            | Required | Default | Maximum | Description
 ------------|-----------------|----------|---------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`id`        | `String`        | Yes      | -       | 6       | Unique identifier within the form; referenced by conditions to read the element's value
-`tag`       | `String`        | No       | `''`    | 40      | Persistent identifier for automated systems; unlike `id`, a `tag` does not change when elements are reordered; does not have to be unique (e.g. `date_of_birth`)
-`condition` | `Object`        | No       | -       | -       | Expression that controls whether the element is active; when `false`, the element is excluded from result data and input values are reset to `value.default`; see the `condition` module for schema details
-`modifier`  | `Array<String>` | No       | `[]`    | -       | Css class names (lowercase alphanumeric snake_case) passed through to the front-end; the api does not interpret these values
+`id`        | `String`        | Yes      | -       | 6       | Unique identifier within the form; referenced by conditions to read the element's value.
+`tag`       | `String`        | No       | `''`    | 40      | Persistent identifier for automated systems; unlike `id`, a `tag` does not change when elements are reordered; does not have to be unique (e.g. `date_of_birth`).
+`condition` | `Object`        | No       | -       | -       | Expression that controls whether the element is active; when `false`, the element is excluded from result data and input values are reset to `value.default`; see the `condition` module for schema details.
+`modifier`  | `Array<String>` | No       | `[]`    | -       | CSS class names (lowercase alphanumeric snake_case) passed through to the front-end; the API does not interpret these values.
 
 
 ## What "reset" means
@@ -145,7 +145,7 @@ Displays an error message. When an `error` element is active (its `condition` ev
 
 Property        | Type                    | Requirement
 ----------------|-------------------------|-----------------------------------------------
-`text`          | `String`, maximum 10240 | Required — the error message shown to the user
+`text`          | `String`, maximum 10240 | Required — the error message shown to the user.
 `label`         | -                       | N/a (reset)
 `placeholder`   | -                       | N/a (reset)
 `clarification` | -                       | N/a (reset)
@@ -163,13 +163,13 @@ Displays an alert or notification block. `value.default` carries a variant strin
 
 Property        | Type                    | Requirement
 ----------------|-------------------------|------------------------------------------
-`text`          | `String`, maximum 10240 | Required — the alert message
+`text`          | `String`, maximum 10240 | Required — the alert message.
 `label`         | -                       | N/a (reset)
 `placeholder`   | -                       | N/a (reset)
 `clarification` | -                       | N/a (reset)
 `hint`          | -                       | N/a (reset)
 `choice`        | -                       | N/a (reset)
-`value.default` | `String`, maximum 1024  | Must be a string; use `''` for no variant
+`value.default` | `String`, maximum 1024  | Must be a string; use `''` for no variant.
 `value.current` | -                       | N/a (reset → `null`)
 `value.path`    | -                       | N/a (reset)
 `validation`    | -                       | N/a (reset)
@@ -198,8 +198,8 @@ Input elements collect data from the user.
 
 For elements that require a `choice` list, each item must be an object:
 
-property | Type     | Required | Max
----------|----------|----------|----
+property | Type     | Required | Maximum
+---------|----------|----------|--------
 `label`  | `String` | Yes      | 256
 `value`  | `String` | Yes      | 256
 
@@ -458,7 +458,7 @@ Property        | Type                    | Requirement
 
 Quick comparison of `text`, `label`, `placeholder`, `choice`, `value.default`, and `value.current` across all types:
 
-type                    | `text`            | `label`  | `placeholder` | `choice` | `value.default`    | `value.current`
+`type`                  | `text`            | `label`  | `placeholder` | `choice` | `value.default`    | `value.current`
 ------------------------|-------------------|----------|---------------|----------|--------------------|-------------------
 `title`                 | Required `String` | N/a      | N/a           | N/a      | N/a (`null`)       | N/a (`null`)
 `heading`               | Required `String` | N/a      | N/a           | N/a      | N/a (`null`)       | N/a (`null`)
