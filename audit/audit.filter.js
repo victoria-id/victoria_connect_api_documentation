@@ -11,6 +11,8 @@ export default /* audit.filter.js */
          {
           id: true,
  
+          code: true,
+ 
           // The requesting user.
           request:
            {
@@ -98,8 +100,6 @@ export default /* audit.filter.js */
           signature: true,
           sso: true,
           saml2: true,
- 
-          code: true,
  
           // data: true,
  
@@ -118,6 +118,8 @@ export default /* audit.filter.js */
          {
           id: true,
  
+          code: true,
+ 
           // The requesting user.
           request:
            {
@@ -205,8 +207,6 @@ export default /* audit.filter.js */
           signature: true,
           sso: true,
           saml2: true,
- 
-          code: true,
  
           data: true,
  
