@@ -98,6 +98,15 @@ export default
   badge:
    [
      {
+      /*
+
+       Badge codes must be generic and reusable across different checks. Do not include a check-specific portion in the code.
+
+       For example, use `registration` (not `big_nl_registration`), `identity` (not `id_card_identity`), `mrz`, `authority`.
+
+       This allows API integrations to build rules like: "If any check has badge `registration` set to `invalid`, do X." — regardless of which specific check produced it.
+
+      */
       code: { $type: String, trim: true, lowercase: true, required: true, validator: [core.mongodb.validation.rule.required, core.mongodb.validation.rule.object.property.path.strict] },
 
       value: { $type: String, enum: ['invalid', 'inconclusive', 'valid'], required: true },
@@ -120,9 +129,26 @@ export default
    ],
 
 
-  // Data validity score / confidence level.
+  // How confident a person can be that the information is valid.
   score:
    {
+    /*
+
+     `score` represents how confident a person can be that the information is valid.
+
+     If a person can never be certain the information is valid —like a step that only gathers
+     information but doesn't actually verify anything— then the score is `0 / 0`.
+
+     If a person can be confident that the information is valid, `score.current` is non-zero.
+
+     If there are multiple levels of certainty, then it might be possible to score `1 / 2` or `2 / 2`.
+     The ID check is a good example of this. Identifying / verifying someone by MRZ might be valid and
+     useful —therefore a score of `1 / 2`— but identifying / verifying someone using the chip is way
+     more secure —therefore more confidence of validity / a score of `2 / 2`.
+
+     As soon as something is invalid / wrong, `score.current` can never be anything other than `0`.
+
+    */
     current: { $type: Number, min: 0, required: true, default: 0 },
     maximum: { $type: Number, min: 0, required: true, default: 0 },
    },

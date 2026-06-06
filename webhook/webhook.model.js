@@ -28,6 +28,12 @@ export default
   guaranteed: { $type: Boolean, required: true, default: true },
 
 
+  channel:
+   [
+     { $type: String, enum: core.configuration.webhook.channel.available, required: true },
+   ],
+
+
   error:
    {
     // 0 = healthy.

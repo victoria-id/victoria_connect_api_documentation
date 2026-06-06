@@ -5,6 +5,11 @@ export default
     id: { $type: core.mongodb.schema.type.object_id, required: true, index: true, ref: 'portal' },
    },
 
+  wallet:
+   {
+    id: { $type: core.mongodb.schema.type.object_id, ref: 'wallet' },
+   },
+
   name: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.name.relaxed },
 
   address:

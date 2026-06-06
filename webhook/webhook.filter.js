@@ -12,7 +12,7 @@ export default /* webhook.filter.js */
           // id: core.mongodb.type.object_id,
  
           method: core.validation.rule.enum(['get', 'put']),
-          uri: core.validate('required', 'address.net.http.secure'),
+          uri: core.validate('required', address_net_http_secure),
  
           // Default headers to add to webhook payload.
           header: core.validation.rule.array({ range: [0, 3], required: false },
@@ -31,6 +31,11 @@ export default /* webhook.filter.js */
           // Execution behavior.
           immediate: core.validate('boolean'),
           guaranteed: core.validate('boolean'),
+ 
+          channel: core.validation.rule.array({ range: [0, 100], required: false },
+           [
+            core.validate('required', core.validation.rule.enum(core.configuration.webhook.channel.available)),
+           ]),
          },
        ],
  
@@ -45,7 +50,7 @@ export default /* webhook.filter.js */
           // id: core.mongodb.type.object_id,
  
           method: core.validation.rule.enum(['get', 'put']),
-          uri: core.validate('required', 'address.net.http.secure'),
+          uri: core.validate(address_net_http_secure),
  
           // Default headers to add to webhook payload.
           header: core.validation.rule.array({ range: [0, 3], required: false },
@@ -64,6 +69,11 @@ export default /* webhook.filter.js */
           // Execution behavior.
           immediate: core.validate('boolean'),
           guaranteed: core.validate('boolean'),
+ 
+          channel: core.validation.rule.array({ range: [0, 100], required: false },
+           [
+            core.validate('required', core.validation.rule.enum(core.configuration.webhook.channel.available)),
+           ]),
          },
        ],
  
@@ -87,7 +97,7 @@ export default /* webhook.filter.js */
           uri: true,
  
           // // Default headers to add to webhook payload.
-          // header: true,
+          // header: false,
  
           // // Default query and data payload.
           // query: true,
@@ -97,6 +107,11 @@ export default /* webhook.filter.js */
           // Execution behavior.
           immediate: true,
           guaranteed: true,
+ 
+          channel:
+           [
+            true,
+           ],
  
  
           error:
@@ -165,6 +180,11 @@ export default /* webhook.filter.js */
           immediate: true,
           guaranteed: true,
  
+          channel:
+           [
+            true,
+           ],
+ 
  
           error:
            {
@@ -227,6 +247,11 @@ export default /* webhook.filter.js */
           immediate: true,
           guaranteed: true,
  
+          channel:
+           [
+            true,
+           ],
+ 
  
           error:
            {
@@ -264,5 +289,20 @@ export default /* webhook.filter.js */
  
      },
  
+ 
+    channel:
+     {
+ 
+      list:
+       {
+        'webhook.channel':
+         [
+           {
+            code: true,
+           },
+         ],
+       },
+ 
+     },
    },
  };

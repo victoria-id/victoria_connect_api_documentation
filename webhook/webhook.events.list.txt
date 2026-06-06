@@ -9,6 +9,7 @@ check/declaration.reference/item.document.upload
 check/declaration.reference/item.referent.mail
 check/declaration.reference/item.referent.seen
 check/declaration.reference/item.referent.response
+check/declaration.reference/item.release
 check/declaration.reference/release
 check/declaration.reference/delete
 group.user.role.add
@@ -51,6 +52,7 @@ check/generic.sign/document.sign
 check/generic.sign/document.upload
 check/generic.sign/document.cancel
 form.convert.pdf
+wallet.update
 screening.create
 screening.update
 screening.delete
@@ -113,6 +115,7 @@ check/company_info.pep/delete
 check/business.waadi_nl/update
 check/business.waadi_nl/release
 check/business.waadi_nl/delete
+event.code
 check/finance.insolvency.cir_nl/create
 check/finance.insolvency.cir_nl/release
 check/finance.insolvency.cir_nl/delete
@@ -163,6 +166,10 @@ check/declaration.reference.form/item.referent.response
 check/declaration.reference.form/item.release
 check/declaration.reference.form/item.delete
 check/declaration.reference.form/delete
+check/health.practitioner.skj_nl/create
+check/health.practitioner.skj_nl/update
+check/health.practitioner.skj_nl/release
+check/health.practitioner.skj_nl/delete
 check/company_info.criminal_record/create
 check/company_info.criminal_record/release
 check/company_info.criminal_record/delete
@@ -218,6 +225,8 @@ check/identity.travel_document.quick/evaluation.fail
 check/identity.travel_document.quick/evaluation.success
 check/declaration.reference.form/evaluation.fail
 check/declaration.reference.form/evaluation.success
+check/health.practitioner.skj_nl/evaluation.fail
+check/health.practitioner.skj_nl/evaluation.success
 check/company_info.criminal_record/evaluation.fail
 check/company_info.criminal_record/evaluation.success
 check/declaration.employment_history.uwv_nl/evaluation.fail

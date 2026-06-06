@@ -324,6 +324,10 @@ Here is a non-exhaustive list of event codes relating to checks:
 | `check/health.practitioner.big_nl/release`                      | Screenee released information to the screener.
 | `check/health.practitioner.big_nl/delete`                       | Information was deleted.
 |                                                                 |
+| `check/health.practitioner.skj_nl/create`                       | Screenee submitted their SKJ registration number.
+| `check/health.practitioner.skj_nl/release`                      | Screenee released information to the screener.
+| `check/health.practitioner.skj_nl/delete`                       | Information was deleted.
+|                                                                 |
 | `check/identity.travel_document.quick/create`                   | Screenee uploaded images of their ID.
 | `check/identity.travel_document.quick/release`                  | Screenee released information to the screener.
 | `check/identity.travel_document.quick/delete`                   | Information was deleted.

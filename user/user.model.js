@@ -109,7 +109,9 @@ export default
 
   time:
    {
+    active: { $type: Date, default: Date.now },
     confirmed: { $type: Date, default: (core._.get(core, 'configuration.user.address.mail.confirmed', false) ? Date.now : null) },
+    deleted: { $type: Date, default: null },
    },
 
  };
