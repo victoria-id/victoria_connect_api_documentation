@@ -20,7 +20,7 @@
   * VOG certificate expiration status
   * Personal name matches in certificate
   * Family name matches in certificate
-  * Provided digital certificate
+  * Certificate is valid
   * Information is valid
   * Specimen was used
   * Valid (aggregate value)

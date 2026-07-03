@@ -651,6 +651,12 @@
   },
 
   {
+   "code": "number.length.range",
+   "description": "Validate that a number has a digit count within a range.",
+   "test": "(code)"
+  },
+
+  {
    "code": "pem.certificate",
    "description": "PEM encoded certificate.",
    "pattern": "/^(?:-----BEGIN CERTIFICATE-----\\s+[a-zA-Z0-9+/=_-\\s]+?\\s+-----END CERTIFICATE-----\\s*)?$/s",
