@@ -28,6 +28,18 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
           dg15: String,
           sod: String,
          },
+ 
+        edl:
+         {
+          dg1: String,
+          dg5: String,
+          dg6: String,
+          dg11: String,
+          dg12: String,
+          dg13: String,
+          dg14: String,
+          sod: String,
+         },
        },
  
  
@@ -70,6 +82,7 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
         //  {
         //   personal: String,
         //   family: String,
+        //   married: String,
         //  },
  
         // date:
@@ -80,7 +93,7 @@ export default /* check..travel_document.text_chip_certificate.filter.js */
         // gender: String,
         // nationality: String,
  
-        // image: core.validation.rule.array({ range: [0, 1] },
+        // image: core.validation.rule.array({ required: false, range: [0, 1] },
         //  [
         //   core.validation.rule.file.object(
         //    {

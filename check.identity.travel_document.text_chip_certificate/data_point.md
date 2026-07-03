@@ -1,6 +1,6 @@
 # ID check data points
 
-Passport, ID card, or residence permit.
+Passport, ID card, residence permit, or driver's license.
 
 * Check state
 * Check progress (%)
@@ -18,16 +18,18 @@ Passport, ID card, or residence permit.
   * Birth
     * Date of birth
     * Place of birth
+    * Country of birth (driver's license)
 
   * Gender
   * Nationality (ISO 3166 alpha-3 country code)
+  * Address (driver's license)
 
   * Photo of individual (portrait)
 
 * Document
   * Type
-    * Code (e.g., 'P', 'I', etc)
-    * Name (e.g., 'password', 'id_card', 'residence_permit')
+    * Code (e.g., 'P', 'I', 'D', etc)
+    * Name (e.g., 'passport', 'id_card', 'residence_permit', 'drivers_license')
   * ID / number
   * Issuing authority (ISO 3166 alpha-3 country code)
   * Date
@@ -41,15 +43,18 @@ Passport, ID card, or residence permit.
     * Back of document
       * OCR
 
-  * Format (e.g., 'TD1')
+  * Format (e.g., 'TD1', 'EDL')
   * MRZ
+  * Driving license categories (driver's license)
+  * Type approval (driver's license)
 
 * Chip
 
-  * Hashes
+  * Data groups (all data groups; for each)
+    * Code (e.g., 'dg1') and number
     * Hashing algorithm
     * Calculated hash
-    * Expected hash
+    * Expected hash (present only when the data group is referenced in the SOD)
 
 * Check
   * Chip present

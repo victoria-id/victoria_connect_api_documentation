@@ -335,6 +335,7 @@ Events:
 * `check/declaration.conduct.vog_nl/certificate.upload`
 * `check/declaration.conduct.vog_nl/flow`
 * `check/declaration.conduct.vog_nl/pending`
+* `check/declaration.conduct.vog_nl/receipt.skip`
 * `check/declaration.conduct.vog_nl/receipt.upload`
 * `check/declaration.conduct.vog_nl/request`
 * `check/declaration.employment_history.uwv_nl/skip`
