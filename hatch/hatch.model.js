@@ -38,6 +38,12 @@ export default
     capture: { $type: Boolean, required: true, default: core.configuration.hatch.camera.capture },
    },
 
+  signature:
+   {
+    // Show signature capture.
+    capture: { $type: Boolean, required: true, default: core.configuration.hatch.signature.capture },
+   },
+
   image:
    {
     // Image type to convert images to.

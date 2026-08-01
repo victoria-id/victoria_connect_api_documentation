@@ -451,6 +451,22 @@ Property        | Type                    | Requirement
 `value.current` | `Array`                 | Must be an array of file reference objects; auto-initialized from `value.default` if omitted.
 
 
+### `input.signature`
+
+A signature capture input. `value.default` and `value.current` hold a single image reference object (the captured signature), or `null` when no signature has been provided. Not to be confused with `input.file` (which stores an array of files), nor the `image` display element (which embeds an image in the form structure).
+
+Property        | Type                    | Requirement
+----------------|-------------------------|------------------------------------
+`label`         | `String`, maximum 1024  | Required
+`text`          | `String`, maximum 10240 | Must be a string
+`placeholder`   | -                       | N/a (reset)
+`clarification` | `String`, maximum 10240 | Must be a string
+`hint`          | `String`, maximum 1024  | Must be a string
+`choice`        | -                       | N/a (reset)
+`value.default` | `null` or `Object`      | Must be `null` or an image object
+`value.current` | `null` or `Object`      | Must be `null` or an image object
+
+
 ---
 
 
@@ -482,3 +498,4 @@ Quick comparison of `text`, `label`, `placeholder`, `choice`, `value.default`, a
 `input.country`         | `String`          | Required | `String`      | N/a      | `String`           | `String`
 `input.color`           | `String`          | Required | N/a           | N/a      | `String`           | `String`
 `input.file`            | `String`          | Required | N/a           | N/a      | `Array`            | `Array`
+`input.signature`       | `String`          | Required | N/a           | N/a      | `null` or `Object` | `null` or `Object`

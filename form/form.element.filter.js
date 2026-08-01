@@ -25,7 +25,7 @@ export default /* form.element.filter.js */
         condition: core.validate('condition'),
  
         // The type of form element.
-        type: core.validation.rule.enum(['title', 'heading', 'text', 'horizontal_rule', 'image', 'error', 'alert', 'input.text', 'input.textarea', 'input.number', 'input.password', 'input.tele', 'input.calendar', 'input.checkbox', 'input.radio', 'input.select', 'input.select.multiple', 'input.gender', 'input.language', 'input.country', 'input.color', 'input.file']),
+        type: core.validation.rule.enum(['title', 'heading', 'text', 'horizontal_rule', 'image', 'error', 'alert', 'input.text', 'input.textarea', 'input.number', 'input.password', 'input.tele', 'input.calendar', 'input.checkbox', 'input.radio', 'input.select', 'input.select.multiple', 'input.gender', 'input.language', 'input.country', 'input.color', 'input.file', 'input.signature']),
  
         // Text value for 'title', 'heading' or 'text', or some introductory text before the input.
         text: core.validate('description'),

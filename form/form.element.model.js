@@ -20,7 +20,7 @@ export default
   condition: core.condition.schema,
 
   // The type of form element.
-  type: { $type: String, enum: ['title', 'heading', 'text', 'horizontal_rule', 'image', 'error', 'alert', 'input.text', 'input.textarea', 'input.number', 'input.password', 'input.tele', 'input.calendar', 'input.checkbox', 'input.radio', 'input.select', 'input.select.multiple', 'input.gender', 'input.language', 'input.country', 'input.color', 'input.file'], required: true, default: 'input.text' },
+  type: { $type: String, enum: ['title', 'heading', 'text', 'horizontal_rule', 'image', 'error', 'alert', 'input.text', 'input.textarea', 'input.number', 'input.password', 'input.tele', 'input.calendar', 'input.checkbox', 'input.radio', 'input.select', 'input.select.multiple', 'input.gender', 'input.language', 'input.country', 'input.color', 'input.file', 'input.signature'], required: true, default: 'input.text' },
 
   // Text value for 'title', 'heading' or 'text', or some introductory text before the input.
   text: { $type: String, trim: true, maxlength: 10240, default: '', validate: core.mongodb.validation.rule.description },

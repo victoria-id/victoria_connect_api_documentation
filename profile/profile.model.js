@@ -35,7 +35,7 @@ export default
 
       code: { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
 
-      state_finish: { $type: String, enum: ['evaluation', 'success'], required: true, default: 'success' },
+      evaluation: { $type: String, enum: ['valid', 'inconclusive', 'invalid', 'none'], required: true, default: 'none' },
 
       configuration:
        {

@@ -211,7 +211,7 @@ export default /* screening.filter.js */
  
               code: true,
  
-              state_finish: true,
+              evaluation: true,
  
               configuration: true,
              },

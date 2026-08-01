@@ -24,7 +24,7 @@ export default /* check.filter.js */
  
           target: true,
  
-          state_finish_default: true,
+          evaluation_default: true,
  
           state: true,
           message: true,
@@ -63,7 +63,7 @@ export default /* check.filter.js */
  
           target: true,
  
-          state_finish_default: true,
+          evaluation_default: true,
  
           state: true,
           message: true,

@@ -39,7 +39,7 @@ export default /* profile.filter.js */
              {
               code: core.validate('resource.identifier'),
  
-              state_finish: core.validate('string'),
+              evaluation: core.validate('string'),
  
               configuration:
                {
@@ -85,7 +85,7 @@ export default /* profile.filter.js */
              {
               code: core.validate('resource.identifier'),
  
-              state_finish: core.validation.rule.enum(['evaluation', 'success']),
+              evaluation: core.validation.rule.enum(['valid', 'inconclusive', 'invalid', 'none']),
  
               configuration:
                {
@@ -179,7 +179,7 @@ export default /* profile.filter.js */
              {
               id: true,
  
-              state_finish: true,
+              evaluation: true,
  
               code: true,
  

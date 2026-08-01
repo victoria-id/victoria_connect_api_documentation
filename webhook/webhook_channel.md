@@ -290,6 +290,33 @@ Events:
 * `check/identity.travel_document.text_chip_certificate/evaluation.success`
 
 
+Channel: `check.reopen`
+
+Events:
+
+* `check/business.chamber_of_commerce.kvk_nl/reopen`
+* `check/business.chamber_of_commerce.placeholder/reopen`
+* `check/business.waadi_nl/reopen`
+* `check/company_info.adverse_media/reopen`
+* `check/company_info.criminal_record/reopen`
+* `check/company_info.pep/reopen`
+* `check/company_info.person/reopen`
+* `check/company_info.sanction/reopen`
+* `check/declaration.conduct.vog_nl/reopen`
+* `check/declaration.employment_history.uwv_nl/reopen`
+* `check/declaration.reference.form/reopen`
+* `check/declaration.right_to_work/reopen`
+* `check/education.diploma.emrex_eu/reopen`
+* `check/education.diploma/reopen`
+* `check/finance.bank_account.iban/reopen`
+* `check/generic.form/reopen`
+* `check/health.practitioner.big_nl/reopen`
+* `check/health.practitioner.skj_nl/reopen`
+* `check/identity.travel_document.placeholder/reopen`
+* `check/identity.travel_document.quick/reopen`
+* `check/identity.travel_document.text_chip_certificate/reopen`
+
+
 Channel: `check.delete`
 
 Events:
@@ -380,6 +407,8 @@ Events:
 * `signature.envelope.document.decline`
 * `signature.envelope.document.sign`
 * `signature.envelope.sign`
+* `signature.envelope.error`
+* `signature.envelope.reset`
 * `signature.envelope.log.generate`
 * `signature.envelope.log.seal`
 * `signature.envelope.complete`

@@ -99,11 +99,30 @@ Diplomas fetched from institute and/or manually uploaded diplomas.
   * Content
   * Validation report
 
-* Check
-  * Personal name valid
-  * Family name valid
-  * Date of birth valid
-  * Signed
-  * Signature valid
-  * Authority
-  * Valid (aggregate value)
+* Diploma item (per diploma / certificate)
+  * Assertion
+    * Personal name valid
+    * Family name valid
+    * Date of birth valid
+    * Signature present
+    * Signee whitelisted
+    * Signature valid
+    * Valid (aggregate value)
+    * Violation (aggregate text; plain-English reason when invalid)
+  * Badge (`identity`, `signature`, `authority`, `valid`; value `invalid` / `inconclusive` / `valid`)
+  * Description (translation code + level `information` / `success` / `warning` / `error` + optional `argument`, e.g. `{ signee_name }` for the signature conclusions)
+  * Score (`current` / `maximum` 2): identity confirmed = 2, only the issuing authority confirmed = 1, nothing solidly verified or invalid = 0
+  * Date
+    * Document valid start (issue date)
+
+* Check (aggregate)
+  * Assertion
+    * Valid (aggregate value)
+    * Violation (aggregate text; plain-English reason when invalid)
+  * Badge (worst value per code across all diploma items)
+  * Description (derived from the worst badges)
+  * Score (`current` / `maximum` 2): reflects confidence, not merely "nothing wrong". Per item: identity confirmed = 2, only the issuing authority confirmed (e.g. a whitelisted upload, or an EMREX diploma without ID data) = 1, nothing solidly verified = 0. Check: all items 2 = 2, all items 0 = 0, anything in between = 1, any invalid item = 0
+  * Date
+    * Diploma issue start (earliest)
+    * Diploma issue end (latest)
+    * Document valid start (earliest item document valid start)

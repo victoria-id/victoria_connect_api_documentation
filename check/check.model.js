@@ -66,7 +66,7 @@ export default
   // When the screenee successfully completes a check, the check should either get state 'success' or 'evaluation'.
   // This is controlled in the check settings in the portal. These check settings have a default.
   // This value controls that default.
-  state_finish_default: { $type: String, enum: ['evaluation', 'success'], required: true, default: 'evaluation' },
+  evaluation_default: { $type: String, enum: ['valid', 'inconclusive', 'invalid', 'none'], required: true, default: 'invalid' },
 
 
   // Global state of the check module (not the result of the check). For example, a check might depend on a third-party API.

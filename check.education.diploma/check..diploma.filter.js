@@ -51,6 +51,14 @@ export default /* check..diploma.filter.js */
  
      },
  
+ 
+    date_update:
+     {
+ 
+      date_issue: core.validate('required', 'date'),
+ 
+     },
+ 
    },
  
  
@@ -86,6 +94,9 @@ export default /* check..diploma.filter.js */
  
           file: true,
           assertion: true,
+          badge: true,
+          description: true,
+          score: true,
           state: true,
          },
        ],

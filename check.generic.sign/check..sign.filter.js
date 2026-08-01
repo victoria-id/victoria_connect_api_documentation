@@ -16,13 +16,13 @@ export default /* check..sign.filter.js */
         phone:
          {
           id: core.validate('required', 'resource.identifier'),
-          code: core.validate('required', 'number'),
+          code: core.validate('required', 'trim'),
          },
  
         mail:
          {
           id: core.validate('required', 'resource.identifier'),
-          code: core.validate('required', 'number'),
+          code: core.validate('required', 'trim'),
          },
        },
      },
@@ -37,18 +37,28 @@ export default /* check..sign.filter.js */
         core.validate('resource.identifier'),
        ]),
  
+      // Optionally: the digest of the file version the signer intends to sign, per envelope.
+      // Used to reject signing when the document was replaced by a newer version (see `core.signature.envelope.sign()`).
+      document: core.validation.rule.array({ range: [0, 100] },
+       [
+         {
+          id: core.validate('required', 'resource.identifier'),
+          digest: core.validate('trim'),
+         },
+       ]),
+ 
       otp:
        {
         phone:
          {
           id: core.validate('required', 'resource.identifier'),
-          code: core.validate('required', 'number'),
+          code: core.validate('required', 'trim'),
          },
  
         mail:
          {
           id: core.validate('required', 'resource.identifier'),
-          code: core.validate('required', 'number'),
+          code: core.validate('required', 'trim'),
          },
        },
      },
@@ -184,6 +194,39 @@ export default /* check..sign.filter.js */
                 file: true,
                },
              ],
+ 
+            error:
+             [
+               {
+                code: true,
+                message: true,
+                signee: true,
+                validation:
+                 {
+                  id: true,
+                 },
+                date: true,
+               },
+             ],
+ 
+            validation:
+             [
+               {
+                id: true,
+ 
+                file:
+                 {
+                  id: true,
+                  version: true,
+                 },
+ 
+                valid: true,
+ 
+                report: true,
+ 
+                date: true,
+               },
+             ],
            },
          },
        ],
@@ -237,6 +280,20 @@ export default /* check..sign.filter.js */
           decline: true,
  
           time: true,
+         },
+       ],
+ 
+      error:
+       [
+         {
+          code: true,
+          message: true,
+          signee: true,
+          validation:
+           {
+            id: true,
+           },
+          date: true,
          },
        ],
  

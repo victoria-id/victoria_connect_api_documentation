@@ -35,6 +35,12 @@ export default /* hatch.filter.js */
             capture: core.validate('boolean'),
            },
  
+          signature:
+           {
+            // Show signature capture.
+            capture: core.validate('boolean'),
+           },
+ 
           image:
            {
             // Image type to convert images to.
@@ -66,7 +72,7 @@ export default /* hatch.filter.js */
             core.validation.rule.file.object(
              {
               name: core.validate('required', 'file.name.strict'),
-              type: core.validate('required', 'media.type', 'media.type.image.photo.common'),
+              type: core.validate('required', 'media.type', 'media.type.image.raster.common'),
               encoding: core.validate('required', core.validation.rule.enum(['base64'])),
               content: core.validate('required', 'encoding.base64'),
              }),
@@ -106,6 +112,11 @@ export default /* hatch.filter.js */
            },
  
           camera:
+           {
+            capture: true,
+           },
+ 
+          signature:
            {
             capture: true,
            },

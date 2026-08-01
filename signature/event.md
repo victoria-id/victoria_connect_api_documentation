@@ -21,7 +21,9 @@ Below is a detailed list of events emitted by the document signing module.
       9. [`signature.envelope.document.approve`](#signatureenvelopedocumentapprove)
       10. [`signature.envelope.document.decline`](#signatureenvelopedocumentdecline)
       11. [`signature.envelope.sign`](#signatureenvelopesign)
-      12. [`signature.envelope.complete`](#signatureenvelopecomplete)
+      12. [`signature.envelope.error`](#signatureenvelopeerror)
+      13. [`signature.envelope.reset`](#signatureenvelopereset)
+      14. [`signature.envelope.complete`](#signatureenvelopecomplete)
    4. [Document signing log](#document-signing-log)
       1. [`signature.envelope.log.generate`](#signatureenvelopeloggenerate)
       2. [`signature.envelope.log.seal`](#signatureenvelopelogseal)
@@ -132,6 +134,20 @@ Below is a detailed list of events emitted by the document signing module.
 - **Description**: Initiated by both the **screener** and the **screenee** whenever a document is signed.
 - **Audit data and webhook payload**:
   - `signature_envelope_id`: The ID of the signature envelope to which the PDF is added.
+  - `signature_envelope_action`: The required action of the signature envelope. Either `sign` or `approve`.
+
+### `signature.envelope.error`
+
+- **Description**: Triggered when the signing process of a document fails (for example a validation failure while signing). The affected signee(s) and the envelope are put into state `error` and the failure is recorded in the envelope's error history.
+- **Audit data and webhook payload**:
+  - `signature_envelope_id`: The ID of the signature envelope that failed to sign.
+  - `signature_envelope_action`: The required action of the signature envelope. Either `sign` or `approve`.
+
+### `signature.envelope.reset`
+
+- **Description**: Triggered when a signature envelope in state `error` is reset back to a pending state so signing can be retried. Only the signee(s) currently in state `error` are reset; completed signees and their signatures are preserved, and the full error history is kept.
+- **Audit data and webhook payload**:
+  - `signature_envelope_id`: The ID of the signature envelope that was reset.
   - `signature_envelope_action`: The required action of the signature envelope. Either `sign` or `approve`.
 
 ### `signature.envelope.complete`

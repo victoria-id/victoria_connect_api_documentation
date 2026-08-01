@@ -1,18 +1,18 @@
-# Victoria-ID SAML2 integration guide
+# Victoria-ID - SAML2 - Integration guide
 
-This document provides a step-by-step guide to integrating user authentication and authorization in your Victoria-ID screening portal using SAML2 Identity Providers (IDP). SAML2 is an XML-based framework for exchanging authentication and authorization data between security domains.
+This document provides a step-by-step guide to integrating user authentication and authorization in your Victoria-ID screening portal using SAML2 Identity Providers (IdP). SAML2 is an XML-based framework for exchanging authentication and authorization data between security domains.
 
 
 ## Table of contents
 
-1. [Victoria-ID SAML2 integration guide](#victoria-id-saml2-integration-guide)
+1. [Victoria-ID - SAML2 - Integration guide](#victoria-id---saml2---integration-guide)
    1. [Table of contents](#table-of-contents)
    2. [Prerequisites](#prerequisites)
-   3. [Step-by-Step Integration](#step-by-step-integration)
-      1. [Step 1: Login to the Victoria-id portal and create a new SAML2 configuration](#step-1-login-to-the-victoria-id-portal-and-create-a-new-saml2-configuration)
-      2. [Step 2: Export federation metadata from the Victoria-ID screening portal](#step-2-export-federation-metadata-from-the-victoria-id-screening-portal)
-      3. [Step 3: Configure IDP with exported metadata](#step-3-configure-idp-with-exported-metadata)
-      4. [Step 4: Configure Victoria-ID screening portal with IDP information](#step-4-configure-victoria-id-screening-portal-with-idp-information)
+   3. [Step-by-step integration](#step-by-step-integration)
+      1. [Step 1: Sign in to the Victoria-ID portal and create a SAML2 configuration](#step-1-sign-in-to-the-victoria-id-portal-and-create-a-saml2-configuration)
+      2. [Step 2: Export the federation metadata from the Victoria-ID screening portal](#step-2-export-the-federation-metadata-from-the-victoria-id-screening-portal)
+      3. [Step 3: Configure the IdP using the exported metadata](#step-3-configure-the-idp-using-the-exported-metadata)
+      4. [Step 4: Configure the Victoria-ID screening portal using the IdP information](#step-4-configure-the-victoria-id-screening-portal-using-the-idp-information)
       5. [Step 5: Test the integration](#step-5-test-the-integration)
       6. [Step 6: Enable SAML2 for all users](#step-6-enable-saml2-for-all-users)
    4. [Advanced options](#advanced-options)
@@ -25,114 +25,162 @@ This document provides a step-by-step guide to integrating user authentication a
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, ensure that you have the following:
 
-1. Administrative access to your Victoria-ID screening portal (permission `portal.full`).
-2. Access to your SAML2 Identity Provider (IDP) details.
-3. Basic understanding of SAML2 concepts.
+* Administrative access to your Victoria-ID screening portal (`portal.full` permission).
+
+* Access to the details of your SAML2 Identity Provider (IdP).
+
+* A basic understanding of SAML2 concepts.
 
 
 ---
 
 
-## Step-by-Step Integration
+## Step-by-step integration
 
-### Step 1: Login to the Victoria-id portal and create a new SAML2 configuration
+### Step 1: Sign in to the Victoria-ID portal and create a SAML2 configuration
 
-Navigate to **Portal settings -> Single Sign-On -> Go to SAML2 configuration.** For a new configuration we ask for a technical contact e-mail address, enter an e-mail address and click on **Create SAML2 Configuration**.
+Navigate to **Portal settings → Single Sign-On → SAML2 configuration**.
 
-
-### Step 2: Export federation metadata from the Victoria-ID screening portal
-
-1. **In the Victoria-ID SAML2 configuration**: Go to the configuration page, as done in step 1.
-
-2. **Export the metadata**: User the section Service Provider, at the bottom, Find and download the Federation metadata XML file. This file contains information needed for configuring the IDP.
+To create a new configuration, enter the email address of a technical contact and click **Create SAML2 configuration**.
 
 
-### Step 3: Configure IDP with exported metadata
+### Step 2: Export the federation metadata from the Victoria-ID screening portal
 
-1. **Login to IDP administration console**: Access the administration console of your Identity Provider.
+1. **In the Victoria-ID SAML2 configuration**: Go to the SAML2 configuration page as described in step 1.
 
-2. **Import metadata**: Use the federation metadata file exported from your Victoria-ID screening portal to configure your IDP. This process typically involves uploading the metadata file and verifying the details.
+2. **Export the metadata**
 
-3. **Verify required information**: Ensure that the following information from the metadata is correctly configured in the IDP:
-
-   - **SP Entity ID**: The unique identifier for your Victoria-ID screening portal. (e.g., `https://sp.victoria-id.com/64b84c794f9892e4629e0487/metadata.xml`).
-
-   - **Assertion Consumer Service (ACS) URL**: The URL where your Victoria-ID screening portal expects to receive SAML2 assertions (e.g., `https://api.victoria-id.com/saml2/64b84c794f9892e4629e0487/assert/`).
-
-   - **Single Logout Service (SLS) URL**: (Optional) The URL for handling logout requests.
-
-   - **X.509 certificate**: The certificate used to sign SAML2 assertions.
-
-Alternatively all the properties required are show under the **Service Provider (this application)** section in the Victoria-ID SAML2 Configuration interface. These properties can be copied using the copy button on the right hand side of each attribute, which allows for a manual configuration.
+   In the **Service Provider** section, find and download the federation metadata XML file. This file contains the information required to configure the IdP.
 
 
-### Step 4: Configure Victoria-ID screening portal with IDP information
+### Step 3: Configure the IdP using the exported metadata
 
-1. **Collect IDP information**: Gather the following details from your IDP:
+1. **Login to IDP administration console**
 
-   - **IDP Entity ID**: The unique identifier for your IDP.
+   Sign in to the administration console of your Identity Provider.
 
-   - **SSO URL**: The Single Sign-On URL where authentication requests will be sent.
+2. **Import metadata**
 
-   - **Logout URL**: (Optional) The URL for handling logout requests.
+   Import the federation metadata file exported from the Victoria-ID screening portal. This process typically involves uploading the metadata file and verifying the imported details.
 
-   - **X.509 certificate**: The certificate used to sign SAML2 assertions.
+3. **Verify required information**
 
-2. **Enter IDP Information**: Manually enter the IDP details into your Victoria-ID screening portal:
+   Ensure that the following information from the metadata is correctly configured in the IdP:
 
-   - **IDP Entity ID**: Enter the IDP Entity ID.
+   * **SP Entity ID**
 
-   - **SSO sign in URL**: Enter the SSO sign in URL.
+     The unique identifier of your Victoria-ID screening portal, for example:
+     `https://sp.victoria-id.com/64b84c794f9892e4629e0487/metadata.xml`
 
-   - **SSO sign out URL**: Enter the SSO sign out URL if provided, otherwise enter same URL as login URL.
+   * **Assertion Consumer Service (ACS) URL**
 
-   - **X.509 certificate**: Upload the IDP's X.509 certificate.
+     The URL at which the Victoria-ID screening portal receives SAML2 assertions, for example:
+     `https://api.victoria-id.com/saml2/64b84c794f9892e4629e0487/assert/`
 
-3. **Register claims**: Manually enter the required claims (user attributes) as the are send sent by your IDP
+   * **Single Logout Service (SLS) URL**
 
-   - **First name claim**: The claim holding the first name of the user.
+     Optional. The URL for handling logout requests.
 
-   - **Last name claim**: The claim holding the last name of the user.
+   * **X.509 certificate**
 
-   - **Display name claim** (optional): The claim holding the display name of the user. Will automatically generate display name if left blank.
+     The certificate used to sign SAML2 assertions.
 
-   - **Groups claim**: The claim holding the groups which are assign to the user.
+Alternatively, all required properties are displayed in the **Service Provider (this application)** section of the Victoria-ID SAML2 configuration interface. These properties can be copied using the copy button to the right of each attribute, allowing the IdP to be configured manually.
 
-   - **Gender claim** (optional): The claim holding the gender of the user. Allowed values 'female' / 'f', 'male' / 'm', 'unknown'.
 
-   - **Locale claim** (optional): The claim holding the locale of the user. E.g., 'en_us', 'nl_nl', etc.
+### Step 4: Configure the Victoria-ID screening portal using the IdP information
+
+1. **Collect IdP information**
+
+   Collect the following details from your IdP:
+
+   * **IdP Entity ID:** The unique identifier of your IdP.
+
+   * **SSO URL:** The Single Sign-On URL to which authentication requests are sent.
+
+   * **Logout URL:** Optional. The URL for handling logout requests.
+
+   * **X.509 certificate:** The certificate used to sign SAML2 assertions.
+
+
+2. **Enter IdP Information**
+
+   Manually enter the IdP details in the Victoria-ID screening portal:
+
+   * **IdP Entity ID:** Enter the IdP Entity ID.
+
+   * **SSO sign-in URL:** Enter the SSO sign-in URL.
+
+   * **SSO sign-out URL:** Enter the SSO sign-out URL, if provided. Otherwise, enter the same URL as the sign-in URL.
+
+   * **X.509 certificate:** Upload the IdP’s X.509 certificate.
+
+
+3. **Register claims**
+
+   Manually enter the required claims (user attributes) exactly as they are sent by your IdP:
+
+   * **First name claim:** The claim containing the user’s first name.
+
+   * **Last name claim:** The claim containing the user’s last name.
+
+   * **Display name claim (optional):** The claim containing the user’s display name. A display name is generated automatically if this field is left blank.
+
+   * **Groups claim:** The claim containing the groups assigned to the user.
+
+   * **Gender claim (optional):** The claim containing the user’s gender. Allowed values are `female` or `f`, `male` or `m`, and `unknown`.
+
+   * **Locale claim (optional):** The claim containing the user’s locale, for example `en_us` or `nl_nl`.
+
 
 4. **Define group mappings**:
 
-Make sure at the IDP that a groups claim is sent and create a mapping for the groups.
+   Ensure that the IdP sends a groups claim, and then create the required group mappings:
 
- - The external group field is a group as defined in, and sent by the IDP.
+   * **External group:** A group defined in and sent by the IdP.
 
- - The portal group is the group in you Victoria-ID screening portal.
+   * **Portal group:** The corresponding group in your Victoria-ID screening portal.
 
- - The Permission is the access level of the group.
+   * **Roles:** The roles to assign the user within the group.
 
-Multiple mapping can be created by click the **Add group assignment mapping**
+   Multiple mappings can be created by clicking **Add group assignment mapping**.
 
-5. **Save settings**: Save your SAML2 configuration, by clicking the **Save SAML2 configuration** button.
+
+5. **Save settings**
+
+   Save the configuration by clicking **Save SAML2 configuration**.
 
 
 ### Step 5: Test the integration
 
-1. **Initiate SSO**: Attempt to log in using SSO from your Victoria-ID screening portal. After the configuration, log yourself out and sign in again. A new button 'Single sign-on' appears. This button should redirect you to the IDP for authentication.
+1. **Initiate SSO**
 
-2. **Complete authentication**: Log in with your IDP credentials. Upon successful authentication, you should be redirected back to your Victoria-ID screening portal and logged in as the authenticated user.
+   Sign out of the Victoria-ID screening portal and sign in again. A new **Single sign-on** button should be displayed. Click this button to be redirected to the IdP for authentication.
 
-3. **Verify your access**: Ensure that the groups are correctly mapped and shown in your Victoria-ID screening portal.
+2. **Complete authentication**
+
+   Sign in using your IdP credentials. After successful authentication, you should be redirected to the Victoria-ID screening portal and logged in as the authenticated user.
+
+3. **Verify your access**
+
+   Verify that the groups are correctly mapped and displayed in the Victoria-ID screening portal.
 
 
 ### Step 6: Enable SAML2 for all users
 
-1. **Grant rights to user at IDP**: Make sure your identity provider is configured so that access for all applicable users is granted to the Victoria-ID screening portal.
-2. **Notify Users**: Inform your users about the new SSO method and provide them with any necessary instructions.
-3. **Monitor**: Monitor the login attempts and resolve any issues users may face during the initial rollout.
+1. **Grant users access in the IdP**
+
+   Ensure that your Identity Provider grants all applicable users access to the Victoria-ID screening portal.
+
+2. **Notify users**
+
+   Inform users about the new SSO method and provide any necessary instructions.
+
+3. **Monitor the rollout**
+
+   Monitor login attempts and resolve any issues encountered during the initial rollout.
 
 
 ---
@@ -142,8 +190,11 @@ Multiple mapping can be created by click the **Add group assignment mapping**
 
 ### Encrypt SAML2 assertions
 
-We allow for encryption to be sent in an encrypted form. This is not required. Since the transport protocol is SSL (https) we do not required this added security. If your company requires the assertions the be encrypted, check the box **sign login requests** in the Victoria-ID SAML2 configuration page.
-The IDP should also be configured to encrypt the SAML2 assertion . The certificate used for signing is shown and can be downloaded under the section Service Provider certificate details in the Victoria-ID SAML2 configuration page.
+SAML2 assertions can be sent in encrypted form. This is optional. Because the transport protocol uses SSL/TLS (`https`), this additional security measure is not required by Victoria-ID.
+
+If your organisation requires encrypted assertions, select the relevant option on the Victoria-ID SAML2 configuration page. The IdP must also be configured to encrypt the SAML2 assertions.
+
+The Service Provider certificate is displayed and can be downloaded from the **Service Provider certificate details** section of the Victoria-ID SAML2 configuration page.
 
 
 ---

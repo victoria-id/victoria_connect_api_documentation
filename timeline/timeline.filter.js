@@ -10,7 +10,7 @@ export default /* timeline.filter.js */
       message:
        [
          {
-          type: core.validate('required', core.validation.rule.enum(['normal', 'approve', 'reject'])),
+          type: core.validate('required', core.validation.rule.enum(['normal', 'reopen', 'approve', 'reject'])),
           scope: core.validate('required', core.validation.rule.enum(['screenee', 'client', 'internal'])),
           check:
            {

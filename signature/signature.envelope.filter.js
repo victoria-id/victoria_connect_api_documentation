@@ -35,6 +35,20 @@ export default /* signature.envelope.filter.js */
                },
              },
            ],
+ 
+          error:
+           [
+             {
+              code: true,
+              message: true,
+              signee: true,
+              validation:
+               {
+                id: true,
+               },
+              date: true,
+             },
+           ],
          },
        ],
  
@@ -125,6 +139,39 @@ export default /* signature.envelope.filter.js */
                  },
  
                 file: true,
+               },
+             ],
+ 
+            error:
+             [
+               {
+                code: true,
+                message: true,
+                signee: true,
+                validation:
+                 {
+                  id: true,
+                 },
+                date: true,
+               },
+             ],
+ 
+            validation:
+             [
+               {
+                id: true,
+ 
+                file:
+                 {
+                  id: true,
+                  version: true,
+                 },
+ 
+                valid: true,
+ 
+                report: true,
+ 
+                date: true,
                },
              ],
            },

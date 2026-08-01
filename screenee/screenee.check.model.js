@@ -124,6 +124,13 @@ export default
 
       level: { $type: String, enum: ['information', 'success', 'warning', 'error'], required: true },
 
+      /*
+       Interpolation arguments for the translation (e.g. `{ signee_name: 'Stichting DUO' }`).
+       The renderer passes these straight to the translation function, so a localized string may reference `{signee_name}` etc.
+       Always an object: it defaults to `{}` when there is nothing to interpolate, and the setter coerces a `null` / `undefined` assignment back to `{}`, so consumers never have to guard against a missing object.
+      */
+      argument: { $type: Object, default: () => ({}), set: varArgument => varArgument ?? {} },
+
       _id: false,
      },
    ],

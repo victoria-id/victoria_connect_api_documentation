@@ -32,7 +32,7 @@ export default
 
   author: { $type: String, enum: ['screenee', 'screener'], index: true, required: true, default: 'screenee' },
 
-  type: { $type: String, enum: ['normal', 'approve', 'reject'], index: true, required: true, default: 'normal' },
+  type: { $type: String, enum: ['normal', 'reopen', 'approve', 'reject'], index: true, required: true, default: 'normal' },
 
   scope: { $type: String, enum: ['internal', 'client', 'screenee'], index: true, required: true, default: 'screenee' },
 
