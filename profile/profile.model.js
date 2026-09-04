@@ -39,7 +39,9 @@ export default
 
       configuration:
        {
-        data: { $type: core.mongodb.schema.type.mixed },
+        // `data` is checked against `Check.configuration.form.element[]`.
+        // Always defaults to an object so consumers never have to guard against a missing object.
+        data: { $type: Object, default: () => ({}), set: varArgument => varArgument ?? {} },
        },
 
       time: false,

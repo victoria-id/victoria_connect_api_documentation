@@ -168,6 +168,8 @@ export default /* group.screenee.filter.js */
  
           state: true,
  
+          assessment: true,
+ 
           type: true,
  
           organization:
@@ -235,6 +237,8 @@ export default /* group.screenee.filter.js */
            },
  
           state: true,
+ 
+          assessment: true,
  
           type: true,
  

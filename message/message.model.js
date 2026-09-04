@@ -22,7 +22,7 @@ export default
 
   check:
    {
-    code: { $type: String, maxlength: 100, index: true, validate: core.mongodb.validation.rule.resource.identifier },
+    code: { $type: String, maxlength: 100, default: '', index: true, validate: core.mongodb.validation.rule.resource.identifier },
    },
 
   user:

@@ -288,7 +288,8 @@ Some webhook events mention **2 users**: The user being created / modified / del
 Event codes related to checks commonly have the following format: `check/<check_code>/<event_sub_code>`. For example, `check/finance.bank_account.iban/release` where the middle part, `finance.bank_account.iban`, is the check code.
 
 Not all checks trigger the same amount or type of codes as checks often differ in the amount and the type of steps required.
-However, all checks trigger events with sub-code `release` and `delete`, which are typically the events a webhook receiver wants to act upon.
+However, all checks trigger an event with sub-code `release`, and all but the finish and document signing checks trigger one with sub-code `delete`.
+These are typically the events a webhook receiver wants to act upon.
 
 * `release` happens when the screenee (candidate) releases the information gathered to the screener (typically a HR role).
 
@@ -299,15 +300,15 @@ Here is a non-exhaustive list of event codes relating to checks:
 
 | Event code                                                      | Description
 |-----------------------------------------------------------------|-------------------------------------------------------
-| `check/business.chamber_of_commerce.kvk_nl/update`              | Screenee updated their KvK details.
+| `check/business.chamber_of_commerce.kvk_nl/create`              | Screenee submitted their KvK details.
 | `check/business.chamber_of_commerce.kvk_nl/release`             | Screenee released KvK details to the screener.
 | `check/business.chamber_of_commerce.kvk_nl/delete`              | KvK details were deleted.
 |                                                                 |
-| `check/declaration.employment_history.uwv_nl/update`            | Screenee updated their UWV details.
+| `check/declaration.employment_history.uwv_nl/create`            | Screenee submitted their UWV details.
 | `check/declaration.employment_history.uwv_nl/release`           | Screenee released UWV details to the screener.
 | `check/declaration.employment_history.uwv_nl/delete`            | UWV details were deleted.
 |                                                                 |
-| `check/declaration.right_to_work/update`                        | Screenee updated their RTW details.
+| `check/declaration.right_to_work/create`                        | Screenee submitted their RTW details.
 | `check/declaration.right_to_work/release`                       | Screenee released RTW details to the screener.
 | `check/declaration.right_to_work/delete`                        | RTW details were deleted.
 |                                                                 |
@@ -316,11 +317,11 @@ Here is a non-exhaustive list of event codes relating to checks:
 | `check/finance.bank_account.iban/release`                       | Screenee released debit card information to the screener.
 | `check/finance.bank_account.iban/delete`                        | Debit card information was deleted.
 |                                                                 |
-| `check/finance.insolvency.cir_nl/update`                        | Screenee updated information from the Insolvency Registry.
+| `check/finance.insolvency.cir_nl/create`                        | Information was retrieved from the Insolvency Registry.
 | `check/finance.insolvency.cir_nl/release`                       | Screenee released information to the screener.
 | `check/finance.insolvency.cir_nl/delete`                        | Information was deleted.
 |                                                                 |
-| `check/health.practitioner.big_nl/update`                       | Screenee updated information from the BIG Registry.
+| `check/health.practitioner.big_nl/create`                       | Screenee submitted their BIG registration number.
 | `check/health.practitioner.big_nl/release`                      | Screenee released information to the screener.
 | `check/health.practitioner.big_nl/delete`                       | Information was deleted.
 |                                                                 |
@@ -342,13 +343,15 @@ A non-exhaustive list of events not related to checks:
 
 | Event code                                                      | Description
 |-----------------------------------------------------------------|-------------------------------------------------------
-| `user.mail`                                                     | An e-mail was sent to a user.
+| `user.mail.send`                                                | An e-mail was sent to a user.
 |                                                                 |
 | `screenee.create`                                               | A screenee was added to a screening.
-| `screenee.mail`                                                 | An e-mail was sent to a screenee.
-| `screenee.invite.sent`                                          | An invitation e-mail was sent to a screenee.
+| `screenee.mail.send`                                            | An e-mail was sent to a screenee.
+| `screenee.invite.send`                                          | An invitation e-mail was sent to a screenee.
 | `screenee.invite.accept`                                        | Invitation was accepted.
 | `screenee.update`                                               | A screenee's details got updated.
+| `screenee.assessment.approve`                                   | Screener approved the screenee's overall assessment.
+| `screenee.assessment.reject`                                    | Screener rejected the screenee's overall assessment.
 | `screenee.delete`                                               | A screenee was deleted.
 
 

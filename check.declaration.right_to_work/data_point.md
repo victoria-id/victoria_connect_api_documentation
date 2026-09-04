@@ -3,7 +3,13 @@
 * Check state
 * Check progress (%)
 
-* Description explaining Right-to-Work check conclustion.
+* Badges concluding whether the right to work is settled
+  * Badge code (e.g., 'complete')
+  * Badge value ('invalid' / 'inconclusive' / 'valid')
+
+* Descriptions explaining the Right to work check conclusion
+  * Description code
+  * Severity level (e.g., 'success')
 
 * Right to work
   * Proof required (yes / no)

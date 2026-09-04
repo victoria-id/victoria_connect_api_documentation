@@ -30,6 +30,8 @@ mail.template.reset
 mail.template.delete
 check/generic.finish/update
 check/generic.finish/release
+screenee.assessment.approve
+screenee.assessment.reject
 sso.create
 sso.update
 sso.delete
@@ -154,7 +156,6 @@ check/education.diploma.emrex_eu/delete
 profile.create
 profile.update
 profile.delete
-check/identity.travel_document.quick/token.create
 check/identity.travel_document.quick/uri.create
 check/identity.travel_document.quick/create
 check/identity.travel_document.quick/release

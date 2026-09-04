@@ -15,14 +15,16 @@ Click the following link if you are searching for a [complete list of webhook ev
    5. [Profile, reminder, form, document (CUD) events](#profile-reminder-form-document-cud-events)
    6. [Screening (CUD) events](#screening-cud-events)
    7. [Screenee](#screenee)
-   8. [Screening report](#screening-report)
-   9. [Base check events](#base-check-events)
-   10. [Check other](#check-other)
-   11. [Signature envelope events](#signature-envelope-events)
-   12. [Group contact](#group-contact)
-   13. [Mail template (CUD) events](#mail-template-cud-events)
-   14. [SSO (CUD) events](#sso-cud-events)
-   15. [Webhook (CUD) events](#webhook-cud-events)
+   8. [Screenee assessment](#screenee-assessment)
+   9. [Screening report](#screening-report)
+   10. [Base check events](#base-check-events)
+   11. [Check other](#check-other)
+   12. [Signature envelope events](#signature-envelope-events)
+   13. [Group contact](#group-contact)
+   14. [Mail template (CUD) events](#mail-template-cud-events)
+   15. [SSO (CUD) events](#sso-cud-events)
+   16. [Webhook (CUD) events](#webhook-cud-events)
+   17. [Wallet events](#wallet-events)
 
 
 ---
@@ -161,6 +163,15 @@ Events:
 * `screenee.delete`
 
 
+## Screenee assessment
+
+Channel: `screenee.assessment`
+
+Events:
+
+* `screenee.assessment.approve`
+* `screenee.assessment.reject`
+
 
 ## Screening report
 
@@ -195,8 +206,6 @@ Events:
 * `check/health.practitioner.big_nl/create`
 * `check/health.practitioner.skj_nl/create`
 * `check/identity.travel_document.quick/create`
-* `check/identity.travel_document.quick/token.create`
-* `check/identity.travel_document.quick/uri.create`
 * `check/identity.travel_document.text_chip_certificate/create`
 
 
@@ -216,6 +225,7 @@ Events:
 * `check/declaration.employment_history.uwv_nl/release`
 * `check/declaration.reference.form/item.release`
 * `check/declaration.reference.form/release`
+* `check/declaration.reference/item.release`
 * `check/declaration.reference/release`
 * `check/declaration.right_to_work/release`
 * `check/education.diploma.emrex_eu/release`
@@ -305,6 +315,7 @@ Events:
 * `check/declaration.conduct.vog_nl/reopen`
 * `check/declaration.employment_history.uwv_nl/reopen`
 * `check/declaration.reference.form/reopen`
+* `check/declaration.reference/reopen`
 * `check/declaration.right_to_work/reopen`
 * `check/education.diploma.emrex_eu/reopen`
 * `check/education.diploma/reopen`
@@ -390,10 +401,12 @@ Events:
 
 * `check/generic.sign/document.upload`
 * `check/generic.sign/document.view`
+* `check/health.practitioner.skj_nl/update`
 * `check/identity.travel_document.text_chip_certificate/liveness.failure`
 * `check/identity.travel_document.text_chip_certificate/liveness.start`
 * `check/identity.travel_document.text_chip_certificate/liveness.success`
 * `check/identity.travel_document.text_chip_certificate/start`
+* `check/identity.travel_document.quick/uri.create`
 
 
 ## Signature envelope events
@@ -461,3 +474,12 @@ Events:
 * `webhook.create`
 * `webhook.update`
 * `webhook.delete`
+
+
+## Wallet events
+
+Channel: `wallet`
+
+Events:
+
+* `wallet.update`

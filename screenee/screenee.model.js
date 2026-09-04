@@ -25,6 +25,7 @@ export default
 
   state: { $type: String, enum: ['new', 'pending', 'declined', 'accepted'], required: true, default: 'new' },
 
+  assessment: { $type: String, enum: ['none', 'approved', 'rejected'], required: true, default: 'none' },
 
   // Type of relation. Has effect on retention and other legal aspects.
   type: { $type: String, enum: ['screenee', 'employee', 'professional', 'client', 'customer', 'supplier', 'partner'], required: true, default: 'screenee' },
