@@ -8,18 +8,18 @@ export default /* address.ip.filter.js */
      {
       ip:
        [
-        {
-         country:
-          {
-           code: true,
-           full: true,
-          },
+         {
+          country:
+           {
+            code: true,
+            full: true,
+           },
  
-         address:
-          {
-           ip: true,
-          },
-        },
+          address:
+           {
+            ip: true,
+           },
+         },
        ],
      },
  

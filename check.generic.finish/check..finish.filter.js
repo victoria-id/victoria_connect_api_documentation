@@ -22,10 +22,10 @@ export default /* check..finish.filter.js */
      {
       data:
        [
-        {
-         url: true,
-         behavior: true,
-        },
+         {
+          url: true,
+          behavior: true,
+         },
        ],
      },
    },

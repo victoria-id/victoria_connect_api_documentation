@@ -59,25 +59,25 @@ export default
       // Fragment-specific errors (for content/base templates that use fragments).
       fragment:
        [
-        {
-         _id: false,
+         {
+          _id: false,
 
-         path: { $type: String, trim: true, maxlength: 200, required: true },
+          path: { $type: String, trim: true, maxlength: 200, required: true },
 
-         parent: { $type: String, trim: true, maxlength: 200, default: null },
+          parent: { $type: String, trim: true, maxlength: 200, default: null },
 
-         resolved:
-          {
-           portal_id: { $type: core.mongodb.type.object_id },
+          resolved:
+           {
+            portal_id: { $type: core.mongodb.type.object_id },
 
-           locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, default: 'en_us', validate: core.mongodb.validation.rule.locale },
-          },
+            locale: { $type: String, trim: true, maxlength: 7, lowercase: true, required: true, default: 'en_us', validate: core.mongodb.validation.rule.locale },
+           },
 
-         error:
-          [
-            { $type: String, trim: true, maxlength: 1000 },
-          ],
-        },
+          error:
+           [
+             { $type: String, trim: true, maxlength: 1000 },
+           ],
+         },
        ],
      },
    },

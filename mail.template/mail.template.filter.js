@@ -115,10 +115,10 @@ export default /* mail.template.filter.js */
      {
       variable:
        [
-        {
-         name: true,
-         example: true,
-        },
+         {
+          name: true,
+          example: true,
+         },
        ],
      },
  

@@ -233,9 +233,9 @@ export default /* user.filter.js */
            {
             mail:
              [
-              {
-               uri: true,
-              },
+               {
+                uri: true,
+               },
              ],
            },
          },

@@ -141,17 +141,17 @@ export default /* check..sign.filter.js */
  
             file:
              [
-              {
-               id: true,
+               {
+                id: true,
  
-               name: true,
-               type: true,
-               encoding: true,
-               content: true,
+                name: true,
+                type: true,
+                encoding: true,
+                content: true,
  
-               digest: true,
-               version: true,
-              },
+                digest: true,
+                version: true,
+               },
              ],
  
             signee:
@@ -240,13 +240,13 @@ export default /* check..sign.filter.js */
        {
         signee:
          [
-          {
-           address:
-            {
-             mail: true,
-             tele_phone: true,
-            },
-          },
+           {
+            address:
+             {
+              mail: true,
+              tele_phone: true,
+             },
+           },
          ],
        },
  

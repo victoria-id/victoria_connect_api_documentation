@@ -8,23 +8,23 @@ export default /* message.filter.js */
      {
       message:
        [
-        {
-         id: true,
+         {
+          id: true,
  
-         user: true,
+          user: true,
  
-         content: true,
-         check: true,
+          content: true,
+          check: true,
  
-         screening:
-          {
-           title: true,
-          },
+          screening:
+           {
+            title: true,
+           },
  
-         link: true,
+          link: true,
  
-         time: true,
-        },
+          time: true,
+         },
        ],
  
       query: true,
