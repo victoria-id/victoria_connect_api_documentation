@@ -79,13 +79,13 @@ document.delete
 signature.envelope.create
 signature.envelope.sign
 signature.envelope.complete
+signature.envelope.reset
 signature.envelope.log.generate
 signature.envelope.log.seal
 signature.envelope.document.approve
 signature.envelope.document.decline
 signature.envelope.document.sign
 signature.envelope.error
-signature.envelope.reset
 check/company_info.sanction/create
 check/company_info.sanction/release
 check/company_info.sanction/delete
