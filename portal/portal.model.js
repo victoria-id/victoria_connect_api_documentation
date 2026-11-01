@@ -105,6 +105,13 @@ export default
      { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
    ],
 
+  // Compatibility flags adjust certain internal behavior for the portal.
+  // Unlike `feature`, never part of an API response (`module/compatibility/`).
+  compatibility:
+   [
+     { $type: String, trim: true, maxlength: 100, required: true, validate: core.mongodb.validation.rule.resource.identifier },
+   ],
+
 
   time:
    {

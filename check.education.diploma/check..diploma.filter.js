@@ -24,14 +24,12 @@ export default /* check..diploma.filter.js */
            {
             try
              {
-              core.validation.rule.media.type.application.pdf(strMedia_Type);
+              return core.validation.rule.media.type.application.pdf(strMedia_Type);
              }
             catch
              {
-              core.validation.rule.media.type.image.raster.common(strMedia_Type);
+              return core.validation.rule.media.type.image.raster.common(strMedia_Type);
              }
- 
-            return strMedia_Type;
            }),
  
           encoding: core.validate('required', core.validation.rule.enum(['base64'])),

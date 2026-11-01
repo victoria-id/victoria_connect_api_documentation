@@ -274,7 +274,7 @@
 
   {
    "code": "file.object",
-   "description": "Ensure file extension and media type match.",
+   "description": "Ensure file extension and media type match, and that the content of an SVG is pure.",
    "test": "(code)"
   },
 
@@ -501,6 +501,12 @@
      "code": "validation.rule.image.resolution.multiple",
      "exception": "Must match <width>x<height>[ <width>x<height>] (e.g. '1920x1080' or '1280x720 1920x1080')."
     }
+  },
+
+  {
+   "code": "image.svg.pure",
+   "description": "Pure SVG: only allowlisted elements, attributes and values. No scripts, styles, links, embedded images or other blobs.",
+   "test": "(code)"
   },
 
   {

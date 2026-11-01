@@ -25,7 +25,7 @@ export default /* hatch.filter.js */
             // Allowed media types in 'open file dialog'. Leave empty to accept any type.
             type:
              [
-              core.validate('media.type', 'media.type.image.raster.common'),
+              core.validate('media.type', 'media.type.image.common'),
              ],
            },
  
@@ -44,7 +44,8 @@ export default /* hatch.filter.js */
           image:
            {
             // Image type to convert images to.
-            type: core.validate('media.type', 'media.type.image.raster.common'),
+            // `image/svg+xml` makes a signature a vector image.
+            type: core.validate('media.type', 'media.type.image.common'),
             // Maximum image resolution. Hatch UI should try to resize before sending data to the hatch.
             resolution: core.validate('image.resolution.single'),
             // (JPEG) compression level.
@@ -72,7 +73,7 @@ export default /* hatch.filter.js */
             core.validation.rule.file.object(
              {
               name: core.validate('required', 'file.name.strict'),
-              type: core.validate('required', 'media.type', 'media.type.image.raster.common'),
+              type: core.validate('required', 'media.type', 'media.type.image.common'),
               encoding: core.validate('required', core.validation.rule.enum(['base64'])),
               content: core.validate('required', 'encoding.base64'),
              }),
